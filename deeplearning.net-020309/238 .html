@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installing Theano &mdash; Theano 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/fix_rtd.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Theano 1.0.0 documentation" href="index.html"/>
+        <link rel="next" title="Ubuntu Installation Instructions" href="install_ubuntu.html"/>
+        <link rel="prev" title="Requirements" href="requirements.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Theano
+          
+
+          
+            
+            <img src="_static/theano_logo_allwhite_210x70.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="NEWS.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Theano at a Glance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installing Theano</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install_ubuntu.html">Ubuntu Installation Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_macos.html">Mac OS Installation Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_windows.html">Windows Installation Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_centos6.html">CentOS 6 Installation Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_others.html">Other Platform-specific Installations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="updating.html">Updating Theano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending/index.html">Extending Theano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_start_guide.html">Developer Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optimizations.html">Optimizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library/index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal/index.html">Internal Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgement.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LICENSE.html">LICENSE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Theano</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Installing Theano</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/install.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installing-theano">
+<span id="install"></span><h1>Installing Theano<a class="headerlink" href="#installing-theano" title="Permalink to this headline">¶</a></h1>
+<p>Supported platforms:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install_ubuntu.html">Ubuntu Installation Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_macos.html">Mac OS Installation Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_windows.html">Windows Installation Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_centos6.html">CentOS 6 Installation Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_others.html">Other Platform-specific Installations</a></li>
+</ul>
+</div>
+<p>Once your setup is complete and if you installed the GPU libraries, head to <a class="reference internal" href="tutorial/using_gpu.html#testing-the-gpu"><span class="std std-ref">Testing Theano with GPU</span></a> to find how to verify
+everything is working properly.</p>
+<p>To update your current installation see <a class="reference internal" href="updating.html#updating"><span class="std std-ref">Updating Theano</span></a>.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="install_ubuntu.html" class="btn btn-neutral float-right" title="Ubuntu Installation Instructions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="requirements.html" class="btn btn-neutral" title="Requirements" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2008--2017, LISA lab.
+      Last updated on Nov 21, 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-168290-9']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<!--Insert version switcher at bottom and top of sidebar-->
+<script type="text/javascript">
+  var span = document.createElement("SPAN")
+  var span_class = document.createAttribute("class");
+  span_class.value = "version_switcher_placeholder";
+  span.setAttributeNode(span_class);
+  var div = document.createElement("DIV");
+  div.appendChild(span);
+  var nav_div = document.getElementsByClassName("wy-nav-side")[0];
+  nav_div.appendChild(div);
+
+  var span_up = document.createElement("SPAN")
+  var span_class_up = document.createAttribute("class");
+  span_class_up.value = "version_switcher_placeholder_up";
+  span_up.setAttributeNode(span_class_up);
+  var nav_div_up = document.getElementsByClassName("version")[0];
+  nav_div_up.appendChild(span_up);
+</script>
+
+<script type="text/javascript"
+    src="_static/version_switch.js">
+</script>
+
+
+</body>
+</html>

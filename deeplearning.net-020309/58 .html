@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome &mdash; Theano 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/fix_rtd.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Theano 1.0.0 documentation" href="#"/>
+        <link rel="next" title="Release Notes" href="NEWS.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> Theano
+          
+
+          
+            
+            <img src="_static/theano_logo_allwhite_210x70.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="NEWS.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Theano at a Glance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing Theano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updating.html">Updating Theano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending/index.html">Extending Theano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_start_guide.html">Developer Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optimizations.html">Optimizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library/index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal/index.html">Internal Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgement.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LICENSE.html">LICENSE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">Theano</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>Welcome</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome">
+<h1>Welcome<a class="headerlink" href="#welcome" title="Permalink to this headline">¶</a></h1>
+<p>Theano is a Python library that allows you to define, optimize, and
+evaluate mathematical expressions involving multi-dimensional
+arrays efficiently. Theano features:</p>
+<ul class="simple">
+<li><strong>tight integration with NumPy</strong> &#8211; Use <cite>numpy.ndarray</cite> in Theano-compiled functions.</li>
+<li><strong>transparent use of a GPU</strong> &#8211; Perform data-intensive computations much faster than on a CPU.</li>
+<li><strong>efficient symbolic differentiation</strong> &#8211; Theano does your derivatives for functions with one or many inputs.</li>
+<li><strong>speed and stability optimizations</strong> &#8211; Get the right answer for <code class="docutils literal"><span class="pre">log(1+x)</span></code> even when <code class="docutils literal"><span class="pre">x</span></code> is really tiny.</li>
+<li><strong>dynamic C code generation</strong> &#8211; Evaluate expressions faster.</li>
+<li><strong>extensive unit-testing and self-verification</strong> &#8211; Detect and diagnose many types of errors.</li>
+</ul>
+<p>Theano has been powering large-scale computationally intensive
+scientific investigations since 2007.  But it is also approachable
+enough to be used in the classroom (University of Montreal&#8217;s <a class="reference external" href="https://mila.umontreal.ca/en/cours/">deep
+learning/machine learning</a> classes).</p>
+</div>
+<div class="section" id="news">
+<h1>News<a class="headerlink" href="#news" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>2017/11/15: Release of Theano 1.0.0. Everybody is encouraged to update.</li>
+<li>2017/10/30: Release of Theano 1.0.0rc1, new features and many bugfixes, final release to coming.</li>
+<li>2017/10/16: Release of Theano 0.10.0beta4, new features and many bugfixes, release candidate to coming.</li>
+<li>2017/09/28: IMPORTANT: <a class="reference external" href="https://groups.google.com/d/msg/theano-users/7Poq8BZutbY/rNCIfvAEAwAJ">MILA will stop developing Theano</a> and the next release (renamed to 1.0) will be the last main release.</li>
+<li>2017/09/20: Release of Theano 0.10.0beta3, new features and many bugfixes, release candidate to coming.</li>
+<li>2017/09/07: Release of Theano 0.10.0beta2, new features and many bugfixes, release candidate to coming.</li>
+<li>2017/08/09: Release of Theano 0.10.0beta1, many improvements and bugfixes, release candidate to coming.</li>
+<li>Removed support for the old (device=gpu) backend.  Use the new
+backend (device=cuda) for gpu computing.  See <a class="reference external" href="https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29">Converting to the new
+gpu back end(gpuarray)</a>
+for help with conversion.</li>
+<li>2017/03/20: Release of Theano 0.9.0. Everybody is encouraged to update.</li>
+<li>2017/03/13: Release of Theano 0.9.0rc4, with crash fixes and bug fixes.</li>
+<li>2017/03/06: Release of Theano 0.9.0rc3, with crash fixes, bug fixes and improvements.</li>
+<li>2017/02/27: Release of Theano 0.9.0rc2, with crash fixes, bug fixes and improvements.</li>
+<li>2017/02/20: Release of Theano 0.9.0rc1, many improvements and bugfixes, final release to coming.</li>
+<li>2017/01/24: Release of Theano 0.9.0beta1, many improvements and bugfixes, release candidate to coming.</li>
+<li>2016/05/09: New technical report on Theano:
+<a class="reference external" href="http://arxiv.org/abs/1605.02688">Theano: A Python framework for fast computation of mathematical expressions</a>.
+This is the new preferred reference.</li>
+<li>2016/04/21: Release of Theano 0.8.2, adding support for CuDNN v5.</li>
+<li>2016/03/29: Release of Theano 0.8.1, fixing a compilation issue on MacOS X with XCode 7.3.</li>
+<li>2016/03/21: Release of Theano 0.8. Everybody is encouraged to update.</li>
+<li>Multi-GPU.</li>
+<li>We added support for CNMeM to speed up the GPU memory allocation.</li>
+<li>Theano 0.7 was released 26th March 2015. Everybody is encouraged to update.</li>
+<li>We support cuDNN if it is installed by the user.</li>
+<li>Open Machine Learning Workshop 2014 <a class="reference download internal" href="_downloads/omlw_presentation.pdf" download=""><code class="xref download docutils literal"><span class="pre">presentation</span></code></a>.</li>
+<li>Colin Raffel <a class="reference external" href="http://nbviewer.ipython.org/github/craffel/theano-tutorial/blob/master/Theano%20Tutorial.ipynb">tutorial on Theano</a>.</li>
+<li>Ian Goodfellow did a <a class="reference external" href="https://github.com/goodfeli/theano_exercises">12h class with exercises on Theano</a>.</li>
+<li>New technical report on Theano: <a class="reference external" href="http://arxiv.org/abs/1211.5590">Theano: new features and speed improvements</a>.</li>
+<li><a class="reference external" href="http://www.iro.umontreal.ca/~lisa/pointeurs/tutorial_hpcs2011_fixed.pdf">HPCS 2011 Tutorial</a>.
+We included a few fixes discovered while doing the Tutorial.</li>
+</ul>
+<a class="reference internal image-reference" href="_images/talk2010.png"><img alt="_images/talk2010.png" class="align-left" src="_images/talk2010.png" style="width: 120.0px; height: 82.5px;" /></a>
+<p>You can watch a quick (20 minute) introduction to Theano given as a talk at <a class="reference external" href="http://conference.scipy.org/scipy2010/">SciPy 2010</a> via streaming (or downloaded) video:</p>
+<blockquote>
+<div><a class="reference external" href="http://www.archive.org/details/Scipy2010-JamesBergstra-TransparentGpuComputingWithTheano">Transparent GPU Computing With Theano</a>.
+James Bergstra, SciPy 2010, June 30, 2010.</div></blockquote>
+</div>
+<div class="section" id="download">
+<h1>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h1>
+<p>Theano is now <a class="reference external" href="http://pypi.python.org/pypi/Theano">available on PyPI</a>, and can be installed via <code class="docutils literal"><span class="pre">easy_install</span>
+<span class="pre">Theano</span></code>, <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">Theano</span></code> or by downloading and unpacking the tarball
+and typing <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code>.</p>
+<p>Those interested in bleeding-edge features should obtain the latest development
+version, available via:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Theano</span><span class="o">/</span><span class="n">Theano</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>You can then place the checkout directory on your <code class="docutils literal"><span class="pre">$PYTHONPATH</span></code> or use
+<code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">develop</span></code> to install a <code class="docutils literal"><span class="pre">.pth</span></code> into your <code class="docutils literal"><span class="pre">site-packages</span></code>
+directory, so that when you pull updates via Git, they will be
+automatically reflected the &#8220;installed&#8221; version. For more information about
+installation and configuration, see <a class="reference internal" href="install.html#install"><span class="std std-ref">installing Theano</span></a>.</p>
+</div>
+<div class="section" id="status">
+<h1>Status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h1>
+<a href="http://travis-ci.org/Theano/Theano/builds"><img src="https://secure.travis-ci.org/Theano/Theano.png?branch=master" /></a>&nbsp;<a href="https://crate.io/packages/Theano/"><img src="https://img.shields.io/pypi/v/Theano.svg" alt="Latest PyPI version" /></a>&nbsp;<a href="https://crate.io/packages/Theano/"><img src="https://img.shields.io/pypi/dm/Theano.svg" alt="Number of PyPI downloads" /></a>&nbsp;</div>
+<div class="section" id="citing-theano">
+<h1>Citing Theano<a class="headerlink" href="#citing-theano" title="Permalink to this headline">¶</a></h1>
+<p>If you use Theano for academic research, you are highly encouraged (though not
+required) to cite the following, most recent paper:</p>
+<ul class="simple">
+<li>Theano Development Team. <a class="reference external" href="http://arxiv.org/pdf/1605.02688.pdf">&#8220;Theano: A Python framework for fast computation of mathematical expressions&#8221;</a>.
+(<a class="reference download internal" href="_downloads/theano-short.bib" download=""><code class="xref download docutils literal"><span class="pre">short</span> <span class="pre">BibTeX</span></code></a>, <a class="reference download internal" href="_downloads/theano-full.bib" download=""><code class="xref download docutils literal"><span class="pre">full</span> <span class="pre">BibTeX</span></code></a>)</li>
+</ul>
+<p>Theano is primarily developed by academics, and so citations matter a lot to
+us. As an added benefit, you increase Theano&#8217;s exposure and potential user
+(and developer) base, which is to the benefit of all users of Theano. Thanks
+in advance!</p>
+<p>See our <a class="reference internal" href="citation.html#citation"><span class="std std-ref">Theano Citation Policy</span></a> for details.</p>
+</div>
+<div class="section" id="documentation">
+<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+<p>Roughly in order of what you&#8217;ll want to check out:</p>
+<ul class="simple">
+<li><a class="reference internal" href="install.html#install"><span class="std std-ref">Installing Theano</span></a> &#8211; How to install Theano.</li>
+<li><a class="reference internal" href="introduction.html#introduction"><span class="std std-ref">Theano at a Glance</span></a> &#8211; What is Theano?</li>
+<li><a class="reference internal" href="tutorial/index.html#tutorial"><span class="std std-ref">Tutorial</span></a> &#8211; Learn the basics.</li>
+<li><a class="reference internal" href="troubleshooting.html#troubleshooting"><span class="std std-ref">Troubleshooting</span></a> &#8211; Tips and tricks for common debugging.</li>
+<li><a class="reference internal" href="library/index.html#libdoc"><span class="std std-ref">API Documentation</span></a> &#8211; Theano&#8217;s functionality, module by module.</li>
+<li><a class="reference internal" href="faq.html#faq"><span class="std std-ref">Frequently Asked Questions</span></a> &#8211; A set of commonly asked questions.</li>
+<li><a class="reference internal" href="optimizations.html#optimizations"><span class="std std-ref">Optimizations</span></a> &#8211; Guide to Theano&#8217;s graph optimizations.</li>
+<li><a class="reference internal" href="extending/index.html#extending"><span class="std std-ref">Extending Theano</span></a> &#8211; Learn to add a Type, Op, or graph optimization.</li>
+<li><a class="reference internal" href="dev_start_guide.html#dev-start-guide"><span class="std std-ref">Developer Start Guide</span></a> &#8211; How to contribute code to Theano.</li>
+<li><a class="reference internal" href="internal/index.html#internal"><span class="std std-ref">Internal Documentation</span></a> &#8211; How to maintain Theano and more...</li>
+<li><a class="reference internal" href="internal/release.html#release"><span class="std std-ref">Release</span></a> &#8211; How our release should work.</li>
+<li><a class="reference internal" href="acknowledgement.html#acknowledgement"><span class="std std-ref">Acknowledgements</span></a> &#8211; What we took from other projects.</li>
+<li><a class="reference external" href="https://github.com/Theano/Theano/wiki/Related-projects">Related Projects</a> &#8211; link to other projects that implement new functionalities on top of Theano</li>
+</ul>
+<p>You can download the latest <a class="reference external" href="http://deeplearning.net/software/theano/theano.pdf">PDF documentation</a>, rather than reading it online.</p>
+<p>Check out how Theano can be used for Machine Learning: <a class="reference external" href="http://www.deeplearning.net/tutorial">Deep Learning Tutorials</a>.</p>
+<p>Theano was featured at <a class="reference external" href="http://www.iro.umontreal.ca/~lisa/publications2/index.php/publications/show/461">SciPy 2010</a>.</p>
+</div>
+<div class="section" id="community">
+<span id="theano-community"></span><h1>Community<a class="headerlink" href="#community" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>&#8220;Thank YOU for correcting it so quickly. I wish all packages I worked
+with would have such an active maintenance - this is as good as it
+gets :-)&#8221;</p>
+<p>(theano-users, Aug 2, 2010)</p>
+</div></blockquote>
+<ul class="simple">
+<li>Register to <a class="reference external" href="http://groups.google.com/group/theano-announce">theano-announce</a> if you want to be kept informed on important change on theano(low volume).</li>
+<li>Register and post to <a class="reference external" href="http://groups.google.com/group/theano-users">theano-users</a> if you want to talk to all Theano users.</li>
+<li>Register and post to <a class="reference external" href="http://groups.google.com/group/theano-dev">theano-dev</a> if you want to talk to the developers.</li>
+<li>Register to <a class="reference external" href="http://groups.google.com/group/theano-github">theano-github</a> if you want to receive an email for all changes to the GitHub repository.</li>
+<li>Register to <a class="reference external" href="http://groups.google.com/group/theano-buildbot">theano-buildbot</a> if you want to receive our daily buildbot email.</li>
+<li>Ask/view questions/answers at <a class="reference external" href="http://stackoverflow.com/questions/tagged/theano">StackOverflow</a></li>
+<li>We use <a class="reference external" href="http://github.com/Theano/Theano/issues">Github tickets</a> to keep track of issues
+(however, some old tickets can still be found on
+<a class="reference external" href="http://www.assembla.com/spaces/theano/tickets">Assembla</a>).</li>
+<li>Come visit us in Montreal! Most developers are students in the <a class="reference external" href="http://www.iro.umontreal.ca/~lisa">LISA</a> group at the <a class="reference external" href="http://www.umontreal.ca">University of Montreal</a>.</li>
+</ul>
+</div>
+<div class="section" id="help">
+<span id="support"></span><h1>Help!<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-seek-help">
+<h2>How to Seek Help<a class="headerlink" href="#how-to-seek-help" title="Permalink to this headline">¶</a></h2>
+<p>The appropriate venue for seeking help depends on the kind of question you have.</p>
+<ul class="simple">
+<li>How do I? &#8211; <a class="reference external" href="http://groups.google.com/group/theano-users">theano-users</a> mailing list or <a class="reference external" href="http://stackoverflow.com/questions/tagged/theano">StackOverflow</a></li>
+<li>I got this error, why? &#8211; <a class="reference external" href="http://groups.google.com/group/theano-users">theano-users</a> mailing list or <a class="reference external" href="http://stackoverflow.com/questions/tagged/theano">StackOverflow</a> (please include the <em>full</em> error message, even if it&#8217;s long)</li>
+<li>I got this error and I&#8217;m sure it&#8217;s a bug &#8211; <a class="reference external" href="http://github.com/Theano/Theano/issues">Github ticket</a></li>
+<li>I have an idea/request &#8211; post the suggestion to <a class="reference external" href="http://groups.google.com/group/theano-dev">theano-dev</a> or, even better, implement the idea and submit a <a class="reference external" href="https://github.com/Theano/Theano/pulls">GitHub</a> pull request!</li>
+<li>Why do you? &#8211; <a class="reference external" href="http://groups.google.com/group/theano-users">theano-users</a> mailing list (not appropriate for StackOverflow)</li>
+<li>When will you? &#8211; <a class="reference external" href="http://groups.google.com/group/theano-dev">theano-dev</a> mailing list (not appropriate for StackOverflow)</li>
+</ul>
+<p>Please do take some time to search for similar questions that were asked and answered in the past. If you find something
+similar that doesn&#8217;t fully answer your question, it can be helpful to say something like &#8220;I found X but it doesn&#8217;t
+address facet Y&#8221; and link to the previous discussion.</p>
+<p>When asking questions on StackOverflow, please use the <em>theano</em> tag, so your question can be found, and follow
+StackOverflow&#8217;s guidance on <a class="reference external" href="http://stackoverflow.com/help/asking">asking questions</a>. Consider also using the
+<em>python</em> and <em>numpy</em> tags, especially if you are unsure which library your problem relates to.</p>
+<p>It&#8217;s often helpful to include the following details with your question:</p>
+<ul class="simple">
+<li>If you have an error, the <em>full</em> error message, even if it&#8217;s long</li>
+<li>Which versions of Python and Theano you&#8217;re using</li>
+<li>Whether you&#8217;re using a CPU or GPU device</li>
+<li>Details of your Theano configuration settings (you can print this in Python via <a class="reference external" href="http://deeplearning.net/software/theano/library/config.html">print theano.config</a>)</li>
+</ul>
+<p>Spending the time to create a minimal specific example of a problem is likely to get you to an answer quicker than
+posting something quickly that has too much irrelevant detail or is too vague. A minimal example may take you a bit more
+time to create but the first response is more likely to be the answer you need than, rather than a frustrated request
+for clarification.</p>
+</div>
+<div class="section" id="how-to-provide-help">
+<h2>How to provide help<a class="headerlink" href="#how-to-provide-help" title="Permalink to this headline">¶</a></h2>
+<p>If you see a question on the <a class="reference external" href="http://groups.google.com/group/theano-users">theano-users</a> mailing list, or on <a class="reference external" href="http://stackoverflow.com/questions/tagged/theano">StackOverflow</a>, that you
+feel reasonably confident you know an answer to, please do support the community by helping others.</p>
+<p>We were all newbies to Theano once and, as the community expands, there is a constant stream of new Theano users looking
+for help. Perhaps you asked a question when you were first starting out? Now you can pay it forward by helping others.
+It&#8217;s also a good way to reinforce your own Theano knowledge.</p>
+<p>Often it&#8217;s easiest to answer a question directly but sometimes it may be better to refer people to a good answer that
+was provided in the past. Pointing people to relevant sections in the documentation, or to a Theano tutorial, can also
+be helpful.</p>
+<p>When answering questions please <a class="reference external" href="http://stackoverflow.com/help/be-nice">be nice</a> (as always!) and, on
+StackOverflow, follow their guidance for <a class="reference external" href="http://stackoverflow.com/help/answering">answering questions</a>.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="NEWS.html" class="btn btn-neutral float-right" title="Release Notes" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2008--2017, LISA lab.
+      Last updated on Nov 21, 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-168290-9']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<!--Insert version switcher at bottom and top of sidebar-->
+<script type="text/javascript">
+  var span = document.createElement("SPAN")
+  var span_class = document.createAttribute("class");
+  span_class.value = "version_switcher_placeholder";
+  span.setAttributeNode(span_class);
+  var div = document.createElement("DIV");
+  div.appendChild(span);
+  var nav_div = document.getElementsByClassName("wy-nav-side")[0];
+  nav_div.appendChild(div);
+
+  var span_up = document.createElement("SPAN")
+  var span_class_up = document.createAttribute("class");
+  span_class_up.value = "version_switcher_placeholder_up";
+  span_up.setAttributeNode(span_class_up);
+  var nav_div_up = document.getElementsByClassName("version")[0];
+  nav_div_up.appendChild(span_up);
+</script>
+
+<script type="text/javascript"
+    src="_static/version_switch.js">
+</script>
+
+
+</body>
+</html>

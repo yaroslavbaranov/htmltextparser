@@ -1,0 +1,1422 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>config – Theano Configuration &mdash; Theano 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/fix_rtd.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Theano 1.0.0 documentation" href="../index.html"/>
+        <link rel="up" title="API Documentation" href="index.html"/>
+        <link rel="next" title="d3viz – d3viz: Interactive visualization of Theano compute graphs" href="d3viz/index.html"/>
+        <link rel="prev" title="nanguardmode" href="compile/nanguardmode.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Theano
+          
+
+          
+            
+            <img src="../_static/theano_logo_allwhite_210x70.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../NEWS.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Theano at a Glance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing Theano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../updating.html">Updating Theano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending Theano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_start_guide.html">Developer Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimizations.html">Optimizations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="compile/index.html"><code class="docutils literal"><span class="pre">compile</span></code> &#8211; Transforming Expression Graphs to Functions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">config</span></code> &#8211; Theano Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#guide">Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#config-attributes">Config Attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="d3viz/index.html"><code class="docutils literal"><span class="pre">d3viz</span></code> &#8211; d3viz: Interactive visualization of Theano compute graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gof/index.html"><code class="docutils literal"><span class="pre">gof</span></code> &#8211; Theano Internals [doc TODO]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpuarray/index.html"><code class="docutils literal"><span class="pre">gpuarray</span></code> &#8211; The (new) GPU backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradient.html"><code class="docutils literal"><span class="pre">gradient</span></code> &#8211; Symbolic Differentiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/pkl_utils.html"><code class="docutils literal"><span class="pre">misc.pkl_utils</span></code> - Tools for serialization.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printing.html"><code class="docutils literal"><span class="pre">printing</span></code> &#8211; Graph Printing and Symbolic Print Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sandbox/index.html"><code class="docutils literal"><span class="pre">sandbox</span></code> &#8211; Experimental Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scalar/index.html"><code class="docutils literal"><span class="pre">scalar</span></code> &#8211; Symbolic Scalar Types, Ops [doc TODO]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scan.html"><code class="docutils literal"><span class="pre">scan</span></code> &#8211; Looping in Theano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sparse/index.html"><code class="docutils literal"><span class="pre">sparse</span></code> &#8211; Symbolic Sparse Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sparse/index.html#module-sparse"><code class="docutils literal"><span class="pre">sparse</span></code> &#8211;  Sparse Op</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sparse/sandbox.html"><code class="docutils literal"><span class="pre">sparse.sandbox</span></code> &#8211;  Sparse Op Sandbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tensor/index.html"><code class="docutils literal"><span class="pre">tensor</span></code>  &#8211; Types and Ops for Symbolic numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typed_list.html"><code class="docutils literal"><span class="pre">typed_list</span></code> &#8211; Typed List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html"><code class="docutils literal"><span class="pre">tests</span></code> &#8211; Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../links.html">Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internal/index.html">Internal Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgement.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LICENSE.html">LICENSE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Theano</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">API Documentation</a> &raquo;</li>
+      
+    <li><code class="docutils literal"><span class="pre">config</span></code> &#8211; Theano Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/library/config.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-config">
+<span id="config-theano-configuration"></span><span id="libdoc-config"></span><h1><a class="reference internal" href="#module-config" title="config: Library configuration attributes. (Unix, Windows)"><code class="xref py py-mod docutils literal"><span class="pre">config</span></code></a> &#8211; Theano Configuration<a class="headerlink" href="#module-config" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="guide">
+<h2>Guide<a class="headerlink" href="#guide" title="Permalink to this headline">¶</a></h2>
+<p>The config module contains many <code class="docutils literal"><span class="pre">attributes</span></code> that modify Theano&#8217;s behavior.  Many of these
+attributes are consulted during the import of the <code class="docutils literal"><span class="pre">theano</span></code> module and many are assumed to be
+read-only.</p>
+<p><em>As a rule, the attributes in this module should not be modified by user code.</em></p>
+<p>Theano&#8217;s code comes with default values for these attributes, but you can
+override them from your .theanorc file, and override those values in turn by
+the <span class="target" id="index-0"></span><a class="reference internal" href="#envvar-THEANO_FLAGS"><code class="xref std std-envvar docutils literal"><span class="pre">THEANO_FLAGS</span></code></a> environment variable.</p>
+<p>The order of precedence is:</p>
+<ol class="arabic simple">
+<li>an assignment to <code class="docutils literal"><span class="pre">theano.config.&lt;property&gt;</span></code></li>
+<li>an assignment in <span class="target" id="index-1"></span><a class="reference internal" href="#envvar-THEANO_FLAGS"><code class="xref std std-envvar docutils literal"><span class="pre">THEANO_FLAGS</span></code></a></li>
+<li>an assignment in the .theanorc file (or the file indicated in <span class="target" id="index-2"></span><a class="reference internal" href="#envvar-THEANORC"><code class="xref std std-envvar docutils literal"><span class="pre">THEANORC</span></code></a>)</li>
+</ol>
+<p>You can print out the current/effective configuration at any time by printing
+<code class="docutils literal"><span class="pre">theano.config</span></code>.  For example, to see a list  of all active configuration
+variables, type this from the command-line:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>python -c <span class="s1">&#39;import theano; print(theano.config)&#39;</span> <span class="p">|</span> less
+</pre></div>
+</div>
+</div>
+<div class="section" id="environment-variables">
+<h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
+<dl class="envvar">
+<dt id="envvar-THEANO_FLAGS">
+<code class="descname">THEANO_FLAGS</code><a class="headerlink" href="#envvar-THEANO_FLAGS" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a list of comma-delimited key=value pairs that control
+Theano&#8217;s behavior.</p>
+<p>For example, in bash, you can override your <span class="target" id="index-3"></span><a class="reference internal" href="#envvar-THEANORC"><code class="xref std std-envvar docutils literal"><span class="pre">THEANORC</span></code></a> defaults
+for &lt;myscript&gt;.py by typing this:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">THEANO_FLAGS</span><span class="o">=</span><span class="s1">&#39;floatX=float32,device=cuda0,gpuarray.preallocate=1&#39;</span>  python &lt;myscript&gt;.py
+</pre></div>
+</div>
+<p>If a value is defined several times in <code class="docutils literal"><span class="pre">THEANO_FLAGS</span></code>,
+the right-most definition is used. So, for instance, if
+<code class="docutils literal"><span class="pre">THEANO_FLAGS='device=cpu,device=cuda0'</span></code>, then cuda0 will be used.</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-THEANORC">
+<code class="descname">THEANORC</code><a class="headerlink" href="#envvar-THEANORC" title="Permalink to this definition">¶</a></dt>
+<dd><p>The location[s] of the .theanorc file[s] in ConfigParser format.
+It defaults to <code class="docutils literal"><span class="pre">$HOME/.theanorc</span></code>. On Windows, it defaults to
+<code class="docutils literal"><span class="pre">$HOME/.theanorc:$HOME/.theanorc.txt</span></code> to make Windows users&#8217; life
+easier.</p>
+<p>Here is the .theanorc equivalent to the THEANO_FLAGS in the example above:</p>
+<div class="highlight-cfg"><div class="highlight"><pre><span></span><span class="k">[global]</span>
+<span class="na">floatX</span> <span class="o">=</span> <span class="s">float32</span>
+<span class="na">device</span> <span class="o">=</span> <span class="s">cuda0</span>
+
+<span class="k">[gpuarray]</span>
+<span class="na">preallocate</span> <span class="o">=</span> <span class="s">1</span>
+</pre></div>
+</div>
+<p>Configuration attributes that are available directly in <code class="docutils literal"><span class="pre">config</span></code>
+(e.g. <code class="docutils literal"><span class="pre">config.device</span></code>, <code class="docutils literal"><span class="pre">config.mode</span></code>) should be defined in the
+<code class="docutils literal"><span class="pre">[global]</span></code> section.
+Attributes from a subsection of <code class="docutils literal"><span class="pre">config</span></code> (e.g. <code class="docutils literal"><span class="pre">config.gpuarray.preallocate</span></code>,
+<code class="docutils literal"><span class="pre">config.dnn.conv.algo_fwd</span></code>) should be defined in their corresponding
+section (e.g. <code class="docutils literal"><span class="pre">[gpuarray]</span></code>, <code class="docutils literal"><span class="pre">[dnn.conv]</span></code>).</p>
+<p>Multiple configuration files can be specified by separating them with &#8216;:&#8217;
+characters (as in $PATH).  Multiple configuration files will be merged,
+with later (right-most) files taking priority over earlier files in the
+case that multiple files specify values for a common configuration option.
+For example, to override system-wide settings with personal ones,
+set <code class="docutils literal"><span class="pre">THEANORC=/etc/theanorc:~/.theanorc</span></code>. To load configuration files in
+the current working directory, append <code class="docutils literal"><span class="pre">.theanorc</span></code> to the list of configuration
+files, e.g. <code class="docutils literal"><span class="pre">THEANORC=~/.theanorc:.theanorc</span></code>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="config-attributes">
+<h2>Config Attributes<a class="headerlink" href="#config-attributes" title="Permalink to this headline">¶</a></h2>
+<p>The list below describes some of the more common and important flags
+that you might want to use. For the complete list (including documentation),
+import theano and print the config variable, as in:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>python -c <span class="s1">&#39;import theano; print(theano.config)&#39;</span> <span class="p">|</span> less
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="config.device">
+<code class="descclassname">config.</code><code class="descname">device</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.device" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: either <code class="docutils literal"><span class="pre">'cpu'</span></code>, <code class="docutils literal"><span class="pre">'cuda'</span></code>, <code class="docutils literal"><span class="pre">'cuda0'</span></code>, <code class="docutils literal"><span class="pre">'cuda1'</span></code>,
+<code class="docutils literal"><span class="pre">'opencl0:0'</span></code>, <code class="docutils literal"><span class="pre">'opencl0:1'</span></code>, ...</p>
+<p>Default device for computations. If <code class="docutils literal"><span class="pre">'cuda*</span></code>, change the default to try
+to move computation to the GPU using CUDA libraries. If <code class="docutils literal"><span class="pre">'opencl*'</span></code>,
+the OpenCL libraries will be used. To let the driver select the device,
+use <code class="docutils literal"><span class="pre">'cuda'</span></code> or <code class="docutils literal"><span class="pre">'opencl'</span></code>. If we are not able to use the GPU,
+either we fall back on the CPU, or an error is raised, depending
+on the <a class="reference internal" href="#config.force_device" title="config.force_device"><code class="xref py py-attr docutils literal"><span class="pre">force_device</span></code></a> flag.</p>
+<p>This flag&#8217;s value cannot be modified during the program execution.</p>
+<p>Do not use upper case letters, only lower case even if NVIDIA uses
+capital letters.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.force_device">
+<code class="descclassname">config.</code><code class="descname">force_device</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.force_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value: either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>If <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">device=gpu*</span></code>, we raise an error if we cannot
+use the specified <a class="reference internal" href="#config.device" title="config.device"><code class="xref py py-attr docutils literal"><span class="pre">device</span></code></a>. If <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">device=cpu</span></code>,
+we disable the GPU.  If <code class="docutils literal"><span class="pre">False</span></code> and <code class="docutils literal"><span class="pre">device=gpu*</span></code>, and if the
+specified device cannot be used, we warn and fall back to the CPU.</p>
+<p>This is useful to run Theano&#8217;s tests on a computer with a GPU, but
+without running the GPU tests.</p>
+<p>This flag&#8217;s value cannot be modified during the program execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.init_gpu_device">
+<code class="descclassname">config.</code><code class="descname">init_gpu_device</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.init_gpu_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: either <code class="docutils literal"><span class="pre">''</span></code>, <code class="docutils literal"><span class="pre">'cuda'</span></code>, <code class="docutils literal"><span class="pre">'cuda0'</span></code>, <code class="docutils literal"><span class="pre">'cuda1'</span></code>,
+<code class="docutils literal"><span class="pre">'opencl0:0'</span></code>, <code class="docutils literal"><span class="pre">'opencl0:1'</span></code>, ...</p>
+<p>Initialize the gpu device to use.
+When its value is <code class="docutils literal"><span class="pre">'cuda*'</span></code> or <code class="docutils literal"><span class="pre">'opencl*'</span></code>, the theano
+flag <a class="reference internal" href="#config.device" title="config.device"><code class="xref py py-attr docutils literal"><span class="pre">device</span></code></a> must be <code class="docutils literal"><span class="pre">'cpu'</span></code>.
+Unlike <a class="reference internal" href="#config.device" title="config.device"><code class="xref py py-attr docutils literal"><span class="pre">device</span></code></a>, setting this flag to a specific GPU will not
+try to use this device by default, in particular it will <strong>not</strong> move
+computations, nor shared variables, to the specified GPU.</p>
+<p>This flag is useful to run GPU-specific tests on a particular GPU, instead
+of using the default one.</p>
+<p>This flag&#8217;s value cannot be modified during the program execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.print_active_device">
+<code class="descclassname">config.</code><code class="descname">print_active_device</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.print_active_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value: either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">True</span></code></p>
+<p>Print active device at when the GPU device is initialized.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.floatX">
+<code class="descclassname">config.</code><code class="descname">floatX</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.floatX" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: <code class="docutils literal"><span class="pre">'float64'</span></code>, <code class="docutils literal"><span class="pre">'float32'</span></code>, or <code class="docutils literal"><span class="pre">'float16'</span></code> (with limited support)</p>
+<p>Default: <code class="docutils literal"><span class="pre">'float64'</span></code></p>
+<p>This sets the default dtype returned by <code class="docutils literal"><span class="pre">tensor.matrix()</span></code>, <code class="docutils literal"><span class="pre">tensor.vector()</span></code>,
+and similar functions.  It also sets the default Theano bit width for
+arguments passed as Python floating-point numbers.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.warn_float64">
+<code class="descclassname">config.</code><code class="descname">warn_float64</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.warn_float64" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: either <code class="docutils literal"><span class="pre">'ignore'</span></code>, <code class="docutils literal"><span class="pre">'warn'</span></code>, <code class="docutils literal"><span class="pre">'raise'</span></code>, or <code class="docutils literal"><span class="pre">'pdb'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'ignore'</span></code></p>
+<p>When creating a TensorVariable with dtype float64, what should be done?
+This is useful to help find upcast to float64 in user code.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.deterministic">
+<code class="descclassname">config.</code><code class="descname">deterministic</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.deterministic" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: either <code class="docutils literal"><span class="pre">'default'</span></code>, <code class="docutils literal"><span class="pre">'more'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'default'</span></code></p>
+<p>If <cite>more</cite>, sometimes we will select some implementation that
+are more deterministic, but slower. In particular, on the GPU,
+we will avoid using AtomicAdd. Sometimes we will still use
+non-deterministic implementaion, e.g. when we do not have a GPU
+implementation that is deterministic. Also see the dnn.conv.algo*
+flags to cover more cases.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.allow_gc">
+<code class="descclassname">config.</code><code class="descname">allow_gc</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.allow_gc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value: either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">True</span></code></p>
+<p>This sets the default for the use of the Theano garbage collector
+for intermediate results. To use less memory, Theano frees the
+intermediate results as soon as they are no longer needed.
+Disabling Theano garbage collection allows Theano to reuse buffers
+for intermediate results between function calls. This speeds up
+Theano by no longer spending time reallocating space. This gives
+significant speed up on functions with many ops that are fast to
+execute, but this increases Theano&#8217;s memory usage.</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">if <a class="reference internal" href="#config.config.gpuarray.preallocate" title="config.config.gpuarray.preallocate"><code class="xref py py-attr docutils literal"><span class="pre">config.gpuarray.preallocate</span></code></a> is the default value
+or not disabled (-1), this is not useful anymore on the GPU.</p>
+</div>
+<dl class="attribute">
+<dt id="config.config.scan.allow_output_prealloc">
+<code class="descclassname">config.scan.</code><code class="descname">allow_output_prealloc</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.scan.allow_output_prealloc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value, either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">True</span></code></p>
+<p>This enables, or not, an optimization in Scan in which it tries to
+pre-allocate memory for its outputs. Enabling the optimization can
+give a significant speed up with Scan at the cost of slightly increased
+memory usage.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.scan.allow_gc">
+<code class="descclassname">config.scan.</code><code class="descname">allow_gc</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.scan.allow_gc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value, either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Allow/disallow gc inside of Scan.</p>
+<p>If <a class="reference internal" href="#config.allow_gc" title="config.allow_gc"><code class="xref py py-attr docutils literal"><span class="pre">config.allow_gc</span></code></a> is <code class="docutils literal"><span class="pre">True</span></code>, but <a class="reference internal" href="#config.config.scan.allow_gc" title="config.config.scan.allow_gc"><code class="xref py py-attr docutils literal"><span class="pre">config.scan.allow_gc</span></code></a> is
+<code class="docutils literal"><span class="pre">False</span></code>, then we will gc the inner of scan after all
+iterations. This is the default.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.scan.debug">
+<code class="descclassname">config.scan.</code><code class="descname">debug</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.scan.debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value, either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>If True, we will print extra scan debug information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.cycle_detection">
+<code class="descclassname">config.</code><code class="descname">cycle_detection</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.cycle_detection" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value, either <code class="docutils literal"><span class="pre">regular</span></code> or <code class="docutils literal"><span class="pre">fast`</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">regular</span></code></p>
+<p>If <a class="reference internal" href="#config.cycle_detection" title="config.cycle_detection"><code class="xref py py-attr docutils literal"><span class="pre">cycle_detection</span></code></a> is set to <code class="docutils literal"><span class="pre">regular</span></code>, most inplaces are allowed,
+but it is slower. If <a class="reference internal" href="#config.cycle_detection" title="config.cycle_detection"><code class="xref py py-attr docutils literal"><span class="pre">cycle_detection</span></code></a> is set to <code class="docutils literal"><span class="pre">faster</span></code>,
+less inplaces are allowed, but it makes the compilation faster.</p>
+<p>The interaction of which one give the lower peak memory usage is complicated and
+not predictable, so if you are close to the peak memory usage, trying both
+could give you a small gain.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.check_stack_trace">
+<code class="descclassname">config.</code><code class="descname">check_stack_trace</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.check_stack_trace" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value, either <code class="docutils literal"><span class="pre">off</span></code>, <code class="docutils literal"><span class="pre">log</span></code>, <code class="docutils literal"><span class="pre">warn</span></code>, <code class="docutils literal"><span class="pre">raise</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">off</span></code></p>
+<p>This is a flag for checking the stack trace during the optimization process.
+If <a class="reference internal" href="#config.check_stack_trace" title="config.check_stack_trace"><code class="xref py py-attr docutils literal"><span class="pre">check_stack_trace</span></code></a> is set to <code class="docutils literal"><span class="pre">off</span></code>, no check is performed on the
+stack trace. If <a class="reference internal" href="#config.check_stack_trace" title="config.check_stack_trace"><code class="xref py py-attr docutils literal"><span class="pre">check_stack_trace</span></code></a> is set to <code class="docutils literal"><span class="pre">log</span></code> or <code class="docutils literal"><span class="pre">warn</span></code>, a
+dummy stack trace is inserted that indicates which optimization inserted the
+variable that had an empty stack trace but, in <code class="docutils literal"><span class="pre">warn</span></code> a warning is also
+printed.
+If <a class="reference internal" href="#config.check_stack_trace" title="config.check_stack_trace"><code class="xref py py-attr docutils literal"><span class="pre">check_stack_trace</span></code></a> is set to <code class="docutils literal"><span class="pre">raise</span></code>, an exception is raised if a
+stack trace is missing.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.openmp">
+<code class="descclassname">config.</code><code class="descname">openmp</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.openmp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value: either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Enable or disable parallel computation on the CPU with OpenMP.
+It is the default value used when creating an Op that supports it.
+It is best to define it in .theanorc
+or in the environment variable THEANO_FLAGS.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.openmp_elemwise_minsize">
+<code class="descclassname">config.</code><code class="descname">openmp_elemwise_minsize</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.openmp_elemwise_minsize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Positive int value, default: 200000.</p>
+<p>This specifies the vectors minimum size for which elemwise ops
+use openmp, if openmp is enabled.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.cast_policy">
+<code class="descclassname">config.</code><code class="descname">cast_policy</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.cast_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: either <code class="docutils literal"><span class="pre">'numpy+floatX'</span></code> or <code class="docutils literal"><span class="pre">'custom'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'custom'</span></code></p>
+<p>This specifies how data types are implicitly figured out in Theano, e.g. for
+constants or in the results of arithmetic operations. The &#8216;custom&#8217; value
+corresponds to a set of custom rules originally used in
+Theano (which can be partially customized, see e.g. the in-code help of
+<code class="docutils literal"><span class="pre">tensor.NumpyAutocaster</span></code>), and will be deprecated in the future.
+The &#8216;numpy+floatX&#8217; setting attempts to mimic the numpy casting rules,
+although it prefers to use float32 numbers instead of float64 when
+<code class="docutils literal"><span class="pre">config.floatX</span></code> is set to &#8216;float32&#8217; and the user uses data that is not
+explicitly typed as float64 (e.g. regular Python floats).
+Note that &#8216;numpy+floatX&#8217; is not currently behaving exactly as planned (it
+is a work-in-progress), and thus you should consider it as experimental.
+At the moment it behaves differently from numpy in the following
+situations:</p>
+<ul class="simple">
+<li>Depending on the value of <a class="reference internal" href="#config.int_division" title="config.int_division"><code class="xref py py-attr docutils literal"><span class="pre">config.int_division</span></code></a>, the resulting type
+of a division of integer types with the <code class="docutils literal"><span class="pre">/</span></code> operator may not match
+that of numpy.</li>
+<li>On mixed scalar / array operations, numpy tries to prevent the scalar
+from upcasting the array&#8217;s type unless it is of a fundamentally
+different type. Theano does not attempt to do the same at this point,
+so you should be careful that scalars may upcast arrays when they
+would not when using numpy. This behavior should change in the near
+future.</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.int_division">
+<code class="descclassname">config.</code><code class="descname">int_division</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.int_division" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: either <code class="docutils literal"><span class="pre">'int'</span></code>, <code class="docutils literal"><span class="pre">'floatX'</span></code>, or <code class="docutils literal"><span class="pre">'raise'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'int'</span></code></p>
+<p>Specifies what to do when one tries to compute <code class="docutils literal"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code>, where both <code class="docutils literal"><span class="pre">x</span></code> and
+<code class="docutils literal"><span class="pre">y</span></code> are of integer types (possibly unsigned). &#8216;int&#8217; means an integer is
+returned (as in Python 2.X), but this behavior is deprecated. &#8216;floatX&#8217;
+returns a number of type given by <code class="docutils literal"><span class="pre">config.floatX</span></code>. &#8216;raise&#8217; is the safest
+choice (and will become default in a future release of Theano) and raises
+an error when one tries to do such an operation, enforcing the use of the
+integer division operator (<code class="docutils literal"><span class="pre">//</span></code>) (if a float result is intended, either
+cast one of the arguments to a float, or use <code class="docutils literal"><span class="pre">x.__truediv__(y)</span></code>).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.mode">
+<code class="descclassname">config.</code><code class="descname">mode</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: <code class="docutils literal"><span class="pre">'Mode'</span></code>, <code class="docutils literal"><span class="pre">'DebugMode'</span></code>, <code class="docutils literal"><span class="pre">'FAST_RUN'</span></code>,
+<code class="docutils literal"><span class="pre">'FAST_COMPILE'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'Mode'</span></code></p>
+<p>This sets the default compilation mode for theano functions. By default the
+mode Mode is equivalent to FAST_RUN. See Config attribute linker and optimizer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.profile">
+<code class="descclassname">config.</code><code class="descname">profile</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value: either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Do the vm/cvm linkers profile the execution time of Theano functions?</p>
+<p>See <a class="reference internal" href="../tutorial/profiling.html#tut-profiling"><span class="std std-ref">Profiling Theano function</span></a> for examples.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.profile_memory">
+<code class="descclassname">config.</code><code class="descname">profile_memory</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.profile_memory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value: either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Do the vm/cvm linkers profile the memory usage of Theano functions?
+It only works when profile=True.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.profile_optimizer">
+<code class="descclassname">config.</code><code class="descname">profile_optimizer</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.profile_optimizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value: either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Do the vm/cvm linkers profile the optimization phase when compiling a Theano function?
+It only works when profile=True.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.profiling.n_apply">
+<code class="descclassname">config.profiling.</code><code class="descname">n_apply</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.profiling.n_apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Positive int value, default: 20.</p>
+<p>The number of Apply nodes to print in the profiler output</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.profiling.n_ops">
+<code class="descclassname">config.profiling.</code><code class="descname">n_ops</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.profiling.n_ops" title="Permalink to this definition">¶</a></dt>
+<dd><p>Positive int value, default: 20.</p>
+<p>The number of Ops to print in the profiler output</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.profiling.min_memory_size">
+<code class="descclassname">config.profiling.</code><code class="descname">min_memory_size</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.profiling.min_memory_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Positive int value, default: 1024.</p>
+<p>For the memory profile, do not print Apply nodes if the size
+of their outputs (in bytes) is lower than this.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.profiling.min_peak_memory">
+<code class="descclassname">config.profiling.</code><code class="descname">min_peak_memory</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.profiling.min_peak_memory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value: either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Does the memory profile print the min peak memory usage?
+It only works when profile=True, profile_memory=True</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.profiling.destination">
+<code class="descclassname">config.profiling.</code><code class="descname">destination</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.profiling.destination" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: <code class="docutils literal"><span class="pre">'stderr'</span></code>, <code class="docutils literal"><span class="pre">'stdout'</span></code>, or a name of a
+file to be created</p>
+<p>Default: <code class="docutils literal"><span class="pre">'stderr'</span></code></p>
+<p>Name of the destination file for the profiling output.
+The profiling output can be either directed to stderr
+(default), or stdout or an arbitrary file.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.profiling.debugprint">
+<code class="descclassname">config.profiling.</code><code class="descname">debugprint</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.profiling.debugprint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value: either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Do a debugprint of the profiled functions</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.profiling.ignore_first_call">
+<code class="descclassname">config.profiling.</code><code class="descname">ignore_first_call</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.profiling.ignore_first_call" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value: either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Do we ignore the first call to a Theano function while profiling.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.lib.amdlibm">
+<code class="descclassname">config.lib.</code><code class="descname">amdlibm</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.lib.amdlibm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value: either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>This makes the compilation use the
+<a class="reference external" href="http://developer.amd.com/cpu/libraries/libm/">amdlibm</a>
+library, which is faster than the standard libm.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.gpuarray.preallocate">
+<code class="descclassname">config.gpuarray.</code><code class="descname">preallocate</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.gpuarray.preallocate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Float value</p>
+<p>Default: 0 (Preallocation of size 0, only cache the allocation)</p>
+<p>Controls the preallocation of memory with the gpuarray backend.</p>
+<p>The value represents the start size (either in MB or the fraction
+of total GPU memory) of the memory pool. If more memory is needed,
+Theano will try to obtain more, but this can cause memory
+fragmentation.</p>
+<p>A negative value will completely disable the allocation cache.
+This can have a severe impact on performance and so should not be
+done outside of debugging.</p>
+<blockquote>
+<div><ul class="simple">
+<li>&lt; 0: disabled</li>
+<li>0 &lt;= N &lt;= 1: use this fraction of the total GPU memory (clipped to .95 for driver memory).</li>
+<li>&gt; 1: use this number in megabytes (MB) of memory.</li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This value allocates GPU memory ONLY when using (<a class="reference internal" href="../tutorial/using_gpu.html#gpuarray"><span class="std std-ref">GpuArray Backend</span></a>).
+For the old backend, please see <code class="docutils literal"><span class="pre">config.lib.cnmem</span></code></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This could cause memory fragmentation. So if you have a memory
+error while using the cache, try to allocate more memory at
+the start or disable it. If you try this, report your result
+on :ref`theano-dev`.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The clipping at 95% can be bypassed by specifying the exact
+number of megabytes. If more then 95% are needed, it will try
+automatically to get more memory. But this can cause
+fragmentation, see note above.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.gpuarray.sched">
+<code class="descclassname">config.gpuarray.</code><code class="descname">sched</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.gpuarray.sched" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: <code class="docutils literal"><span class="pre">'default'</span></code>, <code class="docutils literal"><span class="pre">'multi'</span></code>, <code class="docutils literal"><span class="pre">'single'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'default'</span></code></p>
+<p>Control the stream mode of contexts.</p>
+<p>The sched parameter passed for context creation to pygpu.  With
+CUDA, using &#8220;multi&#8221; mean using the parameter
+cudaDeviceScheduleYield. This is useful to lower the CPU overhead
+when waiting for GPU. One user found that it speeds up his other
+processes that was doing data augmentation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.gpuarray.single_stream">
+<code class="descclassname">config.gpuarray.</code><code class="descname">single_stream</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.gpuarray.single_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean value</p>
+<p>Default: <code class="docutils literal"><span class="pre">True</span></code></p>
+<p>Control the stream mode of contexts.</p>
+<p>If your computations are mostly lots of small elements, using
+single-stream will avoid the synchronization overhead and usually
+be faster.  For larger elements it does not make a difference yet.
+In the future when true multi-stream is enabled in libgpuarray,
+this may change.  If you want to make sure to have optimal
+performance, check both options.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.gpuarray.cache_path">
+<code class="descclassname">config.gpuarray.</code><code class="descname">cache_path</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.gpuarray.cache_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">config.compiledir</span></code>/gpuarray_kernels</p>
+<p>Directory to cache pre-compiled kernels for the gpuarray backend.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.linker">
+<code class="descclassname">config.</code><code class="descname">linker</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.linker" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: <code class="docutils literal"><span class="pre">'c|py'</span></code>, <code class="docutils literal"><span class="pre">'py'</span></code>, <code class="docutils literal"><span class="pre">'c'</span></code>, <code class="docutils literal"><span class="pre">'c|py_nogc'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'c|py'</span></code></p>
+<p>When the mode is Mode, it sets the default linker used.
+See <a class="reference internal" href="../tutorial/modes.html#using-modes"><span class="std std-ref">Configuration Settings and Compiling Modes</span></a> for a comparison of the different linkers.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.optimizer">
+<code class="descclassname">config.</code><code class="descname">optimizer</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.optimizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: <code class="docutils literal"><span class="pre">'fast_run'</span></code>, <code class="docutils literal"><span class="pre">'merge'</span></code>, <code class="docutils literal"><span class="pre">'fast_compile'</span></code>, <code class="docutils literal"><span class="pre">'None'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'fast_run'</span></code></p>
+<p>When the mode is Mode, it sets the default optimizer used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.on_opt_error">
+<code class="descclassname">config.</code><code class="descname">on_opt_error</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.on_opt_error" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>String value: <code class="docutils literal"><span class="pre">'warn'</span></code>, <code class="docutils literal"><span class="pre">'raise'</span></code>, <code class="docutils literal"><span class="pre">'pdb'</span></code> or <code class="docutils literal"><span class="pre">'ignore'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'warn'</span></code></p>
+<p>When a crash occurs while trying to apply some optimization, either warn
+the user and skip this optimization (&#8216;warn&#8217;), raise the exception
+(&#8216;raise&#8217;), fall into the pdb debugger (&#8216;pdb&#8217;) or ignore it (&#8216;ignore&#8217;).
+We suggest to never use &#8216;ignore&#8217; except in tests.</p>
+</div></blockquote>
+<p>If you encounter a warning, report it on <a class="reference external" href="http://groups.google.com/group/theano-dev">theano-dev</a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.assert_no_cpu_op">
+<code class="descclassname">config.</code><code class="descname">assert_no_cpu_op</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.assert_no_cpu_op" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: <code class="docutils literal"><span class="pre">'ignore'</span></code> or <code class="docutils literal"><span class="pre">'warn'</span></code> or <code class="docutils literal"><span class="pre">'raise'</span></code> or <code class="docutils literal"><span class="pre">'pdb'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'ignore'</span></code></p>
+<p>If there is a CPU op in the computational graph, depending on its value;
+this flag can either raise a warning, an exception or stop the
+compilation with pdb.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.on_shape_error">
+<code class="descclassname">config.</code><code class="descname">on_shape_error</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.on_shape_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: <code class="docutils literal"><span class="pre">'warn'</span></code> or <code class="docutils literal"><span class="pre">'raise'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'warn'</span></code></p>
+<p>When an exception is raised when inferring the shape of some apply
+node, either warn the user and use a default value (&#8216;warn&#8217;), or
+raise the exception (&#8216;raise&#8217;).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.warn.ignore_bug_before">
+<code class="descclassname">config.warn.</code><code class="descname">ignore_bug_before</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.warn.ignore_bug_before" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: <code class="docutils literal"><span class="pre">'None'</span></code>, <code class="docutils literal"><span class="pre">'all'</span></code>, <code class="docutils literal"><span class="pre">'0.3'</span></code>, <code class="docutils literal"><span class="pre">'0.4'</span></code>, <code class="docutils literal"><span class="pre">'0.4.1'</span></code>, <code class="docutils literal"><span class="pre">'0.5'</span></code>,
+<code class="docutils literal"><span class="pre">'0.6'</span></code>, <code class="docutils literal"><span class="pre">'0.7'</span></code>, <code class="docutils literal"><span class="pre">'0.8'</span></code>, <code class="docutils literal"><span class="pre">'0.8.1'</span></code>, <code class="docutils literal"><span class="pre">'0.8.2'</span></code>, <code class="docutils literal"><span class="pre">'0.9'</span></code>, <code class="docutils literal"><span class="pre">'0.10'</span></code>, <code class="docutils literal"><span class="pre">'1.0'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'0.8'</span></code></p>
+<p>When we fix a Theano bug that generated bad results under some
+circumstances, we also make Theano raise a warning when it encounters
+the same circumstances again. This helps to detect if said bug
+had affected your past experiments, as you only need to run your
+experiment again with the new version, and you do not have to
+understand the Theano internal that triggered the bug. A better
+way to detect this will be implemented. See this <a class="reference external" href="http://www.assembla.com/spaces/theano/tickets/514">ticket</a>.</p>
+<p>This flag allows new users not to get warnings about old bugs, that were
+fixed before their first checkout of Theano.
+You can set its value to the first version of Theano
+that you used (probably 0.3 or higher)</p>
+<p><code class="docutils literal"><span class="pre">'None'</span></code> means that all warnings will be displayed.
+<code class="docutils literal"><span class="pre">'all'</span></code> means all warnings will be ignored.</p>
+<p>It is recommended that you put a version, so that you will see future
+warnings.
+It is also recommended you put this into your .theanorc, so this setting
+will always be used.</p>
+<p>This flag&#8217;s value cannot be modified during the program execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.base_compiledir">
+<code class="descclassname">config.</code><code class="descname">base_compiledir</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.base_compiledir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: On Windows: $LOCALAPPDATA\Theano if $LOCALAPPDATA is defined,
+otherwise and on other systems: ~/.theano.</p>
+<p>This directory stores the platform-dependent compilation directories.</p>
+<p>This flag&#8217;s value cannot be modified during the program execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.compiledir_format">
+<code class="descclassname">config.</code><code class="descname">compiledir_format</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.compiledir_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">&quot;compiledir_%(platform)s-%(processor)s-%(python_version)s-%(python_bitwidth)s&quot;</span></code></p>
+<p>This is a Python format string that specifies the subdirectory
+of <code class="docutils literal"><span class="pre">config.base_compiledir</span></code> in which to store platform-dependent
+compiled modules. To see a list of all available substitution keys,
+run <code class="docutils literal"><span class="pre">python</span> <span class="pre">-c</span> <span class="pre">&quot;import</span> <span class="pre">theano;</span> <span class="pre">print(theano.config)&quot;</span></code>, and look
+for compiledir_format.</p>
+<p>This flag&#8217;s value cannot be modified during the program execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.compiledir">
+<code class="descclassname">config.</code><code class="descname">compiledir</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.compiledir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">config.base_compiledir</span></code>/<code class="docutils literal"><span class="pre">config.compiledir_format</span></code></p>
+<p>This directory stores dynamically-compiled modules for a particular
+platform.</p>
+<p>This flag&#8217;s value cannot be modified during the program execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.blas.ldflags">
+<code class="descclassname">config.blas.</code><code class="descname">ldflags</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.blas.ldflags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">'-lblas'</span></code></p>
+<p>Link arguments to link against a (Fortran) level-3 blas
+implementation.  The default will test if <code class="docutils literal"><span class="pre">'-lblas'</span></code> works. If not,
+we will disable our C code for BLAS.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.experimental.local_alloc_elemwise_assert">
+<code class="descclassname">config.experimental.</code><code class="descname">local_alloc_elemwise_assert</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.experimental.local_alloc_elemwise_assert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value: either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">True</span></code></p>
+<p>When the local_alloc_optimization is applied, add an assert to highlight
+shape errors.</p>
+<p>Without such asserts this optimization could hide errors in the user code.
+We add the assert only if we can&#8217;t infer that the shapes are equivalent.
+As such this optimization does not always introduce an assert in the graph.
+Removing the assert could speed up execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.dnn.enabled">
+<code class="descclassname">config.dnn.</code><code class="descname">enabled</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.dnn.enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: <code class="docutils literal"><span class="pre">'auto'</span></code>, <code class="docutils literal"><span class="pre">'True'</span></code>, <code class="docutils literal"><span class="pre">'False'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'auto'</span></code></p>
+<p>If <code class="docutils literal"><span class="pre">'auto'</span></code>, automatically detect and use
+<a class="reference external" href="https://developer.nvidia.com/cudnn">cuDNN</a> if it is available.
+If cuDNN is unavailable, raise no error.</p>
+<p>If <code class="docutils literal"><span class="pre">'True'</span></code>, require the use of cuDNN.  If cuDNN is unavailable, raise an error.</p>
+<p>If <code class="docutils literal"><span class="pre">'False'</span></code>, do not use cuDNN or check if it is available.</p>
+<p>If <code class="docutils literal"><span class="pre">'no_check'</span></code>, assume present and the version between header and library match (so less compilation at context init)&#8221;,</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.dnn.include_path">
+<code class="descclassname">config.dnn.</code><code class="descname">include_path</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.dnn.include_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">include</span></code> sub-folder in CUDA root directory, or headers paths defined for the compiler.</p>
+<p>Location of the cudnn header.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.dnn.library_path">
+<code class="descclassname">config.dnn.</code><code class="descname">library_path</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.dnn.library_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: Library sub-folder (<code class="docutils literal"><span class="pre">lib64</span></code> on Linux) in CUDA root directory, or libraries paths defined for the compiler.</p>
+<p>Location of the cudnn library.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.conv.assert_shape">
+<code class="descclassname">config.conv.</code><code class="descname">assert_shape</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.conv.assert_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>If True, AbstractConv* ops will verify that user-provided
+shapes match the runtime shapes (debugging option,
+may slow down compilation)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.dnn.conv.workmem">
+<code class="descclassname">config.dnn.conv.</code><code class="descname">workmem</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.dnn.conv.workmem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated, use <a class="reference internal" href="#config.config.dnn.conv.algo_fwd" title="config.config.dnn.conv.algo_fwd"><code class="xref py py-attr docutils literal"><span class="pre">config.dnn.conv.algo_fwd</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.dnn.conv.workmem_bwd">
+<code class="descclassname">config.dnn.conv.</code><code class="descname">workmem_bwd</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.dnn.conv.workmem_bwd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated, use <a class="reference internal" href="#config.config.dnn.conv.algo_bwd_filter" title="config.config.dnn.conv.algo_bwd_filter"><code class="xref py py-attr docutils literal"><span class="pre">config.dnn.conv.algo_bwd_filter</span></code></a> and
+<a class="reference internal" href="#config.config.dnn.conv.algo_bwd_data" title="config.config.dnn.conv.algo_bwd_data"><code class="xref py py-attr docutils literal"><span class="pre">config.dnn.conv.algo_bwd_data</span></code></a> instead.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.dnn.conv.algo_fwd">
+<code class="descclassname">config.dnn.conv.</code><code class="descname">algo_fwd</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.dnn.conv.algo_fwd" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value:
+<code class="docutils literal"><span class="pre">'small'</span></code>, <code class="docutils literal"><span class="pre">'none'</span></code>, <code class="docutils literal"><span class="pre">'large'</span></code>, <code class="docutils literal"><span class="pre">'fft'</span></code>, <code class="docutils literal"><span class="pre">'fft_tiling'</span></code>,
+<code class="docutils literal"><span class="pre">'winograd'</span></code>, <code class="docutils literal"><span class="pre">'winograd_non_fused'</span></code>, <code class="docutils literal"><span class="pre">'guess_once'</span></code>, <code class="docutils literal"><span class="pre">'guess_on_shape_change'</span></code>,
+<code class="docutils literal"><span class="pre">'time_once'</span></code>, <code class="docutils literal"><span class="pre">'time_on_shape_change'</span></code>.</p>
+<p>Default: <code class="docutils literal"><span class="pre">'small'</span></code></p>
+<p>3d convolution only support <code class="docutils literal"><span class="pre">'none'</span></code>, <code class="docutils literal"><span class="pre">'small'</span></code>, <code class="docutils literal"><span class="pre">'fft_tiling'</span></code>, <code class="docutils literal"><span class="pre">'guess_once'</span></code>,
+<code class="docutils literal"><span class="pre">'guess_on_shape_change'</span></code>, <code class="docutils literal"><span class="pre">'time_once'</span></code>, <code class="docutils literal"><span class="pre">'time_on_shape_change'</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.dnn.conv.algo_bwd">
+<code class="descclassname">config.dnn.conv.</code><code class="descname">algo_bwd</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.dnn.conv.algo_bwd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated, use <a class="reference internal" href="#config.config.dnn.conv.algo_bwd_filter" title="config.config.dnn.conv.algo_bwd_filter"><code class="xref py py-attr docutils literal"><span class="pre">config.dnn.conv.algo_bwd_filter</span></code></a> and
+<a class="reference internal" href="#config.config.dnn.conv.algo_bwd_data" title="config.config.dnn.conv.algo_bwd_data"><code class="xref py py-attr docutils literal"><span class="pre">config.dnn.conv.algo_bwd_data</span></code></a> instead.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.dnn.conv.algo_bwd_filter">
+<code class="descclassname">config.dnn.conv.</code><code class="descname">algo_bwd_filter</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.dnn.conv.algo_bwd_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value:
+<code class="docutils literal"><span class="pre">'none'</span></code>, <code class="docutils literal"><span class="pre">'deterministic'</span></code>, <code class="docutils literal"><span class="pre">'fft'</span></code>, <code class="docutils literal"><span class="pre">'small'</span></code>, <code class="docutils literal"><span class="pre">'winograd_non_fused'</span></code>, <code class="docutils literal"><span class="pre">'fft_tiling'</span></code>, <code class="docutils literal"><span class="pre">'guess_once'</span></code>,
+<code class="docutils literal"><span class="pre">'guess_on_shape_change'</span></code>, <code class="docutils literal"><span class="pre">'time_once'</span></code>, <code class="docutils literal"><span class="pre">'time_on_shape_change'</span></code>.</p>
+<p>Default: <code class="docutils literal"><span class="pre">'none'</span></code></p>
+<p>3d convolution only supports <code class="docutils literal"><span class="pre">'none'</span></code>, <code class="docutils literal"><span class="pre">'small'</span></code>, <code class="docutils literal"><span class="pre">'guess_once'</span></code>,
+<code class="docutils literal"><span class="pre">'guess_on_shape_change'</span></code>, <code class="docutils literal"><span class="pre">'time_once'</span></code>, <code class="docutils literal"><span class="pre">'time_on_shape_change'</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.dnn.conv.algo_bwd_data">
+<code class="descclassname">config.dnn.conv.</code><code class="descname">algo_bwd_data</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.dnn.conv.algo_bwd_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value:
+<code class="docutils literal"><span class="pre">'none'</span></code>, <code class="docutils literal"><span class="pre">'deterministic'</span></code>, <code class="docutils literal"><span class="pre">'fft'</span></code>, <code class="docutils literal"><span class="pre">'fft_tiling'</span></code>, <code class="docutils literal"><span class="pre">'winograd'</span></code>,
+<code class="docutils literal"><span class="pre">'winograd_non_fused'</span></code>, <code class="docutils literal"><span class="pre">'guess_once'</span></code>, <code class="docutils literal"><span class="pre">'guess_on_shape_change'</span></code>, <code class="docutils literal"><span class="pre">'time_once'</span></code>,
+<code class="docutils literal"><span class="pre">'time_on_shape_change'</span></code>.</p>
+<p>Default: <code class="docutils literal"><span class="pre">'none'</span></code></p>
+<p>3d convolution only support <code class="docutils literal"><span class="pre">'none'</span></code>, <code class="docutils literal"><span class="pre">'deterministic'</span></code>, <code class="docutils literal"><span class="pre">'fft_tiling'</span></code>
+<code class="docutils literal"><span class="pre">'guess_once'</span></code>, <code class="docutils literal"><span class="pre">'guess_on_shape_change'</span></code>, <code class="docutils literal"><span class="pre">'time_once'</span></code>,
+<code class="docutils literal"><span class="pre">'time_on_shape_change'</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.magma.enabled">
+<code class="descclassname">config.magma.</code><code class="descname">enabled</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.magma.enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>String value: <code class="docutils literal"><span class="pre">'True'</span></code>, <code class="docutils literal"><span class="pre">'False'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'False'</span></code></p>
+<p>If <code class="docutils literal"><span class="pre">'True'</span></code>, use <a class="reference external" href="http://icl.cs.utk.edu/magma/">magma</a> for matrix
+computations.</p>
+<p>If <code class="docutils literal"><span class="pre">'False'</span></code>, disable magma.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.magma.include_path">
+<code class="descclassname">config.magma.</code><code class="descname">include_path</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.magma.include_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">''</span></code></p>
+<p>Location of the magma headers.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.magma.library_path">
+<code class="descclassname">config.magma.</code><code class="descname">library_path</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.magma.library_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">''</span></code></p>
+<p>Location of the magma library.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.ctc.root">
+<code class="descclassname">config.ctc.</code><code class="descname">root</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.ctc.root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">''</span></code></p>
+<p>Location of the warp-ctc folder. The folder should contain either a build,
+lib or lib64 subfolder with the shared library (libwarpctc.so), and another
+subfolder called include, with the CTC library header.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.gcc.cxxflags">
+<code class="descclassname">config.gcc.</code><code class="descname">cxxflags</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.gcc.cxxflags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">&quot;&quot;</span></code></p>
+<p>Extra parameters to pass to gcc when compiling.  Extra include paths,
+library paths, configuration options, etc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.cxx">
+<code class="descclassname">config.</code><code class="descname">cxx</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.cxx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: Full path to g++ if g++ is present. Empty string otherwise.</p>
+<p>Indicates which C++ compiler to use. If empty, no C++ code is
+compiled.  Theano automatically detects whether g++ is present and
+disables C++ compilation when it is not.  On darwin systems (Mac
+OS X), it preferably looks for clang++ and uses that if available.</p>
+<p>We print a warning if we detect that no compiler is present. It is
+recommended to run with C++ compilation as Theano will be much
+slower otherwise.</p>
+<p>This can be any compiler binary (full path or not) but things may
+break if the interface is not g++-compatible to some degree.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.optimizer_excluding">
+<code class="descclassname">config.</code><code class="descname">optimizer_excluding</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.optimizer_excluding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">&quot;&quot;</span></code></p>
+<p>A list of optimizer tags that we don&#8217;t want included in the default Mode.
+If multiple tags, separate them by &#8216;:&#8217;.
+Ex: to remove the elemwise inplace optimizer(slow for big graph),
+use the flags: <code class="docutils literal"><span class="pre">optimizer_excluding:inplace_opt</span></code>, where
+inplace_opt is the name of that optimization.</p>
+<p>This flag&#8217;s value cannot be modified during the program execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.optimizer_including">
+<code class="descclassname">config.</code><code class="descname">optimizer_including</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.optimizer_including" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">&quot;&quot;</span></code></p>
+<p>A list of optimizer tags that we want included in the default Mode.
+If multiple tags, separate them by &#8216;:&#8217;.</p>
+<p>This flag&#8217;s value cannot be modified during the program execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.optimizer_requiring">
+<code class="descclassname">config.</code><code class="descname">optimizer_requiring</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.optimizer_requiring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">&quot;&quot;</span></code></p>
+<p>A list of optimizer tags that we require for optimizer in the default Mode.
+If multiple tags, separate them by &#8216;:&#8217;.</p>
+<p>This flag&#8217;s value cannot be modified during the program execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.optimizer_verbose">
+<code class="descclassname">config.</code><code class="descname">optimizer_verbose</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.optimizer_verbose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value: either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>When True, we print on the stdout the optimization applied.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.nocleanup">
+<code class="descclassname">config.</code><code class="descname">nocleanup</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.nocleanup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value: either <code class="docutils literal"><span class="pre">True</span></code> or <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>If False, source code files are removed when they are not needed anymore.
+This means files whose compilation failed are deleted.
+Set to True to keep those files in order to debug compilation errors.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.compile">
+<code class="descclassname">config.</code><code class="descname">compile</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.compile" title="Permalink to this definition">¶</a></dt>
+<dd><p>This section contains attributes which influence the compilation of
+C code for ops.  Due to historical reasons many attributes outside
+of this section also have an influence over compilation, most
+notably &#8216;cxx&#8217;.  This is not expected to change any time soon.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.compile.timeout">
+<code class="descclassname">config.compile.</code><code class="descname">timeout</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.compile.timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Positive int value, default: <code class="xref py py-attr docutils literal"><span class="pre">compile.wait</span></code> * 24</p>
+<p>Time to wait before an unrefreshed lock is broken and stolen.  This
+is in place to avoid manual cleanup of locks in case a process
+crashed and left a lock in place.</p>
+<p>The refresh time is automatically set to half the timeout value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.compile.wait">
+<code class="descclassname">config.compile.</code><code class="descname">wait</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.compile.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Positive int value, default: 5</p>
+<p>Time to wait between attempts at grabbing the lock if the first
+attempt is not successful. The actual time will be between
+<code class="xref py py-attr docutils literal"><span class="pre">compile.wait</span></code> and <code class="xref py py-attr docutils literal"><span class="pre">compile.wait</span></code> * 2 to avoid a
+crowding effect on lock.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.DebugMode">
+<code class="descclassname">config.</code><code class="descname">DebugMode</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.DebugMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>This section contains various attributes configuring the behaviour
+of mode <code class="xref py py-class docutils literal"><span class="pre">DebugMode</span></code>. See directly this section
+for the documentation of more configuration options.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.DebugMode.check_preallocated_output">
+<code class="descclassname">config.DebugMode.</code><code class="descname">check_preallocated_output</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.DebugMode.check_preallocated_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">''</span></code></p>
+<p>A list of kinds of preallocated memory to use as output buffers for
+each Op&#8217;s computations, separated by <code class="docutils literal"><span class="pre">:</span></code>. Implemented modes are:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&quot;initial&quot;</span></code>: initial storage present in storage map
+(for instance, it can happen in the inner function of Scan),</li>
+<li><code class="docutils literal"><span class="pre">&quot;previous&quot;</span></code>: reuse previously-returned memory,</li>
+<li><code class="docutils literal"><span class="pre">&quot;c_contiguous&quot;</span></code>: newly-allocated C-contiguous memory,</li>
+<li><code class="docutils literal"><span class="pre">&quot;f_contiguous&quot;</span></code>: newly-allocated Fortran-contiguous memory,</li>
+<li><code class="docutils literal"><span class="pre">&quot;strided&quot;</span></code>: non-contiguous memory with various stride patterns,</li>
+<li><code class="docutils literal"><span class="pre">&quot;wrong_size&quot;</span></code>: memory with bigger or smaller dimensions,</li>
+<li><code class="docutils literal"><span class="pre">&quot;ALL&quot;</span></code>: placeholder for all of the above.</li>
+</ul>
+<p>In order not to test with preallocated memory, use an empty string, <code class="docutils literal"><span class="pre">&quot;&quot;</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.DebugMode.check_preallocated_output_ndim">
+<code class="descclassname">config.DebugMode.</code><code class="descname">check_preallocated_output_ndim</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.DebugMode.check_preallocated_output_ndim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Positive int value, default: 4.</p>
+<p>When testing with &#8220;strided&#8221; preallocated output memory, test
+all combinations of strides over that number of (inner-most)
+dimensions. You may want to reduce that number to reduce memory or
+time usage, but it is advised to keep a minimum of 2.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.DebugMode.warn_input_not_reused">
+<code class="descclassname">config.DebugMode.</code><code class="descname">warn_input_not_reused</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.DebugMode.warn_input_not_reused" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value, default: <code class="docutils literal"><span class="pre">True</span></code></p>
+<p>Generate a warning when the destroy_map or view_map tell that an op work
+inplace, but the op did not reuse the input for its output.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.NanGuardMode.nan_is_error">
+<code class="descclassname">config.NanGuardMode.</code><code class="descname">nan_is_error</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.NanGuardMode.nan_is_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value, default: <code class="docutils literal"><span class="pre">True</span></code></p>
+<p>Controls whether NanGuardMode generates an error when it sees a nan.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.NanGuardMode.inf_is_error">
+<code class="descclassname">config.NanGuardMode.</code><code class="descname">inf_is_error</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.NanGuardMode.inf_is_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value, default: <code class="docutils literal"><span class="pre">True</span></code></p>
+<p>Controls whether NanGuardMode generates an error when it sees an inf.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.NanGuardMode.big_is_error">
+<code class="descclassname">config.NanGuardMode.</code><code class="descname">big_is_error</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.NanGuardMode.big_is_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value, default: <code class="docutils literal"><span class="pre">True</span></code></p>
+<p>Controls whether NanGuardMode generates an error when it sees a
+big value (&gt;1e10).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.numpy">
+<code class="descclassname">config.</code><code class="descname">numpy</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.numpy" title="Permalink to this definition">¶</a></dt>
+<dd><p>This section contains different attributes for configuring NumPy&#8217;s
+behaviour, described by <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.seterr.html">numpy.seterr</a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.numpy.seterr_all">
+<code class="descclassname">config.numpy.</code><code class="descname">seterr_all</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.numpy.seterr_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>String Value: <code class="docutils literal"><span class="pre">'ignore'</span></code>, <code class="docutils literal"><span class="pre">'warn'</span></code>, <code class="docutils literal"><span class="pre">'raise'</span></code>, <code class="docutils literal"><span class="pre">'call'</span></code>,
+<code class="docutils literal"><span class="pre">'print'</span></code>, <code class="docutils literal"><span class="pre">'log'</span></code>, <code class="docutils literal"><span class="pre">'None'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'ignore'</span></code></p>
+<p>Set the default behaviour described by <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.seterr.html">numpy.seterr</a>.</p>
+<p><code class="docutils literal"><span class="pre">'None'</span></code> means that numpy&#8217;s default behaviour will not be changed (unless
+one of the other <code class="docutils literal"><span class="pre">config.numpy.seterr_*</span></code> overrides it), but this behaviour
+can change between numpy releases.</p>
+<p>This flag sets the default behaviour for all kinds of floating-point
+errors, and it can be overridden for specific errors by setting one
+(or more) of the flags below.</p>
+<p>This flag&#8217;s value cannot be modified during the program execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.numpy.seterr_divide">
+<code class="descclassname">config.numpy.</code><code class="descname">seterr_divide</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.numpy.seterr_divide" title="Permalink to this definition">¶</a></dt>
+<dd><p>String Value: <code class="docutils literal"><span class="pre">'None'</span></code>, <code class="docutils literal"><span class="pre">'ignore'</span></code>, <code class="docutils literal"><span class="pre">'warn'</span></code>, <code class="docutils literal"><span class="pre">'raise'</span></code>,
+<code class="docutils literal"><span class="pre">'call'</span></code>, <code class="docutils literal"><span class="pre">'print'</span></code>, <code class="docutils literal"><span class="pre">'log'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'None'</span></code></p>
+<p>Sets numpy&#8217;s behavior for division by zero. <code class="docutils literal"><span class="pre">'None'</span></code> means using the
+default, defined by config.numpy.seterr_all.</p>
+<p>This flag&#8217;s value cannot be modified during the program execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.numpy.seterr_over">
+<code class="descclassname">config.numpy.</code><code class="descname">seterr_over</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.numpy.seterr_over" title="Permalink to this definition">¶</a></dt>
+<dd><p>String Value: <code class="docutils literal"><span class="pre">'None'</span></code>, <code class="docutils literal"><span class="pre">'ignore'</span></code>, <code class="docutils literal"><span class="pre">'warn'</span></code>, <code class="docutils literal"><span class="pre">'raise'</span></code>,
+<code class="docutils literal"><span class="pre">'call'</span></code>, <code class="docutils literal"><span class="pre">'print'</span></code>, <code class="docutils literal"><span class="pre">'log'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'None'</span></code></p>
+<p>Sets numpy&#8217;s behavior for floating-point overflow. <code class="docutils literal"><span class="pre">'None'</span></code> means
+using the default, defined by config.numpy.seterr_all.</p>
+<p>This flag&#8217;s value cannot be modified during the program execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.numpy.seterr_under">
+<code class="descclassname">config.numpy.</code><code class="descname">seterr_under</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.numpy.seterr_under" title="Permalink to this definition">¶</a></dt>
+<dd><p>String Value: <code class="docutils literal"><span class="pre">'None'</span></code>, <code class="docutils literal"><span class="pre">'ignore'</span></code>, <code class="docutils literal"><span class="pre">'warn'</span></code>, <code class="docutils literal"><span class="pre">'raise'</span></code>,
+<code class="docutils literal"><span class="pre">'call'</span></code>, <code class="docutils literal"><span class="pre">'print'</span></code>, <code class="docutils literal"><span class="pre">'log'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'None'</span></code></p>
+<p>Sets numpy&#8217;s behavior for floating-point underflow. <code class="docutils literal"><span class="pre">'None'</span></code> means
+using the default, defined by config.numpy.seterr_all.</p>
+<p>This flag&#8217;s value cannot be modified during the program execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.numpy.seterr_invalid">
+<code class="descclassname">config.numpy.</code><code class="descname">seterr_invalid</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.numpy.seterr_invalid" title="Permalink to this definition">¶</a></dt>
+<dd><p>String Value: <code class="docutils literal"><span class="pre">'None'</span></code>, <code class="docutils literal"><span class="pre">'ignore'</span></code>, <code class="docutils literal"><span class="pre">'warn'</span></code>, <code class="docutils literal"><span class="pre">'raise'</span></code>,
+<code class="docutils literal"><span class="pre">'call'</span></code>, <code class="docutils literal"><span class="pre">'print'</span></code>, <code class="docutils literal"><span class="pre">'log'</span></code></p>
+<p>Default: <code class="docutils literal"><span class="pre">'None'</span></code></p>
+<p>Sets numpy&#8217;s behavior for invalid floating-point operation. <code class="docutils literal"><span class="pre">'None'</span></code>
+means using the default, defined by <a class="reference internal" href="#config.config.numpy.seterr_all" title="config.config.numpy.seterr_all"><code class="xref py py-attr docutils literal"><span class="pre">config.numpy.seterr_all</span></code></a>.</p>
+<p>This flag&#8217;s value cannot be modified during the program execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.compute_test_value">
+<code class="descclassname">config.</code><code class="descname">compute_test_value</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.compute_test_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>String Value: <code class="docutils literal"><span class="pre">'off'</span></code>, <code class="docutils literal"><span class="pre">'ignore'</span></code>, <code class="docutils literal"><span class="pre">'warn'</span></code>, <code class="docutils literal"><span class="pre">'raise'</span></code>.</p>
+<p>Default: <code class="docutils literal"><span class="pre">'off'</span></code></p>
+<p>Setting this attribute to something other than <code class="docutils literal"><span class="pre">'off'</span></code> activates a
+debugging mechanism, where Theano executes the graph on-the-fly, as it is
+being built. This allows the user to spot errors early on (such as
+dimension mis-match), <strong>before</strong> optimizations are applied.</p>
+<p>Theano will execute the graph using the Constants and/or shared variables
+provided by the user. Purely symbolic variables (e.g. <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">T.dmatrix()</span></code>) can be
+augmented with test values, by writing to their <code class="docutils literal"><span class="pre">'tag.test_value'</span></code>
+attribute (e.g. <code class="docutils literal"><span class="pre">x.tag.test_value</span> <span class="pre">=</span> <span class="pre">numpy.random.rand(5,</span> <span class="pre">4)</span></code>).</p>
+<p>When not <code class="docutils literal"><span class="pre">'off'</span></code>, the value of this option dictates what happens when
+an Op&#8217;s inputs do not provide appropriate test values:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">'ignore'</span></code> will silently skip the debug mechanism for this Op</li>
+<li><code class="docutils literal"><span class="pre">'warn'</span></code> will raise a UserWarning and skip the debug mechanism for
+this Op</li>
+<li><code class="docutils literal"><span class="pre">'raise'</span></code> will raise an Exception</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.compute_test_value_opt">
+<code class="descclassname">config.</code><code class="descname">compute_test_value_opt</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.compute_test_value_opt" title="Permalink to this definition">¶</a></dt>
+<dd><p>As <code class="docutils literal"><span class="pre">compute_test_value</span></code>, but it is the value used during Theano
+optimization phase. Theano user&#8217;s do not need to use this. This is
+to help debug shape error in Theano optimization.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.print_test_value">
+<code class="descclassname">config.</code><code class="descname">print_test_value</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.print_test_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value, default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>If <code class="docutils literal"><span class="pre">'True'</span></code>, Theano will override the <code class="docutils literal"><span class="pre">__str__</span></code> method of its variables
+to also print the tag.test_value when this is available.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.reoptimize_unpickled_function">
+<code class="descclassname">config.</code><code class="descname">reoptimize_unpickled_function</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.reoptimize_unpickled_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value, default: False (changed in master after Theano 0.7 release)</p>
+<p>Theano users can use the standard python pickle tools to save a compiled
+theano function. When pickling, both graph before and after the optimization
+are saved, including shared variables. When set to True, the graph is
+reoptimized when being unpickled. Otherwise, skip the graph optimization and
+use directly the optimized graph.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.exception_verbosity">
+<code class="descclassname">config.</code><code class="descname">exception_verbosity</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.exception_verbosity" title="Permalink to this definition">¶</a></dt>
+<dd><p>String Value: <code class="docutils literal"><span class="pre">'low'</span></code>, <code class="docutils literal"><span class="pre">'high'</span></code>.</p>
+<p>Default: <code class="docutils literal"><span class="pre">'low'</span></code></p>
+<p>If <code class="docutils literal"><span class="pre">'low'</span></code>, the text of exceptions will generally refer to apply nodes
+with short names such as <code class="docutils literal"><span class="pre">'Elemwise{add_no_inplace}'</span></code>. If <code class="docutils literal"><span class="pre">'high'</span></code>,
+some exceptions will also refer to apply nodes with long descriptions like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span> <span class="n">Elemwise</span><span class="p">{</span><span class="n">add_no_inplace</span><span class="p">}</span>
+      <span class="n">B</span><span class="o">.</span> <span class="n">log_likelihood_v_given_h</span>
+      <span class="n">C</span><span class="o">.</span> <span class="n">log_likelihood_h</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.cmodule.warn_no_version">
+<code class="descclassname">config.cmodule.</code><code class="descname">warn_no_version</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.cmodule.warn_no_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value, default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>If True, will print a warning when compiling one or more Op with C
+code that can&#8217;t be cached because there is no <code class="docutils literal"><span class="pre">c_code_cache_version()</span></code>
+function associated to at least one of those Ops.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.cmodule.remove_gxx_opt">
+<code class="descclassname">config.cmodule.</code><code class="descname">remove_gxx_opt</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.cmodule.remove_gxx_opt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value, default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>If True, will remove the <code class="docutils literal"><span class="pre">-O*</span></code> parameter passed to g++.
+This is useful to debug in gdb modules compiled by Theano.
+The parameter <code class="docutils literal"><span class="pre">-g</span></code> is passed by default to g++.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.cmodule.compilation_warning">
+<code class="descclassname">config.cmodule.</code><code class="descname">compilation_warning</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.cmodule.compilation_warning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value, default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>If True, will print compilation warnings.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.cmodule.preload_cache">
+<code class="descclassname">config.cmodule.</code><code class="descname">preload_cache</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.cmodule.preload_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value, default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>If set to True, will preload the C module cache at import time</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.cmodule.age_thresh_use">
+<code class="descclassname">config.cmodule.</code><code class="descname">age_thresh_use</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.cmodule.age_thresh_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Int value, default: <code class="docutils literal"><span class="pre">60</span> <span class="pre">*</span> <span class="pre">60</span> <span class="pre">*</span> <span class="pre">24</span> <span class="pre">*</span> <span class="pre">24</span></code>  # 24 days</p>
+<p>In seconds. The time after which a compiled c module won&#8217;t be
+reused by Theano. Automatic deletion of those c module 7 days
+after that time.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.cmodule.debug">
+<code class="descclassname">config.cmodule.</code><code class="descname">debug</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.cmodule.debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value, default: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>If True, define a DEBUG macro (if not exists) for any compiled C code.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.traceback.limit">
+<code class="descclassname">config.traceback.</code><code class="descname">limit</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.traceback.limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Int value, default: 8</p>
+<p>The number of user stack level to keep for variables.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.traceback.compile_limit">
+<code class="descclassname">config.traceback.</code><code class="descname">compile_limit</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.traceback.compile_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bool value, default: 0</p>
+<p>The number of user stack level to keep for variables during Theano
+compilation. If higher then 0, will make us keep Theano internal
+stack trace.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.metaopt.verbose">
+<code class="descclassname">config.metaopt.</code><code class="descname">verbose</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.metaopt.verbose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Int value, default: 0</p>
+<p>The verbosity level of the meta-optimizer. 0 for silent.
+1 to only warn if we cannot meta-optimize some op.
+2 for full output of separate timings and selected implementation</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.metaopt.optimizer_excluding">
+<code class="descclassname">config.metaopt.</code><code class="descname">optimizer_excluding</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.metaopt.optimizer_excluding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">&quot;&quot;</span></code></p>
+<p>A list of optimizer tags that we don&#8217;t want included in the Meta-optimizer.
+If multiple tags, separate them by &#8216;:&#8217;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="config.config.metaopt.optimizer_including">
+<code class="descclassname">config.metaopt.</code><code class="descname">optimizer_including</code><a class="reference external" href="https://github.com/Theano/theano/blob/d395439aec5a6ddde8ef5c266fd976412a5c5695/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#config.config.metaopt.optimizer_including" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">&quot;&quot;</span></code></p>
+<p>A list of optimizer tags that we want included in the Meta-optimizer.
+If multiple tags, separate them by &#8216;:&#8217;.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="d3viz/index.html" class="btn btn-neutral float-right" title="d3viz – d3viz: Interactive visualization of Theano compute graphs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="compile/nanguardmode.html" class="btn btn-neutral" title="nanguardmode" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2008--2017, LISA lab.
+      Last updated on Nov 21, 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-168290-9']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<!--Insert version switcher at bottom and top of sidebar-->
+<script type="text/javascript">
+  var span = document.createElement("SPAN")
+  var span_class = document.createAttribute("class");
+  span_class.value = "version_switcher_placeholder";
+  span.setAttributeNode(span_class);
+  var div = document.createElement("DIV");
+  div.appendChild(span);
+  var nav_div = document.getElementsByClassName("wy-nav-side")[0];
+  nav_div.appendChild(div);
+
+  var span_up = document.createElement("SPAN")
+  var span_class_up = document.createAttribute("class");
+  span_class_up.value = "version_switcher_placeholder_up";
+  span_up.setAttributeNode(span_class_up);
+  var nav_div_up = document.getElementsByClassName("version")[0];
+  nav_div_up.appendChild(span_up);
+</script>
+
+<script type="text/javascript"
+    src="../_static/version_switch.js">
+</script>
+
+
+</body>
+</html>

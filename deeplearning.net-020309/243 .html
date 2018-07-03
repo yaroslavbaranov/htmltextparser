@@ -1,0 +1,582 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial &mdash; Theano 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/fix_rtd.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Theano 1.0.0 documentation" href="../index.html"/>
+        <link rel="next" title="Python tutorial" href="python.html"/>
+        <link rel="prev" title="Updating Theano" href="../updating.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Theano
+          
+
+          
+            
+            <img src="../_static/theano_logo_allwhite_210x70.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../NEWS.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Theano at a Glance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing Theano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../updating.html">Updating Theano</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python.html">Python tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy.html">NumPy refresher</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#basics">Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="adding.html">Baby Steps - Algebra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">More Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gradients.html">Derivatives in Theano</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conditions.html">Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loop.html">Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shape_info.html">How Shape Information is Handled by Theano</a></li>
+<li class="toctree-l3"><a class="reference internal" href="broadcasting.html">Broadcasting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced">Advanced</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sparse.html">Sparse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using_gpu.html">Using the GPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using_multi_gpu.html">Using multiple GPUs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html">Convolution arithmetic tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-configuration-and-debugging">Advanced configuration and debugging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modes.html">Configuration Settings and Compiling Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="printing_drawing.html">Printing/Drawing Theano graphs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debug_faq.html">Debugging Theano: FAQ and Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nan_tutorial.html">Dealing with NaNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiling.html">Profiling Theano function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#further-readings">Further readings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../extending/graphstructures.html">Graph Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading_and_saving.html">Loading and Saving</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aliasing.html">Understanding Memory Aliasing for Speed and Correctness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python-memory-management.html">Python Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multi_cores.html">Multi cores support in Theano</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq_tutorial.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending Theano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_start_guide.html">Developer Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimizations.html">Optimizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../links.html">Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internal/index.html">Internal Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgement.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LICENSE.html">LICENSE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Theano</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Tutorial</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tutorial/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorial">
+<span id="id1"></span><h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<p>Let us start an interactive session (e.g. with <code class="docutils literal"><span class="pre">python</span></code> or <code class="docutils literal"><span class="pre">ipython</span></code>) and import Theano.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">theano</span> <span class="k">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>Several of the symbols you will need to use are in the <code class="docutils literal"><span class="pre">tensor</span></code> subpackage
+of Theano. Let us import that subpackage under a handy name like
+<code class="docutils literal"><span class="pre">T</span></code> (the tutorials will frequently use this convention).</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">theano.tensor</span> <span class="k">as</span> <span class="nn">T</span>
+</pre></div>
+</div>
+<p>If that succeeded you are ready for the tutorial, otherwise check your
+installation (see <a class="reference internal" href="../install.html#install"><span class="std std-ref">Installing Theano</span></a>).</p>
+<p>Throughout the tutorial, bear in mind that there is a <a class="reference internal" href="../glossary.html#glossary"><span class="std std-ref">Glossary</span></a> as well
+as <em>index</em> and <em>modules</em> links in the upper-right corner of each page to help
+you out.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy.html">NumPy refresher</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="numpy.html#matrix-conventions-for-machine-learning">Matrix conventions for machine learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy.html#broadcasting">Broadcasting</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="adding.html">Baby Steps - Algebra</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="adding.html#adding-two-scalars">Adding two Scalars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adding.html#adding-two-matrices">Adding two Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adding.html#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">More Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#logistic-function">Logistic Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#computing-more-than-one-thing-at-the-same-time">Computing More than one Thing at the Same Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#setting-a-default-value-for-an-argument">Setting a Default Value for an Argument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#using-shared-variables">Using Shared Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#copying-functions">Copying functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#using-random-numbers">Using Random Numbers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#brief-example">Brief Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#seeding-streams">Seeding Streams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#sharing-streams-between-functions">Sharing Streams Between Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#copying-random-state-between-theano-graphs">Copying Random State Between Theano Graphs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#other-random-distributions">Other Random Distributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#other-implementations">Other Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#a-real-example-logistic-regression">A Real Example: Logistic Regression</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gradients.html">Derivatives in Theano</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gradients.html#computing-gradients">Computing Gradients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradients.html#computing-the-jacobian">Computing the Jacobian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradients.html#computing-the-hessian">Computing the Hessian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradients.html#jacobian-times-a-vector">Jacobian times a Vector</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gradients.html#r-operator">R-operator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gradients.html#l-operator">L-operator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gradients.html#hessian-times-a-vector">Hessian times a Vector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradients.html#final-pointers">Final Pointers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conditions.html">Conditions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conditions.html#ifelse-vs-switch">IfElse vs Switch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="loop.html">Loop</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="loop.html#scan">Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loop.html#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shape_info.html">How Shape Information is Handled by Theano</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shape_info.html#shape-inference-problem">Shape Inference Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape_info.html#specifying-exact-shape">Specifying Exact Shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape_info.html#future-plans">Future Plans</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="broadcasting.html">Broadcasting</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="advanced">
+<h2>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sparse.html">Sparse</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sparse.html#compressed-sparse-format">Compressed Sparse Format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sparse.html#which-format-should-i-use">Which format should I use?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sparse.html#handling-sparse-in-theano">Handling Sparse in Theano</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sparse.html#to-and-fro">To and Fro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sparse.html#properties-and-construction">Properties and Construction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sparse.html#structured-operation">Structured Operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sparse.html#gradient">Gradient</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using_gpu.html">Using the GPU</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using_gpu.html#gpuarray-backend">GpuArray Backend</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="using_gpu.html#testing-theano-with-gpu">Testing Theano with GPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using_gpu.html#returning-a-handle-to-device-allocated-data">Returning a Handle to Device-Allocated Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using_gpu.html#what-can-be-accelerated-on-the-gpu">What Can be Accelerated on the GPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using_gpu.html#tips-for-improving-performance-on-gpu">Tips for Improving Performance on GPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using_gpu.html#gpu-async-capabilities">GPU Async Capabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using_gpu.html#changing-the-value-of-shared-variables">Changing the Value of Shared Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using_gpu.html#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="using_gpu.html#software-for-directly-programming-a-gpu">Software for Directly Programming a GPU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_gpu.html#learning-to-program-with-pycuda">Learning to Program with PyCUDA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="using_gpu.html#id1">Exercise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using_gpu.html#id2">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="using_gpu.html#note">Note</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using_multi_gpu.html">Using multiple GPUs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using_multi_gpu.html#defining-the-context-map">Defining the context map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_multi_gpu.html#a-simple-graph-on-two-gpus">A simple graph on two GPUs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_multi_gpu.html#explicit-transfers-of-data">Explicit transfers of data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conv_arithmetic.html">Convolution arithmetic tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conv_arithmetic.html#about-this-tutorial">About this tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conv_arithmetic.html#refresher-discrete-convolutions">Refresher: discrete convolutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conv_arithmetic.html#theano-terminology">Theano terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conv_arithmetic.html#convolution-arithmetic">Convolution arithmetic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html#no-zero-padding-unit-strides">No zero padding, unit strides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html#zero-padding-unit-strides">Zero padding, unit strides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html#special-cases">Special cases</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conv_arithmetic.html#half-same-padding">Half (same) padding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conv_arithmetic.html#full-padding">Full padding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html#no-zero-padding-non-unit-strides">No zero padding, non-unit strides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html#zero-padding-non-unit-strides">Zero padding, non-unit strides</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conv_arithmetic.html#transposed-convolution-arithmetic">Transposed convolution arithmetic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html#convolution-as-a-matrix-operation">Convolution as a matrix operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html#transposed-convolution">Transposed convolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html#no-zero-padding-unit-strides-transposed">No zero padding, unit strides, transposed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html#zero-padding-unit-strides-transposed">Zero padding, unit strides, transposed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html#id2">Special cases</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conv_arithmetic.html#half-same-padding-transposed">Half (same) padding, transposed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conv_arithmetic.html#full-padding-transposed">Full padding, transposed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html#no-zero-padding-non-unit-strides-transposed">No zero padding, non-unit strides, transposed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html#zero-padding-non-unit-strides-transposed">Zero padding, non-unit strides, transposed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conv_arithmetic.html#miscellaneous-convolutions">Miscellaneous convolutions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html#dilated-convolutions">Dilated convolutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html#grouped-convolutions">Grouped Convolutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conv_arithmetic.html#separable-convolutions">Separable Convolutions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conv_arithmetic.html#quick-reference">Quick reference</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="advanced-configuration-and-debugging">
+<h2>Advanced configuration and debugging<a class="headerlink" href="#advanced-configuration-and-debugging" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modes.html">Configuration Settings and Compiling Modes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modes.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modes.html#exercise">Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modes.html#mode">Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modes.html#linkers">Linkers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modes.html#optimizers">Optimizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modes.html#using-debugmode">Using DebugMode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="printing_drawing.html">Printing/Drawing Theano graphs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="printing_drawing.html#pretty-printing">Pretty Printing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printing_drawing.html#debug-print">Debug Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printing_drawing.html#picture-printing-of-graphs">Picture Printing of Graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printing_drawing.html#interactive-graph-visualization">Interactive Graph Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debug_faq.html">Debugging Theano: FAQ and Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="debug_faq.html#isolating-the-problem-testing-theano-compiler">Isolating the Problem/Testing Theano Compiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug_faq.html#interpreting-error-messages">Interpreting Error Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug_faq.html#using-test-values">Using Test Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug_faq.html#how-do-i-print-an-intermediate-value-in-a-function">&#8220;How do I Print an Intermediate Value in a Function?&#8221;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug_faq.html#how-do-i-print-a-graph-before-or-after-compilation">&#8220;How do I Print a Graph?&#8221; (before or after compilation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug_faq.html#the-function-i-compiled-is-too-slow-what-s-up">&#8220;The Function I Compiled is Too Slow, what&#8217;s up?&#8221;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug_faq.html#why-does-my-gpu-function-seem-to-be-slow">&#8220;Why does my GPU function seem to be slow?&#8221;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug_faq.html#how-do-i-step-through-a-compiled-function">&#8220;How do I Step through a Compiled Function?&#8221;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug_faq.html#how-to-use-pdb">How to Use pdb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug_faq.html#dumping-a-function-to-help-debug">Dumping a Function to help debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug_faq.html#breakpoint-during-theano-function-execution">Breakpoint during Theano function execution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nan_tutorial.html">Dealing with NaNs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nan_tutorial.html#check-superparameters-and-weight-initialization">Check Superparameters and Weight Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nan_tutorial.html#run-in-nanguardmode-debugmode-or-monitormode">Run in NanGuardMode, DebugMode, or MonitorMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nan_tutorial.html#numerical-stability">Numerical Stability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nan_tutorial.html#algorithm-related">Algorithm Related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nan_tutorial.html#cuda-specific-option">CUDA Specific Option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nan_tutorial.html#nan-introduced-by-allocempty">NaN Introduced by AllocEmpty</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="profiling.html">Profiling Theano function</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="further-readings">
+<h2>Further readings<a class="headerlink" href="#further-readings" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/graphstructures.html">Graph Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/graphstructures.html#traversing-the-graph">Traversing the graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/graphstructures.html#id1">Graph Structures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../extending/graphstructures.html#apply">Apply</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../extending/graphstructures.html#op">Op</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../extending/graphstructures.html#type">Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../extending/graphstructures.html#variable">Variable</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../extending/graphstructures.html#constant">Constant</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/graphstructures.html#graph-structures-extension">Graph Structures Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/graphstructures.html#automatic-differentiation">Automatic Differentiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/graphstructures.html#optimizations">Optimizations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="loading_and_saving.html">Loading and Saving</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="loading_and_saving.html#the-basics-of-pickling">The Basics of Pickling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loading_and_saving.html#short-term-serialization">Short-Term Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loading_and_saving.html#robust-serialization">Robust Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loading_and_saving.html#long-term-serialization">Long-Term Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aliasing.html">Understanding Memory Aliasing for Speed and Correctness</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aliasing.html#the-memory-model-two-spaces">The Memory Model: Two Spaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aliasing.html#borrowing-when-creating-shared-variables">Borrowing when Creating Shared Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aliasing.html#borrowing-when-accessing-value-of-shared-variables">Borrowing when Accessing Value of Shared Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aliasing.html#retrieving">Retrieving</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aliasing.html#assigning">Assigning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aliasing.html#borrowing-when-constructing-function-objects">Borrowing when Constructing Function Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python-memory-management.html">Python Memory Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python-memory-management.html#basic-objects">Basic Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-memory-management.html#internal-memory-management">Internal Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-memory-management.html#pickle">Pickle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multi_cores.html">Multi cores support in Theano</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multi_cores.html#convolution-and-pooling">Convolution and Pooling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_cores.html#blas-operation">BLAS operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_cores.html#parallel-element-wise-ops-with-openmp">Parallel element wise ops with OpenMP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq_tutorial.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq_tutorial.html#how-to-update-a-subset-of-weights">How to update a subset of weights?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="python.html" class="btn btn-neutral float-right" title="Python tutorial" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../updating.html" class="btn btn-neutral" title="Updating Theano" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2008--2017, LISA lab.
+      Last updated on Nov 21, 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-168290-9']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<!--Insert version switcher at bottom and top of sidebar-->
+<script type="text/javascript">
+  var span = document.createElement("SPAN")
+  var span_class = document.createAttribute("class");
+  span_class.value = "version_switcher_placeholder";
+  span.setAttributeNode(span_class);
+  var div = document.createElement("DIV");
+  div.appendChild(span);
+  var nav_div = document.getElementsByClassName("wy-nav-side")[0];
+  nav_div.appendChild(div);
+
+  var span_up = document.createElement("SPAN")
+  var span_class_up = document.createAttribute("class");
+  span_class_up.value = "version_switcher_placeholder_up";
+  span_up.setAttributeNode(span_class_up);
+  var nav_div_up = document.getElementsByClassName("version")[0];
+  nav_div_up.appendChild(span_up);
+</script>
+
+<script type="text/javascript"
+    src="../_static/version_switch.js">
+</script>
+
+
+</body>
+</html>

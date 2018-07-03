@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome &#8212; Pylearn2 dev documentation</title>
+    
+    <link rel="stylesheet" href="_static/solar.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Library Documentation" href="library/index.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="_static/solarized-dark.css" rel="stylesheet">
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="library/index.html" title="Library Documentation"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Pylearn2 dev documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome</a></li>
+<li><a class="reference internal" href="#pylearn2-vision">Pylearn2 Vision</a></li>
+<li><a class="reference internal" href="#download-and-installation">Download and installation</a><ul>
+<li><a class="reference internal" href="#data-path">Data path</a></li>
+<li><a class="reference internal" href="#other-methods">Other methods</a><ul>
+<li><a class="reference internal" href="#vagrant-any-os">Vagrant (any OS)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li><a class="reference internal" href="#license-and-citations">License and Citations</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#community">Community</a></li>
+<li><a class="reference internal" href="#developer">Developer</a></li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="library/index.html"
+                        title="next chapter">Library Documentation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome">
+<span id="index"></span><h1>Welcome<a class="headerlink" href="#welcome" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>This project does not have any current developer. We will continue
+to review pull requests and merge them when appropriate, but do not
+expect new development unless someone decides to work on it.</p>
+<p class="last">There are other machine learning frameworks built on top of Theano that
+could interest you, such as: <a class="reference external" href="https://blocks.readthedocs.org/en/latest">Blocks</a>, <a class="reference external" href="http://keras.io">Keras</a> and <a class="reference external" href="https://lasagne.readthedocs.org/en/latest">Lasagne</a>.</p>
+</div>
+<p>Don&#8217;t expect a clean road without bumps!
+If you find a bug please write to <a class="reference external" href="mailto:pylearn-dev&#37;&#52;&#48;googlegroups&#46;com">pylearn-dev<span>&#64;</span>googlegroups<span>&#46;</span>com</a>.
+If you&#8217;re a Pylearn2 developer and you find a bug, please write a unit test for it so
+the bug doesn&#8217;t come back!</p>
+<p>Pylearn2 is a machine learning library. Most of its functionality is built on top of
+<a class="reference external" href="http://deeplearning.net/software/theano/">Theano</a>.
+This means you can write Pylearn2 plugins (new models, algorithms, etc) using
+mathematical expressions, and Theano will optimize and stabilize those expressions for
+you, and compile them to a backend of your choice (CPU or GPU).</p>
+</div>
+<div class="section" id="pylearn2-vision">
+<span id="welcome-vision"></span><h1>Pylearn2 Vision<a class="headerlink" href="#pylearn2-vision" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Researchers add features as they need them. We avoid getting bogged down by too
+much top-down planning in advance.</li>
+<li>A machine learning toolbox for easy scientific experimentation.</li>
+<li>All models/algorithms published by the LISA lab should have reference implementations
+in Pylearn2.</li>
+<li>Pylearn2 may wrap other libraries such as scikit-learn when this is practical</li>
+<li>Pylearn2 differs from scikit-learn in that Pylearn2 aims to provide great flexibility
+and make it possible for a researcher to do almost anything, while scikit-learn
+aims to work as a &#8220;black box&#8221; that can produce good results even if the user does not
+understand the implementation</li>
+<li>Dataset interface for vector, images, video, ...</li>
+<li>Small framework for all what is needed for one normal MLP/RBM/SDA/Convolution experiments.</li>
+<li>Easy reuse of sub-component of Pylearn2.</li>
+<li>Using one sub-component of the library does not force you to use / learn to use all of
+the other sub-components if you choose not to.</li>
+<li>Support cross-platform serialization of learned models.</li>
+<li>Remain approachable enough to be used in the classroom (IFT6266 at the University of Montreal).</li>
+</ul>
+</div>
+<div class="section" id="download-and-installation">
+<span id="install"></span><h1>Download and installation<a class="headerlink" href="#download-and-installation" title="Permalink to this headline">¶</a></h1>
+<p>There is no PyPI download yet, so Pylearn2 cannot be installed using e.g. <code class="docutils literal"><span class="pre">pip</span></code>.
+You must check out the bleeding-edge/development version from GitHub
+using:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone git://github.com/lisa-lab/pylearn2.git
+</pre></div>
+</div>
+<p>To make Pylearn2 available in your Python installation, run the following command in the
+top-level <code class="docutils literal"><span class="pre">pylearn2</span></code> directory (which should have been created by the previous command):</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>python setup.py develop
+</pre></div>
+</div>
+<p>You may need to use <code class="docutils literal"><span class="pre">sudo</span></code> to invoke this command with administrator privileges.
+If you do not have such access (or would rather not add Pylearn2 to the global
+<cite>site-packages</cite> for whatever reason), you can install the relevant links inside the
+<a class="reference external" href="https://docs.python.org/2/install/#alternate-installation-the-user-scheme">user site-packages directory</a>
+by issuing the command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>python setup.py develop --user
+</pre></div>
+</div>
+<p>This command will also compile the Cython extensions required for e.g.
+<code class="docutils literal"><span class="pre">pylearn2.train_extensions.window_flip</span></code>.</p>
+<p>Alternatively, you can make Pylearn2 available by adding the installation directory to your
+<code class="docutils literal"><span class="pre">PYTHONPATH</span></code> environment variable, but note that changing your <code class="docutils literal"><span class="pre">PYTHONPATH</span></code>
+alone won&#8217;t compile the Cython extensions (you will need to make sure the extension <code class="docutils literal"><span class="pre">.so</span></code>
+files are built and accessible within the source tree, e.g. with
+<code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">build_ext</span> <span class="pre">--inplace</span></code>).</p>
+<div class="section" id="data-path">
+<span id="id1"></span><h2>Data path<a class="headerlink" href="#data-path" title="Permalink to this headline">¶</a></h2>
+<p>For some tutorials and tests you will also need to set your <code class="docutils literal"><span class="pre">PYLEARN2_DATA_PATH</span></code> variable.
+On Linux, the best way to do this is to add a line to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PYLEARN2_DATA_PATH</span><span class="o">=</span>/data/lisa/data
+</pre></div>
+</div>
+<p>Note that this is only an example, and if you are not in the LISA lab, you will need to
+choose a directory path that is valid on your filesystem. Simply choose a path where
+it will be convenient for you to store datasets for use with Pylearn2.</p>
+</div>
+<div class="section" id="other-methods">
+<h2>Other methods<a class="headerlink" href="#other-methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vagrant-any-os">
+<h3>Vagrant (any OS)<a class="headerlink" href="#vagrant-any-os" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/ironchief/pylearn2_vagrant">Pylearn2 in a box</a> uses Vagrant to easily create a new VM installed with Pylearn2 and the necessary packages.</p>
+<ol class="arabic simple">
+<li>Download and install Vagrant <a class="reference external" href="http://www.vagrantup.com/">http://www.vagrantup.com/</a></li>
+<li>Download and install Virtual Box and VirtualBox Extension Pack <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">https://www.virtualbox.org/wiki/Downloads</a></li>
+<li>Download the Vagrant scripts from <a class="reference external" href="https://github.com/ironchief/pylearn2_vagrant">Pylearn2 in a box</a></li>
+<li>Start the VM by running <code class="docutils literal"><span class="pre">vagrant</span> <span class="pre">up</span></code> in the directory from step 3</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="dependencies">
+<h1>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p class="first"><a class="reference external" href="http://deeplearning.net/software/theano/">Theano</a> and its dependencies are required to use
+Pylearn2. Since pylearn2 is under rapid development some of its features might depend on the <a class="reference external" href="http://deeplearning.net/software/theano/install.html#bleeding-edge-install-instructions">bleeding-edge version of Theano</a>.</p>
+</li>
+<li><p class="first">PyYAML is required for most functionality.</p>
+</li>
+<li><p class="first">PIL is required for some image-related functionality.</p>
+</li>
+<li><p class="first"><a class="reference external" href="http://matplotlib.org/">matplotlib</a> is required for some plotting functionality.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Some dependencies are optional:</dt>
+<dd><ul class="first last simple">
+<li>Pylearn2 includes code for accessing several standard datasets, such as MNIST and CIFAR-10.
+However, if you wish to use one of these datasets, you must download the dataset itself
+manually.</li>
+<li>The original <a class="reference external" href="http://deeplearning.net/software/pylearn/">Pylearn</a> project is required
+for loading some datasets, such as the Unsupervised and Transfer Learning Challenge datasets</li>
+<li>Some features (SVMs) depend on scikit-learn.</li>
+<li>k-means depends on <a class="reference external" href="https://pythonhosted.org/milk/">milk</a>.</li>
+<li>Reading SVHN dataset depends on <a class="reference external" href="http://www.pytables.org/">pytables</a>.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="license-and-citations">
+<h1>License and Citations<a class="headerlink" href="#license-and-citations" title="Permalink to this headline">¶</a></h1>
+<p>Pylearn2 is released under the 3-claused BSD license, so it may be used for commercial purposes.
+The license does not require anyone to cite Pylearn2, but if you use Pylearn2 in published research
+work we encourage you to cite this article:</p>
+<ul class="simple">
+<li>Ian J. Goodfellow, David Warde-Farley, Pascal Lamblin, Vincent Dumoulin,
+Mehdi Mirza, Razvan Pascanu, James Bergstra, Frédéric Bastien, and
+Yoshua Bengio.
+<a class="reference external" href="http://arxiv.org/abs/1308.4214">&#8220;Pylearn2: a machine learning research library&#8221;</a>.
+<em>arXiv preprint arXiv:1308.4214</em> (<a class="reference external" href="http://www.iro.umontreal.ca/~lisa/publications2/index.php/export/publication/594/bibtex">BibTeX</a>)</li>
+</ul>
+<p>Pylearn2 is primarily developed by academics, and so citations matter a lot to
+us. As an added benefit, you increase Pylearn2&#8217;s exposure and potential user
+(and developer) base, which is to the benefit of all users of Pylearn2. Thanks
+in advance!</p>
+</div>
+<div class="section" id="documentation">
+<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+<p>Roughly in order of what you&#8217;ll want to check out:</p>
+<ul class="simple">
+<li><a class="reference internal" href="tutorial/index.html#tutorial"><span class="std std-ref">Quick-start example</span></a> &#8211; Learn the basics via an example.</li>
+<li><a class="reference internal" href="yaml_tutorial/index.html#yaml-tutorial"><span class="std std-ref">YAML for Pylearn2</span></a> &#8211; A tutorial on YAML tags employed by Pylearn2.</li>
+<li><a class="reference internal" href="tutorial/notebook_tutorials.html#notebook-tutorials"><span class="std std-ref">IPython Notebook Tutorials</span></a> &#8211; At this point, you might want to work through the ipython notebooks in the &#8220;scripts/tutorials&#8221;
+directory.</li>
+<li><a class="reference external" href="http://daemonmaker.blogspot.ca/2014/10/a-first-experiment-with-pylearn2.html">A First Experiment with Pylearn2</a> &#8211; A brief introduction to running experiments.</li>
+<li><a class="reference external" href="http://daemonmaker.blogspot.ca/2014/12/monitoring-experiments-in-pylearn2.html">Monitoring Experiments in Pylearn2</a> &#8211; An overview of monitoring experiments.</li>
+<li><a class="reference internal" href="theano_to_pylearn2_tutorial.html#theano-to-pylearn2-tutorial"><span class="std std-ref">Your models in Pylearn2</span></a> &#8211; A tutorial on porting Theano code to Pylearn2</li>
+<li><a class="reference internal" href="features.html#features"><span class="std std-ref">Features</span></a> &#8211; A list of features available in the library.</li>
+<li><a class="reference internal" href="overview.html#overview"><span class="std std-ref">Overview</span></a> &#8211; A detailed but high-level overview of how Pylearn2 works. This is the
+place to start if you want to really learn the library.</li>
+<li><a class="reference internal" href="library/index.html#libdoc"><span class="std std-ref">Library Documentation</span></a> &#8211; Documentation of the library modules.</li>
+<li><a class="reference internal" href="cluster.html#cluster"><span class="std std-ref">Working with computer clusters</span></a> &#8211; The tools we use at LISA for running Pylearn2 jobs on HPC clusters.</li>
+<li><a class="reference internal" href="large_data.html#large-data"><span class="std std-ref">Working with large datasets in Pylearn2</span></a> &#8211; A guide on how to deal with large datasets.</li>
+<li><a class="reference internal" href="vision.html#vision"><span class="std std-ref">Pylearn2 Vision</span></a> &#8211; Some more detailed elaboration of some points of the Pylearn2 vision.</li>
+<li><a class="reference internal" href="faq.html#faq"><span class="std std-ref">F.A.Q.</span></a> &#8211; Please read the FAQ section before posting to mailing-lists.</li>
+</ul>
+</div>
+<div class="section" id="community">
+<h1>Community<a class="headerlink" href="#community" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Register and post to <a class="reference external" href="https://groups.google.com/group/pylearn-users">pylearn-users</a> for general inquiries and support questions or if you want to talk to other users.</li>
+<li>Register and post to <a class="reference external" href="https://groups.google.com/group/pylearn-dev">pylearn-dev</a> if you want to talk to the developers. We don&#8217;t bite.</li>
+<li>Register to <a class="reference external" href="https://groups.google.com/group/pylearn2-github">pylearn2-github</a> if you want to receive an email for all changes to the GitHub
+repository.</li>
+<li>Register to <a class="reference external" href="http://groups.google.com/group/theano-buildbot">theano-buildbot</a> if you want to receive our daily
+buildbot email. This is the buildbot for Pylearn2, Theano, Pylearn
+and the Deep Learning Tutorial.</li>
+<li>Ask/view questions/answers about machine learning in general at
+<a class="reference external" href="http://metaoptimize.com/qa/tags/theano/">metaoptimize/qa/tags/theano</a> (it&#8217;s like stack overflow for machine learning)</li>
+<li>We use the <a class="reference external" href="https://github.com/lisa-lab/pylearn2/issues">github issues</a> to stay organized.</li>
+<li>Come visit us in Montreal!  Most of the developers are students in the <a class="reference external" href="http://www.iro.umontreal.ca/~lisa">LISA</a> group at the <a class="reference external" href="http://www.umontreal.ca">University of Montreal</a>.</li>
+</ul>
+</div>
+<div class="section" id="developer">
+<h1>Developer<a class="headerlink" href="#developer" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Register to everything listed in the Community section above</li>
+<li>Follow the LISA lab coding style guidelines:
+<a class="reference external" href="http://deeplearning.net/software/pylearn/v2_planning/API_coding_style.html">http://deeplearning.net/software/pylearn/v2_planning/API_coding_style.html</a></li>
+<li><a class="reference internal" href="api_change.html#api-change"><span class="std std-ref">Pylearn2 API Change Best Practices Guide</span></a> &#8211; the best practices guide you should follow when changing any API in the library</li>
+<li><a class="reference internal" href="internal/dev_start_guide.html#dev-start-guide"><span class="std std-ref">Developer Start Guide</span></a> &#8211; how to contribute code to Pylearn2</li>
+<li><a class="reference internal" href="internal/pull_request_checklist.html#pull-request-checklist"><span class="std std-ref">Pylearn2 Pull Request Checklist</span></a> &#8211; Things you should check your pull request for before review.</li>
+<li><a class="reference internal" href="internal/data_specs.html#data-specs"><span class="std std-ref">Data specifications, spaces, and sources</span></a> &#8211; the interface different elements use to request and provide data</li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="library/index.html" title="Library Documentation"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Pylearn2 dev documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2015, LISA lab.
+      Last updated on May 26, 2017.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.Theme by <a href="http://github.com/vkvn">vkvn</a>
+    </div>
+  </body>
+</html>

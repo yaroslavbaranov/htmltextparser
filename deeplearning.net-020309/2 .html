@@ -1,0 +1,771 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Reading List &#171; Deep Learning</title>
+<link rel="shortcut icon" href="http://deeplearning.net/wp-content/ata-images/new-favicon.ico" />
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="http://deeplearning.net/xmlrpc.php" />
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+<link rel='dns-prefetch' href='//cdn.datatables.net' />
+<link rel='dns-prefetch' href='//cdn.rawgit.com' />
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//www.google.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Deep Learning &raquo; Feed" href="http://deeplearning.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Deep Learning &raquo; Comments Feed" href="http://deeplearning.net/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Deep Learning &raquo; Reading List Comments Feed" href="http://deeplearning.net/reading-list/feed/" />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v6.2.4 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+<script type="text/javascript" data-cfasync="false">
+		var disableStr = 'ga-disable-UA-38366454-1';
+
+	/* Function to detect opted out users */
+	function __gaTrackerIsOptedOut() {
+		return document.cookie.indexOf(disableStr + '=true') > -1;
+	}
+
+	/* Disable tracking if the opt-out cookie exists. */
+	if ( __gaTrackerIsOptedOut() ) {
+		window[disableStr] = true;
+	}
+
+	/* Opt-out function */
+	function __gaTrackerOptout() {
+	  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+	  window[disableStr] = true;
+	}
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-38366454-1', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('send','pageview');
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/deeplearning.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.4"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='openid-css'  href='http://deeplearning.net/wp-content/plugins/openid/f/openid.css?ver=519' type='text/css' media='all' />
+<link rel='stylesheet' id='jquery-datatables-css'  href='//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css?ver=4.8.4' type='text/css' media='all' />
+<link rel='stylesheet' id='datatables-buttons-css'  href='//cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css?ver=4.8.4' type='text/css' media='all' />
+<link rel='stylesheet' id='datatables-select-css'  href='//cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css?ver=4.8.4' type='text/css' media='all' />
+<link rel='stylesheet' id='datatables-fixedheader-css'  href='//cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css?ver=4.8.4' type='text/css' media='all' />
+<link rel='stylesheet' id='datatables-fixedcolumns-css'  href='//cdn.datatables.net/fixedcolumns/3.2.2/css/fixedColumns.dataTables.min.css?ver=4.8.4' type='text/css' media='all' />
+<link rel='stylesheet' id='datatables-responsive-css'  href='//cdn.datatables.net/responsive/2.1.0/css/responsive.dataTables.min.css?ver=4.8.4' type='text/css' media='all' />
+<script type='text/javascript' src='http://deeplearning.net/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://deeplearning.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js?ver=1.7.1'></script>
+<script type='text/javascript' src='http://deeplearning.net/wp-content/plugins/bib2html/js/bib2html.js?ver=0.7'></script>
+<script type='text/javascript' src='http://deeplearning.net/wp-content/plugins/openid/f/openid.js?ver=519'></script>
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js?ver=1.9.0'></script>
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/effects.js?ver=1.9.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","is_debug_mode":"false","download_extensions":"","inbound_paths":"","home_url":"http:\/\/deeplearning.net","track_download_as":"event","internal_label":"int","hash_tracking":"false"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://deeplearning.net/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend.min.js?ver=6.2.4'></script>
+<script type='text/javascript' src='//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js?ver=4.8.4'></script>
+<script type='text/javascript' src='//cdn.datatables.net/buttons/1.2.1/js/dataTables.buttons.min.js?ver=4.8.4'></script>
+<script type='text/javascript' src='//cdn.datatables.net/buttons/1.2.1/js/buttons.colVis.min.js?ver=4.8.4'></script>
+<script type='text/javascript' src='//cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js?ver=4.8.4'></script>
+<script type='text/javascript' src='//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js?ver=4.8.4'></script>
+<script type='text/javascript' src='//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js?ver=4.8.4'></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js?ver=4.8.4'></script>
+<script type='text/javascript' src='//cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js?ver=4.8.4'></script>
+<script type='text/javascript' src='//cdn.datatables.net/select/1.2.0/js/dataTables.select.min.js?ver=4.8.4'></script>
+<script type='text/javascript' src='//cdn.datatables.net/fixedheader/3.1.2/js/dataTables.fixedHeader.min.js?ver=4.8.4'></script>
+<script type='text/javascript' src='//cdn.datatables.net/fixedcolumns/3.2.2/js/dataTables.fixedColumns.min.js?ver=4.8.4'></script>
+<script type='text/javascript' src='//cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js?ver=4.8.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var igsv_plugin_vars = {"lang_dir":"http:\/\/deeplearning.net\/wp-content\/plugins\/inline-google-spreadsheet-viewer\/languages","datatables_classes":".igsv-table:not(.no-datatables)","datatables_defaults_object":{"dom":"TC<'clear'>lfrtip"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://deeplearning.net/wp-content/plugins/inline-google-spreadsheet-viewer/igsv-datatables.js?ver=4.8.4'></script>
+<script type='text/javascript' src='//www.google.com/jsapi?ver=4.8.4'></script>
+<script type='text/javascript' src='http://deeplearning.net/wp-content/plugins/inline-google-spreadsheet-viewer/igsv-gvizcharts.js?ver=4.8.4'></script>
+<script type='text/javascript' src='http://deeplearning.net/wp-content/themes/atahualpa/js/DD_roundies.js?ver=0.0.2a'></script>
+<link rel='https://api.w.org/' href='http://deeplearning.net/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://deeplearning.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://deeplearning.net/wp-includes/wlwmanifest.xml" /> 
+<link rel="canonical" href="http://deeplearning.net/reading-list/" />
+<link rel='shortlink' href='http://deeplearning.net/?p=4' />
+<link rel="alternate" type="application/json+oembed" href="http://deeplearning.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdeeplearning.net%2Freading-list%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://deeplearning.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdeeplearning.net%2Freading-list%2F&#038;format=xml" />
+			<style type="text/css">
+			a.backlinks_title{
+				font-style:bold;
+				font-size:150%
+			}
+			a.backlinks_title:hover{
+				text-decoration:underline;
+			}
+			a.morelink{
+				font-style:italic;
+				font-size:75%
+				color:#888;
+				text-decoration:none;
+			}
+			ul.dates{
+				list-style-type:none;
+				margin:1.5em 0 2em 0;
+				border-top:1px solid #3D3D3D;
+			}
+			ul.dates .date{
+				color:#858585;
+				padding:0 1.5em 0 0;
+			}
+			</style><style type="text/css">
+
+div.bibtex {
+    display: none;
+}</style><script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//deeplearning.net/?wordfence_logHuman=1&hid=7A6FF527CB1C830ADEF984A588C87889');
+</script><style data-context="foundation-flickity-css">/*! Flickity v2.0.2
+http://flickity.metafizzy.co
+---------------------------------------------- */.flickity-enabled{position:relative}.flickity-enabled:focus{outline:0}.flickity-viewport{overflow:hidden;position:relative;height:100%}.flickity-slider{position:absolute;width:100%;height:100%}.flickity-enabled.is-draggable{-webkit-tap-highlight-color:transparent;tap-highlight-color:transparent;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.flickity-enabled.is-draggable .flickity-viewport{cursor:move;cursor:-webkit-grab;cursor:grab}.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down{cursor:-webkit-grabbing;cursor:grabbing}.flickity-prev-next-button{position:absolute;top:50%;width:44px;height:44px;border:none;border-radius:50%;background:#fff;background:hsla(0,0%,100%,.75);cursor:pointer;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.flickity-prev-next-button:hover{background:#fff}.flickity-prev-next-button:focus{outline:0;box-shadow:0 0 0 5px #09F}.flickity-prev-next-button:active{opacity:.6}.flickity-prev-next-button.previous{left:10px}.flickity-prev-next-button.next{right:10px}.flickity-rtl .flickity-prev-next-button.previous{left:auto;right:10px}.flickity-rtl .flickity-prev-next-button.next{right:auto;left:10px}.flickity-prev-next-button:disabled{opacity:.3;cursor:auto}.flickity-prev-next-button svg{position:absolute;left:20%;top:20%;width:60%;height:60%}.flickity-prev-next-button .arrow{fill:#333}.flickity-page-dots{position:absolute;width:100%;bottom:-25px;padding:0;margin:0;list-style:none;text-align:center;line-height:1}.flickity-rtl .flickity-page-dots{direction:rtl}.flickity-page-dots .dot{display:inline-block;width:10px;height:10px;margin:0 8px;background:#333;border-radius:50%;opacity:.25;cursor:pointer}.flickity-page-dots .dot.is-selected{opacity:1}</style><style data-context="foundation-slideout-css">.slideout-menu{position:fixed;left:0;top:0;bottom:0;right:auto;z-index:0;width:256px;overflow-y:auto;-webkit-overflow-scrolling:touch;display:none}.slideout-menu.pushit-right{left:auto;right:0}.slideout-panel{position:relative;z-index:1;will-change:transform}.slideout-open,.slideout-open .slideout-panel,.slideout-open body{overflow:hidden}.slideout-open .slideout-menu{display:block}.pushit{display:none}</style><style type="text/css">body{text-align:center;margin:0;padding:0;font-family:tahoma,arial,sans-serif;font-size:0.8em;color:#000000;background:#ffffff}a:link,a:visited,a:active{color:#666666;font-weight:bold;text-decoration:none;}a:hover{color:#CC0000;font-weight:bold;text-decoration:underline}ul,ol,dl,p,h1,h2,h3,h4,h5,h6{margin-top:10px;margin-bottom:10px;padding-top:0;padding-bottom:0;}ul ul,ul ol,ol ul,ol ol{margin-top:0;margin-bottom:0}code,pre{font-family:"Courier New",Courier,monospace;font-size:1em}pre{overflow:auto;word-wrap:normal;padding-bottom:1.5em;overflow-y:hidden;width:99%}abbr[title],acronym[title]{border-bottom:1px dotted}hr{display:block;height:2px;border:none;margin:0.5em auto;color:#cccccc;background-color:#cccccc}table{font-size:1em;}div.post,ul.commentlist li,ol.commentlist li{word-wrap:break-word;}pre,.wp_syntax{word-wrap:normal;}div#wrapper{text-align:center;margin-left:auto;margin-right:auto;display:block;width:99%}div#container{padding:0;width:auto;margin-left:auto;margin-right:auto;text-align:left;display:block}table#layout{font-size:100%;width:100%;table-layout:fixed}.colone{width:200px}.colone-inner{width:200px}.coltwo{width:100% }.colthree-inner{width:200px}.colthree{width:200px}div#header.full-width{width:100%}div#header,td#header{width:auto;padding:0}table#logoarea,table#logoarea tr,table#logoarea td{margin:0;padding:0;background:none;border:0}table#logoarea{width:100%;border-spacing:0px}img.logo{display:block;margin:0 10px 0 0}td.logoarea-logo{width:1%}h1.blogtitle,h2.blogtitle{ display:block;margin:0;padding:0;letter-spacing:-1px;line-height:1.0em;font-family:‘Lucida Sans Unicode’,‘Lucida Grande’,sans-serif;font-size:240%;font-smooth:always}h1.blogtitle a:link,h1.blogtitle a:visited,h1.blogtitle a:active,h2.blogtitle a:link,h2.blogtitle a:visited,h2.blogtitle a:active{ text-decoration:none;color:#666666;font-weight:bold;font-smooth:always}h1.blogtitle a:hover,h2.blogtitle a:hover{ text-decoration:none;color:#000000;font-weight:bold}p.tagline{margin:0;padding:0;font-size:1.2em;font-weight:bold;color:#666666}td.feed-icons{white-space:nowrap;}div.rss-box{height:1%;display:block;padding:10px 0 10px 10px;margin:0;width:280px}a.comments-icon{height:22px;line-height:22px;margin:0 5px 0 5px;padding-left:22px;display:block;text-decoration:none;float:right;white-space:nowrap}a.comments-icon:link,a.comments-icon:active,a.comments-icon:visited{background:transparent url(http://deeplearning.net/wp-content/themes/atahualpa/images/comment-gray.png) no-repeat scroll center left}a.comments-icon:hover{background:transparent url(http://deeplearning.net/wp-content/themes/atahualpa/images/comment.png) no-repeat scroll center left}a.posts-icon{height:22px;line-height:22px;margin:0 5px 0 0;padding-left:20px;display:block;text-decoration:none;float:right;white-space:nowrap}a.posts-icon:link,a.posts-icon:active,a.posts-icon:visited{background:transparent url(http://deeplearning.net/wp-content/themes/atahualpa/images/rss-gray.png) no-repeat scroll center left}a.posts-icon:hover{background:transparent url(http://deeplearning.net/wp-content/themes/atahualpa/images/rss.png) no-repeat scroll center left}a.email-icon{height:22px;line-height:22px;margin:0 5px 0 5px;padding-left:24px;display:block;text-decoration:none;float:right;white-space:nowrap}a.email-icon:link,a.email-icon:active,a.email-icon:visited{background:transparent url(http://deeplearning.net/wp-content/themes/atahualpa/images/email-gray.png) no-repeat scroll center left}a.email-icon:hover{background:transparent url(http://deeplearning.net/wp-content/themes/atahualpa/images/email.png) no-repeat scroll center left}td.search-box{height:1%}div.searchbox{height:35px;border:1px dashed #cccccc;border-bottom:0;width:200px;margin:0;padding:0}div.searchbox-form{margin:5px 10px 5px 10px}div.horbar1,div.horbar2{font-size:1px;clear:both;display:block;position:relative;padding:0;margin:0}div.horbar1{height:5px;background:#ffffff;border-top:dashed 1px #cccccc}div.horbar2{height:5px;background:#ffffff;border-bottom:dashed 1px #cccccc}div.header-image-container-pre{position:relative;margin:0;padding:0;height:100px;}div.header-image-container{position:relative;margin:0;padding:0;height:100px;}div.codeoverlay{position:absolute;top:0;left:0;width:100%;height:100%}div.opacityleft{position:absolute;z-index:2;top:0;left:0;background-color:#FFFFFF;height:100px;width:200px;filter:alpha(opacity=40);opacity:.40}div.opacityright{position:absolute;z-index:2;top:0;right:0;background-color:#FFFFFF;height:100px;width:200px;filter:alpha(opacity=40);opacity:.40}a.divclick:link,a.divclick:visited,a.divclick:active,a.divclick:hover{width:100%;height:100%;display:block;text-decoration:none}td#left{vertical-align:top;border-right:dashed 1px #CCCCCC;padding:10px 10px 10px 10px;background:#ffffff}td#left-inner{vertical-align:top;border-right:dashed 1px #CCCCCC;padding:10px 10px 10px 10px;background:#ffffff}td#right{vertical-align:top;border-left:dashed 1px #CCCCCC;padding:10px 10px 10px 10px;background:#ffffff}td#right-inner{vertical-align:top;border-left:dashed 1px #CCCCCC;padding:10px 10px 10px 10px;background:#ffffff}td#middle{vertical-align:top;width:100%;padding:10px 15px}div#footer.full-width{width:100%}div#footer,td#footer{width:auto;background-color:#ffffff;border-top:dashed 1px #cccccc;padding:10px;text-align:center;color:#777777;font-size:95%}div#footer a:link,div#footer a:visited,div#footer a:active,td#footer a:link,td#footer a:visited,td#footer a:active{text-decoration:none;color:#777777;font-weight:normal}div#footer a:hover,td#footer a:hover{text-decoration:none;color:#777777;font-weight:normal}div.widget{display:block;width:auto;margin:0 0 15px 0}div.widget-title{display:block;width:auto}div.widget-title h3,td#left h3.tw-widgettitle,td#right h3.tw-widgettitle,td#left ul.tw-nav-list,td#right ul.tw-nav-list{padding:0;margin:0;font-size:1.6em;font-weight:bold}div.widget ul,div.textwidget{display:block;width:auto}div.widget select{width:98%;margin-top:5px;}div.widget ul{list-style-type:none;margin:0;padding:0;width:auto}div.widget ul li{display:block;margin:2px 0 2px 0px;padding:0 0 0 5px;border-left:solid 7px #cccccc}div.widget ul li:hover,div.widget ul li.sfhover{display:block;width:auto;border-left:solid 7px #000000;}div.widget ul li ul li{margin:2px 0 2px 5px;padding:0 0 0 5px;border-left:solid 7px #cccccc;}div.widget ul li ul li:hover,div.widget ul li ul li.sfhover{border-left:solid 7px #000000;}div.widget ul li ul li ul li{margin:2px 0 2px 5px;padding:0 0 0 5px;border-left:solid 7px #cccccc;}div.widget ul li ul li ul li:hover,div.widget ul li ul li ul li.sfhover{border-left:solid 7px #000000;}div.widget a:link,div.widget a:visited,div.widget a:active,div.widget td a:link,div.widget td a:visited,div.widget td a:active,div.widget ul li a:link,div.widget ul li a:visited,div.widget ul li a:active{text-decoration:none;font-weight:normal;color:#666666;font-weight:normal;}div.widget ul li ul li a:link,div.widget ul li ul li a:visited,div.widget ul li ul li a:active{color:#666666;font-weight:normal;}div.widget ul li ul li ul li a:link,div.widget ul li ul li ul li a:visited,div.widget ul li ul li ul li a:active{color:#666666;font-weight:normal;}div.widget a:hover,div.widget ul li a:hover{color:#000000;}div.widget ul li ul li a:hover{color:#000000;}div.widget ul li ul li ul li a:hover{color:#000000;}div.widget ul li a:link,div.widget ul li a:visited,div.widget ul li a:active,div.widget ul li a:hover{display:inline}* html div.widget ul li a:link,* html div.widget ul li a:visited,* html div.widget ul li a:active,* html div.widget ul li a:hover{height:1%; } div.widget_nav_menu ul li,div.widget_pages ul li,div.widget_categories ul li{border-left:0 !important;padding:0 !important}div.widget_nav_menu ul li a:link,div.widget_nav_menu ul li a:visited,div.widget_nav_menu ul li a:active,div.widget_pages ul li a:link,div.widget_pages ul li a:visited,div.widget_pages ul li a:active,div.widget_categories ul li a:link,div.widget_categories ul li a:visited,div.widget_categories ul li a:active{padding:0 0 0 5px;border-left:solid 7px #cccccc}div.widget_nav_menu ul li a:hover,div.widget_pages ul li a:hover,div.widget_categories ul li a:hover{border-left:solid 7px #000000;}div.widget_nav_menu ul li ul li a:link,div.widget_nav_menu ul li ul li a:visited,div.widget_nav_menu ul li ul li a:active,div.widget_pages ul li ul li a:link,div.widget_pages ul li ul li a:visited,div.widget_pages ul li ul li a:active,div.widget_categories ul li ul li a:link,div.widget_categories ul li ul li a:visited,div.widget_categories ul li ul li a:active{padding:0 0 0 5px;border-left:solid 7px #cccccc}div.widget_nav_menu ul li ul li a:hover,div.widget_pages ul li ul li a:hover,div.widget_categories ul li ul li a:hover{border-left:solid 7px #000000;}div.widget_nav_menu ul li ul li ul li a:link,div.widget_nav_menu ul li ul li ul li a:visited,div.widget_nav_menu ul li ul li ul li a:active,div.widget_pages ul li ul li ul li a:link,div.widget_pages ul li ul li ul li a:visited,div.widget_pages ul li ul li ul li a:active,div.widget_categories ul li ul li ul li a:link,div.widget_categories ul li ul li ul li a:visited,div.widget_categories ul li ul li ul li a:active{padding:0 0 0 5px;border-left:solid 7px #cccccc}div.widget_nav_menu ul li ul li ul li a:hover,div.widget_pages ul li ul li ul li a:hover,div.widget_categories ul li ul li ul li a:hover{border-left:solid 7px #000000;}div.widget_nav_menu ul li a:link,div.widget_nav_menu ul li a:active,div.widget_nav_menu ul li a:visited,div.widget_nav_menu ul li a:hover,div.widget_pages ul li a:link,div.widget_pages ul li a:active,div.widget_pages ul li a:visited,div.widget_pages ul li a:hover{display:block !important}div.widget_categories ul li a:link,div.widget_categories ul li a:active,div.widget_categories ul li a:visited,div.widget_categories ul li a:hover{display:inline !important}table.subscribe{width:100%}table.subscribe td.email-text{padding:0 0 5px 0;vertical-align:top}table.subscribe td.email-field{padding:0;width:100%}table.subscribe td.email-button{padding:0 0 0 5px}table.subscribe td.post-text{padding:7px 0 0 0;vertical-align:top}table.subscribe td.comment-text{padding:7px 0 0 0;vertical-align:top}div.post,div.page{display:block;margin:0 0 30px 0}div.sticky{background:#eee url(http://deeplearning.net/wp-content/themes/atahualpa/images/sticky.gif) 99% 5% no-repeat;border:dashed 1px #cccccc;padding:10px}div.post-kicker{margin:0 0 5px 0}div.post-kicker a:link,div.post-kicker a:visited,div.post-kicker a:active{color:#000000;text-decoration:none;text-transform:uppercase}div.post-kicker a:hover{color:#cc0000}div.post-headline{}div.post-headline h1,div.post-headline h2{ margin:0; padding:0;padding:0;margin:0}div.post-headline h2 a:link,div.post-headline h2 a:visited,div.post-headline h2 a:active,div.post-headline h1 a:link,div.post-headline h1 a:visited,div.post-headline h1 a:active{color:#666666;text-decoration:none}div.post-headline h2 a:hover,div.post-headline h1 a:hover{color:#000000;text-decoration:none}div.post-byline{margin:5px 0 10px 0}div.post-byline a:link,div.post-byline a:visited,div.post-byline a:active{}div.post-byline a:hover{}div.post-bodycopy{}div.post-bodycopy p{margin:1em 0;padding:0;display:block}div.post-pagination{}div.post-footer{clear:both;display:block;margin:0;padding:5px;background:#eeeeee;color:#666;line-height:18px}div.post-footer a:link,div.post-footer a:visited,div.post-footer a:active{color:#333;font-weight:normal;text-decoration:none}div.post-footer a:hover{color:#333;font-weight:normal;text-decoration:underline}div.post-kicker img,div.post-byline img,div.post-footer img{border:0;padding:0;margin:0 0 -1px 0;background:none}span.post-ratings{display:inline-block;width:auto;white-space:nowrap}div.navigation-top{margin:0 0 10px 0;padding:0 0 10px 0;border-bottom:dashed 1px #cccccc}div.navigation-middle{margin:10px 0 20px 0;padding:10px 0 10px 0;border-top:dashed 1px #cccccc;border-bottom:dashed 1px #cccccc}div.navigation-bottom{margin:20px 0 0 0;padding:10px 0 0 0;border-top:dashed 1px #cccccc}div.navigation-comments-above{margin:0 0 10px 0;padding:5px 0 5px 0}div.navigation-comments-below{margin:0 0 10px 0;padding:5px 0 5px 0}div.older{float:left;width:48%;text-align:left;margin:0;padding:0}div.newer{float:right;width:48%;text-align:right;margin:0;padding:0;}div.older-home{float:left;width:44%;text-align:left;margin:0;padding:0}div.newer-home{float:right;width:44%;text-align:right;margin:0;padding:0;}div.home{float:left;width:8%;text-align:center;margin:0;padding:0}form,.feedburner-email-form{margin:0;padding:0;}fieldset{border:1px solid #cccccc;width:auto;padding:0.35em 0.625em 0.75em;display:block;}legend{color:#000000;background:#f4f4f4;border:1px solid #cccccc;padding:2px 6px;margin-bottom:15px;}form p{margin:5px 0 0 0;padding:0;}div.xhtml-tags p{margin:0}label{margin-right:0.5em;font-family:arial;cursor:pointer;}input.text,input.textbox,input.password,input.file,input.TextField,textarea{padding:3px;color:#000000;border-top:solid 1px #333333;border-left:solid 1px #333333;border-right:solid 1px #999999;border-bottom:solid 1px #cccccc;background:url(http://deeplearning.net/wp-content/themes/atahualpa/images/inputbackgr.gif) top left no-repeat}textarea{width:96%;}input.inputblur{color:#777777;width:95%}input.inputfocus{color:#000000;width:95%}input.highlight,textarea.highlight{background:#e8eff7;border-color:#37699f}.button,.Button,input[type=submit]{padding:0 2px;height:24px;line-height:16px;background-color:#777777;color:#ffffff;border:solid 2px #555555;font-weight:bold}input.buttonhover{padding:0 2px;cursor:pointer;background-color:#6b9c6b;color:#ffffff;border:solid 2px #496d49}form#commentform input#submit{ padding:0 .25em; overflow:visible}form#commentform input#submit[class]{width:auto}form#commentform input#submit{padding:4px 10px 4px 10px;font-size:1.2em;line-height:1.5em;height:36px}table.searchform{width:100%}table.searchform td.searchfield{padding:0;width:100%}table.searchform td.searchbutton{padding:0 0 0 5px}table.searchform td.searchbutton input{padding:0 0 0 5px}blockquote{height:1%;display:block;clear:both;color:#555555;padding:1em 1em;background:#f4f4f4;border:solid 1px #e1e1e1}blockquote blockquote{height:1%;display:block;clear:both;color:#444444;padding:1em 1em;background:#e1e1e1;border:solid 1px #d3d3d3}div.post table{border-collapse:collapse;margin:10px 0}div.post table caption{width:auto;margin:0 auto;background:#eeeeee;border:#999999;padding:4px 8px;color:#666666}div.post table th{background:#888888;color:#ffffff;font-weight:bold;font-size:90%;padding:4px 8px;border:solid 1px #ffffff;text-align:left}div.post table td{padding:4px 8px;background-color:#ffffff;border-bottom:1px solid #dddddd;text-align:left}div.post table tfoot td{}div.post table tr.alt td{background:#f4f4f4}div.post table tr.over td{background:#e2e2e2}#calendar_wrap{padding:0;border:none}table#wp-calendar{width:100%;font-size:90%;border-collapse:collapse;background-color:#ffffff;margin:0 auto}table#wp-calendar caption{width:auto;background:#eeeeee;border:none;padding:3px;margin:0 auto;font-size:1em}table#wp-calendar th{border:solid 1px #eeeeee;background-color:#999999;color:#ffffff;font-weight:bold;padding:2px;text-align:center}table#wp-calendar td{padding:0;line-height:18px;background-color:#ffffff;border:1px solid #dddddd;text-align:center}table#wp-calendar tfoot td{border:solid 1px #eeeeee;background-color:#eeeeee}table#wp-calendar td a{display:block;background-color:#eeeeee;width:100%;height:100%;padding:0}div#respond{margin:25px 0;padding:25px;background:#eee;-moz-border-radius:8px;-khtml-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}p.thesetags{margin:10px 0}h3.reply,h3#reply-title{margin:0;padding:0 0 10px 0}ol.commentlist{margin:15px 0 25px 0;list-style-type:none;padding:0;display:block;border-top:dotted 1px #cccccc}ol.commentlist li{padding:15px 10px;display:block;height:1%;margin:0;background-color:#ffffff;border-bottom:dotted 1px #cccccc}ol.commentlist li.alt{display:block;height:1%;background-color:#eeeeee;border-bottom:dotted 1px #cccccc}ol.commentlist li.authorcomment{display:block;height:1%;background-color:#ffecec}ol.commentlist span.authorname{font-weight:bold;font-size:110%}ol.commentlist span.commentdate{color:#666666;font-size:90%;margin-bottom:5px;display:block}ol.commentlist span.editcomment{display:block}ol.commentlist li p{margin:2px 0 5px 0}div.comment-number{float:right;font-size:2em;line-height:2em;font-family:georgia,serif;font-weight:bold;color:#ddd;margin:-10px 0 0 0;position:relative;height:1%}div.comment-number a:link,div.comment-number a:visited,div.comment-number a:active{color:#ccc}textarea#comment{width:98%;margin:10px 0;display:block}ul.commentlist{margin:15px 0 15px 0;list-style-type:none;padding:0;display:block;border-top:dotted 1px #cccccc}ul.commentlist ul{margin:0;border:none;list-style-type:none;padding:0}ul.commentlist li{padding:0; margin:0;display:block;clear:both;height:1%;}ul.commentlist ul.children li{ margin-left:30px}ul.commentlist div.comment-container{padding:10px;margin:0}ul.children div.comment-container{background-color:transparent;border:dotted 1px #ccc;padding:10px;margin:0 10px 8px 0; border-radius:5px}ul.children div.bypostauthor{}ul.commentlist li.thread-even{background-color:#ffffff;border-bottom:dotted 1px #cccccc}ul.commentlist li.thread-odd{background-color:#eeeeee;border-bottom:dotted 1px #cccccc}ul.commentlist div.bypostauthor{background-color:#ffecec}ul.children div.bypostauthor{border:dotted 1px #ffbfbf}ul.commentlist span.authorname{font-size:110%}div.comment-meta a:link,div.comment-meta a:visited,div.comment-meta a:active,div.comment-meta a:hover{font-weight:normal}div#cancel-comment-reply{margin:-5px 0 10px 0}div.comment-number{float:right;font-size:2em;line-height:2em;font-family:georgia,serif;font-weight:bold;color:#ddd;margin:-10px 0 0 0;position:relative;height:1%}div.comment-number a:link,div.comment-number a:visited,div.comment-number a:active{color:#ccc}.page-numbers{padding:2px 6px;border:solid 1px #000000;border-radius:6px}span.current{background:#ddd}a.prev,a.next{border:none}a.page-numbers:link,a.page-numbers:visited,a.page-numbers:active{text-decoration:none;color:#666666;border-color:#666666}a.page-numbers:hover{text-decoration:none;color:#CC0000;border-color:#CC0000}div.xhtml-tags{display:none}abbr em{border:none !important;border-top:dashed 1px #aaa !important;display:inline-block !important;background:url(http://deeplearning.net/wp-content/themes/atahualpa/images/commentluv.gif) 0% 90% no-repeat;margin-top:8px;padding:5px 5px 2px 20px !important;font-style:normal}p.subscribe-to-comments{margin-bottom:10px}div#gsHeader{display:none;}div.g2_column{margin:0 !important;width:100% !important;font-size:1.2em}div#gsNavBar{border-top-width:0 !important}p.giDescription{font-size:1.2em;line-height:1 !important}p.giTitle{margin:0.3em 0 !important;font-size:1em;font-weight:normal;color:#666}div#wp-email img{border:0;padding:0}div#wp-email input,div#wp-email textarea{margin-top:5px;margin-bottom:2px}div#wp-email p{margin-bottom:10px}input#wp-email-submit{ padding:0; font-size:30px; height:50px; line-height:50px; overflow:visible;}img.WP-EmailIcon{ vertical-align:text-bottom !important}.tw-accordion .tw-widgettitle,.tw-accordion .tw-widgettitle:hover,.tw-accordion .tw-hovered,.tw-accordion .selected,.tw-accordion .selected:hover{ background:transparent !important; background-image:none !important}.tw-accordion .tw-widgettitle span{ padding-left:0 !important}.tw-accordion h3.tw-widgettitle{border-bottom:solid 1px #ccc}.tw-accordion h3.selected{border-bottom:none}td#left .without_title,td#right .without_title{ margin-top:0;margin-bottom:0}ul.tw-nav-list{border-bottom:solid 1px #999;display:block;margin-bottom:5px !important}td#left ul.tw-nav-list li,td#right ul.tw-nav-list li{padding:0 0 1px 0;margin:0 0 -1px 5px; border:solid 1px #ccc;border-bottom:none;border-radius:5px;border-bottom-right-radius:0;border-bottom-left-radius:0;background:#eee}td#left ul.tw-nav-list li.ui-tabs-selected,td#right ul.tw-nav-list li.ui-tabs-selected{ background:none;border:solid 1px #999;border-bottom:solid 1px #fff !important}ul.tw-nav-list li a:link,ul.tw-nav-list li a:visited,ul.tw-nav-list li a:active,ul.tw-nav-list li a:hover{padding:0 8px !important;background:none;border-left:none !important;outline:none}td#left ul.tw-nav-list li.ui-tabs-selected a,td#left li.ui-tabs-selected a:hover,td#right ul.tw-nav-list li.ui-tabs-selected a,td#right li.ui-tabs-selected a:hover{ color:#000000; text-decoration:none;font-weight:bold;background:none !important;outline:none}td#left .ui-tabs-panel,td#right .ui-tabs-panel{ margin:0; padding:0}img{border:0}#dbem-location-map img{ background:none !important}.post img{padding:0px;border:solid 0px #dddddd;background-color:#f3f3f3;-moz-border-radius:0px;-khtml-border-radius:0px;-webkit-border-radius:0px;border-radius:0px}.post img.size-full{max-width:96%;width:auto;margin:5px 0 5px 0}div.post img[class~=size-full]{height:auto;}.post img.alignleft{float:left;margin:10px 10px 5px 0;}.post img.alignright{float:right;margin:10px 0 5px 10px;}.post img.aligncenter{display:block;margin:10px auto}.aligncenter,div.aligncenter{ display:block; margin-left:auto; margin-right:auto}.alignleft,div.alignleft{float:left;margin:10px 10px 5px 0}.alignright,div.alignright{ float:right; margin:10px 0 5px 10px}div.archives-page img{border:0;padding:0;background:none;margin-bottom:0;vertical-align:-10%}.wp-caption{max-width:96%;width:auto 100%;height:auto;display:block;border:0px solid #dddddd;text-align:center;background-color:#f3f3f3;padding-top:0px;margin:0px 0 0 0;-moz-border-radius:0px;-khtml-border-radius:0px;-webkit-border-radius:0px;border-radius:0px}* html .wp-caption{height:100%;}.wp-caption img{ margin:0 !important; padding:0 !important; border:0 none !important}.wp-caption-text,.wp-caption p.wp-caption-text{font-size:0.8em;line-height:13px;padding:2px 4px 5px;margin:0;color:#666666}img.wp-post-image{float:left;border:0;padding:0;background:none;margin:0 10px 5px 0}img.wp-smiley{ float:none;border:none !important;margin:0 1px -1px 1px;padding:0 !important;background:none !important}img.avatar{float:left;display:block;margin:0 8px 1px 0;padding:3px;border:solid 1px #ddd;background-color:#f3f3f3;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}#comment_quicktags{text-align:left;padding:10px 0 2px 0;display:block}#comment_quicktags input.ed_button{background:#f4f4f4;border:2px solid #cccccc;color:#444444;margin:2px 4px 2px 0;width:auto;padding:0 4px;height:24px;line-height:16px}#comment_quicktags input.ed_button_hover{background:#dddddd;border:2px solid #666666;color:#000000;margin:2px 4px 2px 0;width:auto;padding:0 4px;height:24px;line-height:16px;cursor:pointer}#comment_quicktags #ed_strong{font-weight:bold}#comment_quicktags #ed_em{font-style:italic}@media print{body{background:white;color:black;margin:0;font-size:10pt !important;font-family:arial,sans-serif;}div.post-footer{line-height:normal !important;color:#555 !important;font-size:9pt !important}a:link,a:visited,a:active,a:hover{text-decoration:underline !important;color:#000}h2{color:#000;font-size:14pt !important;font-weight:normal !important}h3{color:#000;font-size:12pt !important;}#header,#footer,.colone,.colone-inner,.colthree-inner,.colthree,.navigation,.navigation-top,.navigation-middle,.navigation-bottom,.wp-pagenavi-navigation,#comment,#respond,.remove-for-print{display:none}td#left,td#right,td#left-inner,td#right-inner{width:0;display:none}td#middle{width:100% !important;display:block}*:lang(en) td#left{ display:none}*:lang(en) td#right{ display:none}*:lang(en) td#left-inner{ display:none}*:lang(en) td#right-inner{ display:none}td#left:empty{ display:none}td#right:empty{ display:none}td#left-inner:empty{ display:none}td#right-inner:empty{ display:none}}ul.rMenu,ul.rMenu ul,ul.rMenu li,ul.rMenu a{display:block;margin:0;padding:0}ul.rMenu,ul.rMenu li,ul.rMenu ul{list-style:none}ul.rMenu ul{display:none}ul.rMenu li{position:relative;z-index:1}ul.rMenu li:hover{z-index:999}ul.rMenu li:hover > ul{display:block;position:absolute}ul.rMenu li:hover{background-position:0 0} ul.rMenu-hor li{float:left;width:auto}ul.rMenu-hRight li{float:right}ul.sub-menu li,ul.rMenu-ver li{float:none}div#menu1 ul.sub-menu,div#menu1 ul.sub-menu ul,div#menu1 ul.rMenu-ver,div#menu1 ul.rMenu-ver ul{width:11em}div#menu2 ul.sub-menu,div#menu2 ul.sub-menu ul,div#menu2 ul.rMenu-ver,div#menu2 ul.rMenu-ver ul{width:11em}ul.rMenu-wide{width:100%}ul.rMenu-vRight{float:right}ul.rMenu-lFloat{float:left}ul.rMenu-noFloat{float:none}div.rMenu-center ul.rMenu{float:left;position:relative;left:50%}div.rMenu-center ul.rMenu li{position:relative;left:-50%}div.rMenu-center ul.rMenu li li{left:auto}ul.rMenu-hor ul{top:auto;right:auto;left:auto;margin-top:-1px}ul.rMenu-hor ul ul{margin-top:0;margin-left:0px}ul.sub-menu ul,ul.rMenu-ver ul{left:100%;right:auto;top:auto;top:0}ul.rMenu-vRight ul,ul.rMenu-hRight ul.sub-menu ul,ul.rMenu-hRight ul.rMenu-ver ul{left:-100%;right:auto;top:auto}ul.rMenu-hRight ul{left:auto;right:0;top:auto;margin-top:-1px}div#menu1 ul.rMenu{background:#ffffff;border:dashed 1px #cccccc}div#menu2 ul.rMenu{background:#777777;border:solid 1px #000000}div#menu1 ul.rMenu li a{border:dashed 1px #cccccc}div#menu2 ul.rMenu li a{border:solid 1px #000000}ul.rMenu-hor li{margin-bottom:-1px;margin-top:-1px;margin-left:-1px}ul#rmenu li{}ul#rmenu li ul li{}ul.rMenu-hor{padding-left:1px }ul.sub-menu li,ul.rMenu-ver li{margin-left:0;margin-top:-1px; }div#menu1 ul.sub-menu,div#menu1 ul.rMenu-ver{border-top:dashed 1px #cccccc}div#menu2 ul.sub-menu,div#menu2 ul.rMenu-ver{border-top:solid 1px #000000}div#menu1 ul.rMenu li a{padding:4px 5px}div#menu2 ul.rMenu li a{padding:4px 5px}div#menu1 ul.rMenu li a:link,div#menu1 ul.rMenu li a:hover,div#menu1 ul.rMenu li a:visited,div#menu1 ul.rMenu li a:active{text-decoration:none;margin:0;color:#777777;text-transform:uppercase;font:11px Arial,Verdana,sans-serif;}div#menu2 ul.rMenu li a:link,div#menu2 ul.rMenu li a:hover,div#menu2 ul.rMenu li a:visited,div#menu2 ul.rMenu li a:active{text-decoration:none;margin:0;color:#ffffff;text-transform:uppercase;font:11px Arial,Verdana,sans-serif;}div#menu1 ul.rMenu li{background-color:#ffffff}div#menu2 ul.rMenu li{background-color:#777777}div#menu1 ul.rMenu li:hover,div#menu1 ul.rMenu li.sfhover{background:#dddddd}div#menu2 ul.rMenu li:hover,div#menu2 ul.rMenu li.sfhover{background:#000000}div#menu1 ul.rMenu li.current-menu-item > a:link,div#menu1 ul.rMenu li.current-menu-item > a:active,div#menu1 ul.rMenu li.current-menu-item > a:hover,div#menu1 ul.rMenu li.current-menu-item > a:visited,div#menu1 ul.rMenu li.current_page_item > a:link,div#menu1 ul.rMenu li.current_page_item > a:active,div#menu1 ul.rMenu li.current_page_item > a:hover,div#menu1 ul.rMenu li.current_page_item > a:visited{background-color:#eeeeee;color:#000000}div#menu1 ul.rMenu li.current-menu-item a:link,div#menu1 ul.rMenu li.current-menu-item a:active,div#menu1 ul.rMenu li.current-menu-item a:hover,div#menu1 ul.rMenu li.current-menu-item a:visited,div#menu1 ul.rMenu li.current_page_item a:link,div#menu1 ul.rMenu li.current_page_item a:active,div#menu1 ul.rMenu li.current_page_item a:hover,div#menu1 ul.rMenu li.current_page_item a:visited,div#menu1 ul.rMenu li a:hover{background-color:#eeeeee;color:#000000}div#menu2 ul.rMenu li.current-menu-item > a:link,div#menu2 ul.rMenu li.current-menu-item > a:active,div#menu2 ul.rMenu li.current-menu-item > a:hover,div#menu2 ul.rMenu li.current-menu-item > a:visited,div#menu2 ul.rMenu li.current-cat > a:link,div#menu2 ul.rMenu li.current-cat > a:active,div#menu2 ul.rMenu li.current-cat > a:hover,div#menu2 ul.rMenu li.current-cat > a:visited{background-color:#cc0000;color:#ffffff}div#menu2 ul.rMenu li.current-menu-item a:link,div#menu2 ul.rMenu li.current-menu-item a:active,div#menu2 ul.rMenu li.current-menu-item a:hover,div#menu2 ul.rMenu li.current-menu-item a:visited,div#menu2 ul.rMenu li.current-cat a:link,div#menu2 ul.rMenu li.current-cat a:active,div#menu2 ul.rMenu li.current-cat a:hover,div#menu2 ul.rMenu li.current-cat a:visited,div#menu2 ul.rMenu li a:hover{background-color:#cc0000;color:#ffffff}div#menu1 ul.rMenu li.rMenu-expand a,div#menu1 ul.rMenu li.rMenu-expand li.rMenu-expand a,div#menu1 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand a,div#menu1 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,div#menu1 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,div#menu1 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,div#menu1 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,div#menu1 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,div#menu1 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,div#menu1 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a{padding-right:15px;padding-left:5px;background-repeat:no-repeat;background-position:100% 50%;background-image:url(http://deeplearning.net/wp-content/themes/atahualpa/images/expand-right.gif)}div#menu2 ul.rMenu li.rMenu-expand a,div#menu2 ul.rMenu li.rMenu-expand li.rMenu-expand a,div#menu2 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand a,div#menu2 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,div#menu2 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,div#menu2 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,div#menu2 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,div#menu2 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,div#menu2 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,div#menu2 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a{padding-right:15px;padding-left:5px;background-repeat:no-repeat;background-position:100% 50%;background-image:url(http://deeplearning.net/wp-content/themes/atahualpa/images/expand-right-white.gif)}ul.rMenu-vRight li.rMenu-expand a,ul.rMenu-vRight li.rMenu-expand li.rMenu-expand a,ul.rMenu-vRight li.rMenu-expand li.rMenu-expand li.rMenu-expand a,ul.rMenu-vRight li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,ul.rMenu-vRight li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,ul.rMenu-vRight li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,ul.rMenu-vRight li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,ul.rMenu-vRight li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,ul.rMenu-vRight li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,ul.rMenu-vRight li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,ul.rMenu-hRight li.rMenu-expand a,ul.rMenu-hRight li.rMenu-expand li.rMenu-expand a,ul.rMenu-hRight li.rMenu-expand li.rMenu-expand li.rMenu-expand a,ul.rMenu-hRight li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,ul.rMenu-hRight li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,ul.rMenu-hRight li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,ul.rMenu-hRight li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,ul.rMenu-hRight li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,ul.rMenu-hRight li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a,ul.rMenu-hRight li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand a{padding-right:5px;padding-left:20px;background-image:url(http://deeplearning.net/wp-content/themes/atahualpa/images/expand-left.gif);background-repeat:no-repeat;background-position:-5px 50%}div#menu1 ul.rMenu-hor li.rMenu-expand a{padding-left:5px;padding-right:15px !important;background-position:100% 50%;background-image:url(http://deeplearning.net/wp-content/themes/atahualpa/images/expand-down.gif)}div#menu2 ul.rMenu-hor li.rMenu-expand a{padding-left:5px;padding-right:15px !important;background-position:100% 50%;background-image:url(http://deeplearning.net/wp-content/themes/atahualpa/images/expand-down-white.gif)}div#menu1 ul.rMenu li.rMenu-expand li a,div#menu1 ul.rMenu li.rMenu-expand li.rMenu-expand li a,div#menu1 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li a,div#menu1 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li a,div#menu1 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li a{background-image:none;padding-right:5px;padding-left:5px}div#menu2 ul.rMenu li.rMenu-expand li a,div#menu2 ul.rMenu li.rMenu-expand li.rMenu-expand li a,div#menu2 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li a,div#menu2 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li a,div#menu2 ul.rMenu li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li.rMenu-expand li a{background-image:none;padding-right:5px;padding-left:5px}* html ul.rMenu{display:inline-block;display:block;position:relative;position:static}* html ul.rMenu ul{float:left;float:none}ul.rMenu ul{background-color:#fff}* html ul.sub-menu li,* html ul.rMenu-ver li,* html ul.rMenu-hor li ul.sub-menu li,* html ul.rMenu-hor li ul.rMenu-ver li{width:100%;float:left;clear:left}*:first-child+html ul.sub-menu > li:hover ul,*:first-child+html ul.rMenu-ver > li:hover ul{min-width:0}ul.rMenu li a{position:relative;min-width:0}* html ul.rMenu-hor li{width:6em;width:auto}* html div.rMenu-center{position:relative;z-index:1}html:not([lang*=""]) div.rMenu-center ul.rMenu li a:hover{height:100%}html:not([lang*=""]) div.rMenu-center ul.rMenu li a:hover{height:auto}* html ul.rMenu ul{display:block;position:absolute}* html ul.rMenu ul,* html ul.rMenu-hor ul,* html ul.sub-menu ul,* html ul.rMenu-ver ul,* html ul.rMenu-vRight ul,* html ul.rMenu-hRight ul.sub-menu ul,* html ul.rMenu-hRight ul.rMenu-ver ul,* html ul.rMenu-hRight ul{left:-10000px}* html ul.rMenu li.sfhover{z-index:999}* html ul.rMenu li.sfhover ul{left:auto}* html ul.rMenu li.sfhover ul ul,* html ul.rMenu li.sfhover ul ul ul{display:none}* html ul.rMenu li.sfhover ul,* html ul.rMenu li li.sfhover ul,* html ul.rMenu li li li.sfhover ul{display:block}* html ul.sub-menu li.sfhover ul,* html ul.rMenu-ver li.sfhover ul{left:60%}* html ul.rMenu-vRight li.sfhover ul,* html ul.rMenu-hRight ul.sub-menu li.sfhover ul* html ul.rMenu-hRight ul.rMenu-ver li.sfhover ul{left:-60%}* html ul.rMenu iframe{position:absolute;left:0;top:0;z-index:-1}* html ul.rMenu{margin-left:1px}* html ul.rMenu ul,* html ul.rMenu ul ul,* html ul.rMenu ul ul ul,* html ul.rMenu ul ul ul ul{margin-left:0}.clearfix:after{ content:".";display:block;height:0;clear:both;visibility:hidden}.clearfix{min-width:0;display:inline-block;display:block}* html .clearfix{height:1%;}.clearboth{clear:both;height:1%;font-size:1%;line-height:1%;display:block;padding:0;margin:0}h1{font-size:34px;line-height:1.2;margin:0.3em 0 10px;}h2{font-size:28px;line-height:1.3;margin:1em 0 .2em;}h3{font-size:24px;line-height:1.3;margin:1em 0 .2em;}h4{font-size:19px;margin:1.33em 0 .2em;}h5{font-size:1.3em;margin:1.67em 0;font-weight:bold;}h6{font-size:1.15em;margin:1.67em 0;font-weight:bold;}</style>
+<script type="text/javascript">
+//<![CDATA[
+
+
+
+/* JQUERY */
+jQuery(document).ready(function(){ 
+    
+   
+  
+
+	/* jQuery('ul#rmenu').superfish(); */
+	/* jQuery('ul#rmenu').superfish().find('ul').bgIframe({opacity:false}); */
+ 
+	/* For IE6 */
+	if (jQuery.browser.msie && /MSIE 6\.0/i.test(window.navigator.userAgent) && !/MSIE 7\.0/i.test(window.navigator.userAgent) && !/MSIE 8\.0/i.test(window.navigator.userAgent)) {
+
+		/* Max-width for images in IE6 */		
+		var centerwidth = jQuery("td#middle").width(); 
+		
+		/* Images without caption */
+		jQuery(".post img").each(function() { 
+			var maxwidth = centerwidth - 10 + 'px';
+			var imgwidth = jQuery(this).width(); 
+			var imgheight = jQuery(this).height(); 
+			var newimgheight = (centerwidth / imgwidth * imgheight) + 'px';	
+			if (imgwidth > centerwidth) { 
+				jQuery(this).css({width: maxwidth}); 
+				jQuery(this).css({height: newimgheight}); 
+			}
+		});
+		
+		/* Images with caption */
+		jQuery("div.wp-caption").each(function() { 
+			var captionwidth = jQuery(this).width(); 
+			var maxcaptionwidth = centerwidth + 'px';
+			var captionheight = jQuery(this).height();
+			var captionimgwidth =  jQuery("div.wp-caption img").width();
+			var captionimgheight =  jQuery("div.wp-caption img").height();
+			if (captionwidth > centerwidth) { 
+				jQuery(this).css({width: maxcaptionwidth}); 
+				var newcaptionheight = (centerwidth / captionwidth * captionheight) + 'px';
+				var newcaptionimgheight = (centerwidth / captionimgwidth * captionimgheight) + 'px';
+				jQuery(this).css({height: newcaptionheight}); 
+				jQuery("div.wp-caption img").css({height: newcaptionimgheight}); 
+				}
+		});
+		
+		/* sfhover for LI:HOVER support in IE6: */
+		jQuery("ul li").
+			hover( function() {
+					jQuery(this).addClass("sfhover")
+				}, 
+				function() {
+					jQuery(this).removeClass("sfhover")
+				} 
+			); 
+
+	/* End IE6 */
+	}
+	
+	
+	
+	/* Since 3.7.8: Auto resize videos (embed and iframe elements) 
+	TODO: Parse parent's dimensions only once per layout column, not per video
+	*/
+	function bfa_resize_video() {
+		jQuery('embed, iframe').each( function() {
+			var video = jQuery(this),
+			videoWidth = video.attr('width'); // use the attr here, not width() or css()
+			videoParent = video.parent(),
+			videoParentWidth = parseFloat( videoParent.css( 'width' ) ),
+			videoParentBorder = parseFloat( videoParent.css( 'border-left-width' ) ) 
+										+  parseFloat( videoParent.css( 'border-right-width' ) ),
+			videoParentPadding = parseFloat( videoParent.css( 'padding-left' ) ) 
+										+  parseFloat( videoParent.css( 'padding-right' ) ),
+			maxWidth = videoParentWidth - videoParentBorder - videoParentPadding;
+
+			if( videoWidth > maxWidth ) {
+				var videoHeight = video.attr('height'),
+				videoMaxHeight = ( maxWidth / videoWidth * videoHeight );
+				video.attr({ width: maxWidth, height: videoMaxHeight });
+			} 
+
+		});	
+	}
+	bfa_resize_video();
+	jQuery(window).resize( bfa_resize_video );
+
+		
+	jQuery(".post table tr").
+		mouseover(function() {
+			jQuery(this).addClass("over");
+		}).
+		mouseout(function() {
+			jQuery(this).removeClass("over");
+		});
+
+	
+	jQuery(".post table tr:even").
+		addClass("alt");
+
+	
+	jQuery("input.text, input.TextField, input.file, input.password, textarea").
+		focus(function () {  
+			jQuery(this).addClass("highlight"); 
+		}).
+		blur(function () { 
+			jQuery(this).removeClass("highlight"); 
+		})
+	
+	jQuery("input.inputblur").
+		focus(function () {  
+			jQuery(this).addClass("inputfocus"); 
+		}).
+		blur(function () { 
+			jQuery(this).removeClass("inputfocus"); 
+		})
+
+		
+
+	
+	jQuery("input.button, input.Button, input#submit").
+		mouseover(function() {
+			jQuery(this).addClass("buttonhover");
+		}).
+		mouseout(function() {
+			jQuery(this).removeClass("buttonhover");
+		});
+
+	/* toggle "you can use these xhtml tags" */
+	jQuery("a.xhtmltags").
+		click(function(){ 
+			jQuery("div.xhtml-tags").slideToggle(300); 
+		});
+
+	/* For the Tabbed Widgets plugin: */
+	jQuery("ul.tw-nav-list").
+		addClass("clearfix");
+
+		
+	
+});
+
+//]]>
+</script>
+
+<!--[if IE 6]>
+<script type="text/javascript">DD_roundies.addRule("a.posts-icon, a.comments-icon, a.email-icon, img.logo");</script>
+<![endif]-->
+<style>.ios7.web-app-mode.has-fixed header{ background-color: rgba(3,122,221,.88);}</style></head>
+<body class="page-template-default page page-id-4 page-parent" >
+
+<div id="wrapper">
+<div id="container">
+<table id="layout" border="0" cellspacing="0" cellpadding="0">
+<colgroup>
+<col class="colone" /><col class="coltwo" />
+<col class="colthree" /></colgroup> 
+
+
+	<tr>
+
+		<!-- Header -->
+		<td id="header" colspan="3">
+
+		<div id="menu1"><ul id="rmenu2" class="clearfix rMenu-hor rMenu">
+<li class="page_item"><a href="http://deeplearning.net/" title="Deep Learning"><span>Home</span></a></li>
+<li class="page_item page-item-2"><a href="http://deeplearning.net/"><span>About</span></a></li>
+<li class="rMenu-expand page_item page-item-4 page_item_has_children current_page_item"><a href="http://deeplearning.net/reading-list/"><span>Reading List</span></a>
+ <ul class="rMenu-ver">
+	<li class="page_item page-item-7"><a href="http://deeplearning.net/reading-list/tutorials/"><span>Tutorials</span></a></li>
+</ul>
+</li>
+<li class="page_item page-item-12"><a href="http://deeplearning.net/software_links/"><span>Software links</span></a></li>
+<li class="page_item page-item-13"><a href="http://deeplearning.net/blog/"><span>Blog</span></a></li>
+<li class="page_item page-item-29"><a href="http://deeplearning.net/demos/"><span>Demos</span></a></li>
+<li class="page_item page-item-31"><a href="http://deeplearning.net/datasets/"><span>Datasets</span></a></li>
+<li class="page_item page-item-132"><a href="http://deeplearning.net/events/"><span>Events</span></a></li>
+<li class="page_item page-item-157"><a href="http://deeplearning.net/bibliography/"><span>Bibliography</span></a></li>
+<li class="page_item page-item-216"><a href="http://deeplearning.net/deep-learning-research-groups-and-labs/"><span>Deep Learning Research Groups</span></a></li>
+<li class="rMenu-expand page_item page-item-4789 page_item_has_children"><a href="http://deeplearning.net/icml2013-workshop-competition/"><span>ICML 2013 Challenges in Representation Learning</span></a>
+ <ul class="rMenu-ver">
+	<li class="page_item page-item-7113"><a href="http://deeplearning.net/icml2013-workshop-competition/challenges/"><span>Challenges</span></a></li>
+	<li class="page_item page-item-7428"><a href="http://deeplearning.net/icml2013-workshop-competition/schedule/"><span>Schedule</span></a></li>
+</ul>
+</li>
+<li class="page_item page-item-5535"><a href="http://deeplearning.net/deep-learning-job-listings/"><span>Deep Learning Job Listings</span></a></li>
+<li class="page_item page-item-300589"><a href="http://deeplearning.net/startup-news/"><span>Startup News</span></a></li>
+</ul></div>
+ <table id="logoarea" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td rowspan="2" valign="middle" class="logoarea-logo"><a href="http://deeplearning.net/"><img class="logo" src="http://deeplearning.net/wp-content/ata-images/Deep_learning.png" alt="Deep Learning" /></a></td><td rowspan="2" valign="middle" class="logoarea-title"><h2 class="blogtitle"><a href="http://deeplearning.net/">Deep Learning</a></h2><p class="tagline">&#8230; moving beyond shallow machine learning since 2006!</p></td><td class="feed-icons" valign="middle" align="right"><div class="clearfix rss-box"><a class="comments-icon" href="http://deeplearning.net/comments/feed/" title="Subscribe to the COMMENTS feed">Comments</a><a class="posts-icon" href="http://deeplearning.net/feed/" title="Subscribe to the POSTS feed">Posts</a></div></td></tr><tr><td valign="bottom" class="search-box" align="right"><div class="searchbox">
+					<form method="get" class="searchform" action="http://deeplearning.net/">
+					<div class="searchbox-form"><input type="text" class="text inputblur" onfocus="this.value=''" 
+						value="" onblur="this.value=''" name="s" /></div>
+					</form>
+				</div>
+				</td></tr></table> <div class="horbar1">&nbsp;</div> <div id="imagecontainer-pre" class="header-image-container-pre">    <div id="imagecontainer" class="header-image-container" style="background: url('http://deeplearning.net/wp-content/themes/atahualpa/images/header/neurons.jpg') top center no-repeat;"></div><div class="codeoverlay"></div><div class="opacityleft">&nbsp;</div><div class="opacityright">&nbsp;</div></div> <div class="horbar2">&nbsp;</div>
+		</td>
+		<!-- / Header -->
+
+	</tr>
+	<!-- Main Body -->	
+	<tr id="bodyrow">
+
+				<!-- Left Sidebar -->
+		<td id="left">
+
+			<div id="archives-3" class="widget widget_archive"><div class="widget-title"><h3>Archives</h3></div>		<ul>
+			<li><a href='http://deeplearning.net/2016/07/'>July 2016</a></li>
+	<li><a href='http://deeplearning.net/2015/12/'>December 2015</a></li>
+	<li><a href='http://deeplearning.net/2015/11/'>November 2015</a></li>
+	<li><a href='http://deeplearning.net/2015/10/'>October 2015</a></li>
+	<li><a href='http://deeplearning.net/2015/09/'>September 2015</a></li>
+	<li><a href='http://deeplearning.net/2015/07/'>July 2015</a></li>
+	<li><a href='http://deeplearning.net/2014/11/'>November 2014</a></li>
+	<li><a href='http://deeplearning.net/2014/10/'>October 2014</a></li>
+	<li><a href='http://deeplearning.net/2014/09/'>September 2014</a></li>
+	<li><a href='http://deeplearning.net/2014/05/'>May 2014</a></li>
+	<li><a href='http://deeplearning.net/2014/04/'>April 2014</a></li>
+	<li><a href='http://deeplearning.net/2014/01/'>January 2014</a></li>
+	<li><a href='http://deeplearning.net/2013/12/'>December 2013</a></li>
+	<li><a href='http://deeplearning.net/2013/10/'>October 2013</a></li>
+	<li><a href='http://deeplearning.net/2013/09/'>September 2013</a></li>
+	<li><a href='http://deeplearning.net/2013/08/'>August 2013</a></li>
+	<li><a href='http://deeplearning.net/2013/07/'>July 2013</a></li>
+	<li><a href='http://deeplearning.net/2013/06/'>June 2013</a></li>
+	<li><a href='http://deeplearning.net/2013/05/'>May 2013</a></li>
+	<li><a href='http://deeplearning.net/2013/04/'>April 2013</a></li>
+	<li><a href='http://deeplearning.net/2013/03/'>March 2013</a></li>
+	<li><a href='http://deeplearning.net/2013/02/'>February 2013</a></li>
+	<li><a href='http://deeplearning.net/2013/01/'>January 2013</a></li>
+	<li><a href='http://deeplearning.net/2012/12/'>December 2012</a></li>
+	<li><a href='http://deeplearning.net/2012/01/'>January 2012</a></li>
+	<li><a href='http://deeplearning.net/2011/08/'>August 2011</a></li>
+	<li><a href='http://deeplearning.net/2011/06/'>June 2011</a></li>
+	<li><a href='http://deeplearning.net/2011/02/'>February 2011</a></li>
+	<li><a href='http://deeplearning.net/2010/12/'>December 2010</a></li>
+	<li><a href='http://deeplearning.net/2010/10/'>October 2010</a></li>
+	<li><a href='http://deeplearning.net/2010/04/'>April 2010</a></li>
+	<li><a href='http://deeplearning.net/2010/03/'>March 2010</a></li>
+	<li><a href='http://deeplearning.net/2010/01/'>January 2010</a></li>
+		</ul>
+		</div><div id="meta-4" class="widget widget_meta"><div class="widget-title"><h3>Meta</h3></div>			<ul>
+						<li><a href="http://deeplearning.net/wp-login.php">Log in</a></li>
+			<li><a href="http://deeplearning.net/feed/">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://deeplearning.net/comments/feed/">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>			</ul>
+			</div>
+		</td>
+		<!-- / Left Sidebar -->
+		
+				
+
+		<!-- Main Column -->
+		<td id="middle">
+
+    
+		
+		
+								<div class="post post-4 page type-page status-publish hentry odd" id="post-4">
+						<div class="post-headline">		<h1>Reading List</h1>
+		</div>				<div class="post-bodycopy clearfix"><p>List of reading lists and survey papers:</p>
+<ul>
+<li>
+<h3>Books</h3>
+<ul>
+<li><a href="http://www.iro.umontreal.ca/~bengioy/dlbook/">Deep Learning</a>, Yoshua Bengio, Ian Goodfellow, Aaron Courville, MIT Press, In preparation.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<h3>Review Papers</h3>
+<ul>
+<li> <a href="http://arxiv.org/abs/1206.5538">Representation Learning: A Review and New Perspectives</a>, Yoshua Bengio, Aaron Courville, Pascal Vincent, Arxiv, 2012.</li>
+<li>The monograph or review paper <a href="http://www.iro.umontreal.ca/~lisa/publications2/index.php/publications/show/239">Learning Deep Architectures for AI</a> (Foundations &amp; Trends in Machine Learning, 2009).</li>
+<li>Deep Machine Learning &#8211; A New Frontier in Artificial Intelligence Research &#8211; a <a href="http://www.ece.utk.edu/~itamar/Papers/DML_Arel_2010.pdf">survey paper</a> by Itamar Arel, Derek C. Rose, and Thomas P. Karnowski.</li>
+<li>Graves, A. (2012). <i>Supervised sequence labelling with recurrent neural networks</i>(Vol. 385). Springer.</li>
+<li>Schmidhuber, J. (2014). Deep Learning in Neural Networks: An Overview. 75 pages, 850+ references, <a href="http://arxiv.org/abs/1404.7828" target="_blank">http://arxiv.org/abs/1404.7828</a><wbr />, PDF &amp; LATEX source &amp; complete public BIBTEX file under <a href="http://www.idsia.ch/~juergen/deep-learning-overview.html" target="_blank">http://www.idsia.ch/~juergen/<wbr />deep-learning-overview.html</a>.</li>
+<li>LeCun, Yann, Yoshua Bengio, and Geoffrey Hinton. <a title="Deep Learning Review" href="https://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf">&#8220;Deep learning.&#8221;</a> <i>Nature</i> 521, no. 7553 (2015): 436-444.</li>
+</ul>
+</li>
+<li>
+<h3>Reinforcement Learning</h3>
+<ul>
+<li>
+<div id="gs_cit2" tabindex="0">Mnih, Volodymyr, Koray Kavukcuoglu, David Silver, Alex Graves, Ioannis Antonoglou, Daan Wierstra, and Martin Riedmiller. &#8220;Playing Atari with deep reinforcement learning.&#8221; <i>arXiv preprint arXiv:1312.5602</i> (2013).</div>
+</li>
+<li>Volodymyr Mnih, Nicolas Heess, Alex Graves, Koray Kavukcuoglu. &#8220;<a href="http://papers.nips.cc/paper/5542-recurrent-models-of-visual-attention.pdf">Recurrent Models of Visual Attention</a>&#8221; ArXiv e-print, 2014.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<h3>Computer Vision</h3>
+<ul>
+<li><a href="http://books.nips.cc/papers/files/nips25/NIPS2012_0534.pdf">ImageNet Classification with Deep Convolutional Neural Networks</a>, Alex Krizhevsky, Ilya Sutskever, Geoffrey E Hinton, NIPS 2012.</li>
+<li><a href="http://arxiv.org/abs/1409.4842">Going Deeper with Convolutions</a>, Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, Andrew Rabinovich, 19-Sept-2014.</li>
+<li><a href="http://yann.lecun.com/exdb/publis/pdf/farabet-pami-13.pdfhttp://">Learning Hierarchical Features for Scene Labeling</a>, Clement Farabet, Camille Couprie, Laurent Najman and Yann LeCun, IEEE Transactions on Pattern Analysis and Machine Intelligence, 2013.</li>
+<li><a href="http://yann.lecun.com/exdb/publis/pdf/koray-nips-10.pdf"> Learning Convolutional Feature Hierachies for Visual Recognition</a>, Koray Kavukcuoglu, Pierre Sermanet, Y-Lan Boureau, Karol Gregor, Michaël Mathieu and Yann LeCun, Advances in Neural Information Processing Systems (NIPS 2010), 23, 2010.</li>
+<li>Graves, Alex, et al. <a href="http://profs.info.uaic.ro/~ancai/DIP/articole/handwriting%20recognition_2008.pdf">&#8220;A novel connectionist system for unconstrained handwriting recognition.&#8221;</a> <i>Pattern Analysis and Machine Intelligence, IEEE Transactions on</i> 31.5 (2009): 855-868.</li>
+<li>Cireşan, D. C., Meier, U., Gambardella, L. M., &amp; Schmidhuber, J. (2010). <a href="http://arxiv.org/pdf/1003.0358">Deep, big, simple neural nets for handwritten digit recognition.</a> <i>Neural computation</i>, <i>22</i>(12), 3207-3220.</li>
+<li>Ciresan, Dan, Ueli Meier, and Jürgen Schmidhuber. <a href="http://arxiv.org/pdf/1202.2745">&#8220;Multi-column deep neural networks for image classification.&#8221; </a><i>Computer Vision and Pattern Recognition (CVPR), 2012 IEEE Conference on</i>. IEEE, 2012.</li>
+<li>Ciresan, D., Meier, U., Masci, J., &amp; Schmidhuber, J. (2011, July). <a href="http://www.idsia.ch/~masci/papers/2011_ijcnn.pdf">A committee of neural networks for traffic sign classification.</a> In <i>Neural Networks (IJCNN), The 2011 International Joint Conference on</i> (pp. 1918-1921). IEEE.</li>
+</ul>
+</li>
+<li>
+<h3>NLP and Speech</h3>
+<ul>
+<li><a href="http://www.hds.utc.fr/~bordesan/dokuwiki/lib/exe/fetch.php?id=en%3Apubli&amp;cache=cache&amp;media=en:bordes12aistats.pdf">Joint Learning of Words and Meaning Representations for Open-Text Semantic Parsing</a>, Antoine Bordes, Xavier Glorot, Jason Weston and Yoshua Bengio (2012), in: Proceedings of the 15th International Conference on Artificial Intelligence and Statistics (AISTATS)</li>
+<li><a href="http://www.google.ca/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;ved=0CDcQFjAA&amp;url=http%3A%2F%2Fnlp.stanford.edu%2Fpubs%2FSocherHuangPenningtonNgManning_NIPS2011.pdf&amp;ei=lOrQUKjWNMS8yAHwzYDYAQ&amp;usg=AFQjCNHGo9FDJKPaQVGSWzfIzsf6UiLXeQ&amp;bvm=bv.1355534169,d.aWc">Dynamic pooling and unfolding recursive autoencoders for paraphrase detection</a>. Socher, R., Huang, E. H., Pennington, J., Ng, A. Y., and Manning, C. D. (2011a).  In NIPS’2011.</li>
+<li><a href="http://nlp.stanford.edu/pubs/SocherPenningtonHuangNgManning_EMNLP2011.pdf">Semi-supervised recursive autoencoders for predicting sentiment distributions</a>. Socher, R., Pennington, J., Huang, E. H., Ng, A. Y., and Manning, C. D. (2011b).  In EMNLP’2011.</li>
+<li>Mikolov Tomáš: <a href="http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf">Statistical Language Models based on Neural Networks</a>. PhD thesis, Brno University of Technology, 2012.</li>
+<li>Graves, Alex, and Jürgen Schmidhuber. &#8220;<a href="http://www.researchgate.net/publication/7647316_Framewise_phoneme_classification_with_bidirectional_LSTM_and_other_neural_network_architectures/file/60b7d51704ddf9793d.pdf">Framewise phoneme classification with bidirectional LSTM and other neural network architectures.</a>&#8221; <i>Neural Networks</i> 18.5 (2005): 602-610.</li>
+<li>
+<div id="gs_cit2" tabindex="0">Mikolov, Tomas, Ilya Sutskever, Kai Chen, Greg S. Corrado, and Jeff Dean. <a href="http://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality">&#8220;Distributed representations of words and phrases and their compositionality</a>.&#8221; In <i>Advances in Neural Information Processing Systems</i>, pp. 3111-3119. 2013.</div>
+</li>
+<li>
+<div id="gs_cit2" tabindex="0">K. Cho, B. van Merrienboer, C. Gulcehre, D. Bahdanau, F. Bougares, H. Schwenk, Y. Bengio. <a style="color: #428bca;" href="http://arxiv.org/abs/1406.1078">Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation</a>. EMNLP 2014.</div>
+</li>
+<li><span style="color: #222222;">Sutskever, Ilya, Oriol Vinyals, and Quoc VV Le. &#8220;<a href="http://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf">Sequence to sequence learning with neural networks</a>.&#8221; </span><i style="color: #222222;">Advances in Neural Information Processing Systems</i><span style="color: #222222;">. 2014.</span></li>
+</ul>
+</li>
+<li>
+<h3>Disentangling Factors and Variations with Depth</h3>
+<ul>
+<li>
+<div id="gs_cit0">Goodfellow, Ian, et al. &#8220;Measuring invariances in deep networks.&#8221; <em>Advances in neural information processing systems</em> 22 (2009): 646-654.</div>
+</li>
+<li>
+<div id="gs_cit0">Bengio, Yoshua, et al. &#8220;Better Mixing via Deep Representations.&#8221; <em>arXiv preprint arXiv:1207.4404</em> (2012).</div>
+</li>
+<li><a title="All information on Glorot, Xavier" href="http://www.iro.umontreal.ca/%7Elisa/publications2/index.php/authors/show/333">Xavier Glorot</a>, <a title="All information on Bordes, Antoine" href="http://www.iro.umontreal.ca/%7Elisa/publications2/index.php/authors/show/358">Antoine Bordes</a> and <a title="All information on Bengio, Yoshua" href="http://www.iro.umontreal.ca/%7Elisa/publications2/index.php/authors/show/1">Yoshua Bengio</a>, <a title="View publication details" href="http://www.iro.umontreal.ca/%7Elisa/publications2/index.php/publications/show/494">Domain Adaptation for Large-Scale Sentiment Classification: A Deep Learning Approach</a>, in: Proceedings of the Twenty-eight International Conference on Machine Learning (ICML&#8217;11), pages 97-110, 2011.</li>
+</ul>
+</li>
+<li>
+<h3>Transfer Learning and domain adaptation</h3>
+<ul>
+<li>
+<div id="gs_cit0">Raina, Rajat, et al. &#8220;Self-taught learning: transfer learning from unlabeled data.&#8221; <em>Proceedings of the 24th international conference on Machine learning</em>. ACM, 2007.</div>
+</li>
+<li><a title="All information on Glorot, Xavier" href="http://www.iro.umontreal.ca/%7Elisa/publications2/index.php/authors/show/333">Xavier Glorot</a>, <a title="All information on Bordes, Antoine" href="http://www.iro.umontreal.ca/%7Elisa/publications2/index.php/authors/show/358">Antoine Bordes</a> and <a title="All information on Bengio, Yoshua" href="http://www.iro.umontreal.ca/%7Elisa/publications2/index.php/authors/show/1">Yoshua Bengio</a>, <a title="View publication details" href="http://www.iro.umontreal.ca/%7Elisa/publications2/index.php/publications/show/494">Domain Adaptation for Large-Scale Sentiment Classification: A Deep Learning Approach</a>, in: Proceedings of the Twenty-eight International Conference on Machine Learning (ICML&#8217;11), pages 97-110, 2011.</li>
+<li>R. Collobert, J. Weston, L. Bottou, M. Karlen, K. Kavukcuoglu and P. Kuksa. <strong>Natural Language Processing (Almost) from Scratch</strong>. <em>Journal of Machine Learning Research, 12:2493-2537, 2011</em>.</li>
+<li>
+<div id="gs_cit0">Mesnil, Grégoire, et al. &#8220;Unsupervised and transfer learning challenge: a deep learning approach.&#8221; <em>Unsupervised and Transfer Learning Workshop, in conjunction with ICML</em>. 2011.</div>
+</li>
+<li>Ciresan, D. C., Meier, U., &amp; Schmidhuber, J. (2012, June). <a href="http://www.idsia.ch/~ciresan/data/ijcnn2012_v9.pdf">Transfer learning for Latin and Chinese characters with deep neural networks</a>. In <i>Neural Networks (IJCNN), The 2012 International Joint Conference on</i> (pp. 1-6). IEEE.</li>
+<li>Goodfellow, Ian, Aaron Courville, and Yoshua Bengio. &#8220;<a href="http://arxiv.org/pdf/1206.6407">Large-Scale Feature Learning With Spike-and-Slab Sparse Coding.</a>&#8221; <em>ICML 2012</em>.</li>
+</ul>
+</li>
+<li>
+<h3>Practical Tricks and Guides</h3>
+<ul>
+<li><a href="http://arxiv.org/pdf/1207.0580v1">&#8220;Improving neural networks by preventing co-adaptation of feature detectors.&#8221;</a> Hinton, Geoffrey E., et al.  arXiv preprint arXiv:1207.0580 (2012).</li>
+<li><a href="http://arxiv.org/abs/1206.5533">Practical recommendations for gradient-based training of deep architectures</a>, Yoshua Bengio, U. Montreal, arXiv report:1206.5533, Lecture Notes in Computer Science Volume 7700, Neural Networks: Tricks of the Trade Second Edition, Editors: Grégoire Montavon, Geneviève B. Orr, Klaus-Robert Müller, 2012.</li>
+<li>A practical <a href="http://www.cs.utoronto.ca/~hinton/absps/guideTR.pdf">guide</a> to training Restricted Boltzmann Machines, by Geoffrey Hinton.</li>
+</ul>
+</li>
+<li>
+<h3>Sparse Coding</h3>
+<ul>
+<li><a href="http://people.cs.umass.edu/~eshelham/files/papers/olshausen-field-emergence-simple-cells.pdf">Emergence of simple-cell receptive field properties by learning a sparse code for natural images</a>, Bruno Olhausen, Nature 1996.</li>
+<li>Kavukcuoglu, Koray, Marc&#8217;Aurelio Ranzato, and Yann LeCun. &#8220;<a title="Predictive Sparse Decomposition" href="http://arxiv.org/pdf/1010.3467" target="_blank">Fast inference in sparse coding algorithms with applications to object recognition.</a>&#8221; <em>arXiv preprint arXiv:1010.3467</em> (2010).</li>
+<li>Goodfellow, Ian, Aaron Courville, and Yoshua Bengio. &#8220;<a href="http://arxiv.org/pdf/1206.6407">Large-Scale Feature Learning With Spike-and-Slab Sparse Coding.</a>&#8221; <em>ICML 2012</em>.</li>
+<li>Efficient sparse coding algorithms. Honglak Lee, Alexis Battle, Raina Rajat and Andrew Y. Ng. In <em>NIPS 19</em>, 2007. <a href="http://www.cs.stanford.edu/~ang/papers/nips06-sparsecoding.pdf" target="_blank">pdf</a></li>
+<li>
+<div id="gs_cit0">&#8220;<a href="http://www.chaos.gwdg.de/~michael/CNS_course_2004/papers_max/OlshausenField1997.pdf">Sparse coding with an overcomplete basis set: A strategy employed by VI?.</a>&#8221; . Olshausen, Bruno A., and David J. Field. <em>Vision research</em> 37.23 (1997): 3311-3326.</div>
+</li>
+</ul>
+</li>
+<li>
+<h3>Foundation Theory and Motivation</h3>
+<ul>
+<li>
+<div id="gs_cit0">Hinton, Geoffrey E. &#8220;Deterministic Boltzmann learning performs steepest descent in weight-space.&#8221; <em>Neural computation</em> 1.1 (1989): 143-150.</div>
+</li>
+<li>
+<div id="gs_cit0">Bengio, Yoshua, and Samy Bengio. &#8220;Modeling high-dimensional discrete data with multi-layer neural networks.&#8221; <em>Advances in Neural Information Processing Systems</em> 12 (2000): 400-406.</div>
+</li>
+<li>
+<div id="gs_cit0">Bengio, Yoshua, et al. &#8220;Greedy layer-wise training of deep networks.&#8221; <em>Advances in neural information processing systems</em> 19 (2007): 153.</div>
+</li>
+<li>
+<div id="gs_cit0">Bengio, Yoshua, Martin Monperrus, and Hugo Larochelle. &#8220;Nonlocal estimation of manifold structure.&#8221; <em>Neural Computation</em> 18.10 (2006): 2509-2528.</div>
+</li>
+<li>
+<div id="gs_cit0">Hinton, Geoffrey E., and Ruslan R. Salakhutdinov. &#8220;Reducing the dimensionality of data with neural networks.&#8221; <em>Science</em> 313.5786 (2006): 504-507.</div>
+</li>
+<li>
+<div id="gs_cit0">Marc’Aurelio Ranzato, Y., Lan Boureau, and Yann LeCun. &#8220;Sparse feature learning for deep belief networks.&#8221; <em>Advances in neural information processing systems</em> 20 (2007): 1185-1192.</div>
+</li>
+<li>
+<div id="gs_cit0">Bengio, Yoshua, and Yann LeCun. &#8220;Scaling learning algorithms towards AI.&#8221; <em>Large-Scale Kernel Machines</em> 34 (2007).</div>
+</li>
+<li>
+<div id="gs_cit0">Le Roux, Nicolas, and Yoshua Bengio. &#8220;Representational power of restricted boltzmann machines and deep belief networks.&#8221; <em>Neural Computation</em> 20.6 (2008): 1631-1649.</div>
+</li>
+<li>
+<div id="gs_cit0">Sutskever, Ilya, and Geoffrey Hinton. &#8220;Temporal-Kernel Recurrent Neural Networks.&#8221; <em>Neural Networks</em> 23.2 (2010): 239-243.</div>
+</li>
+<li>
+<div id="gs_cit0">Le Roux, Nicolas, and Yoshua Bengio. &#8220;Deep belief networks are compact universal approximators.&#8221; <em>Neural computation</em> 22.8 (2010): 2192-2207.</div>
+</li>
+<li>
+<div id="gs_cit0">Bengio, Yoshua, and Olivier Delalleau. &#8220;On the expressive power of deep architectures.&#8221; <em>Algorithmic Learning Theory</em>. Springer Berlin/Heidelberg, 2011.</div>
+</li>
+<li>
+<div id="gs_cit0">Montufar, Guido F., and Jason Morton. &#8220;When Does a Mixture of Products Contain a Product of Mixtures?.&#8221; <em>arXiv preprint arXiv:1206.0387</em> (2012).</div>
+</li>
+<li>Montúfar, Guido, Razvan Pascanu, Kyunghyun Cho, and Yoshua Bengio. &#8220;<a href="http://arxiv.org/pdf/1402.1869v2.pdf">On the Number of Linear Regions of Deep Neural Networks</a>.&#8221; arXiv preprint arXiv:1402.1869 (2014).</li>
+</ul>
+</li>
+<li>
+<h3>Supervised Feedfoward Neural Networks</h3>
+<ul>
+<li><a href="http://books.nips.cc/papers/files/nips24/NIPS2011_1240.pdf">The Manifold Tangent Classifier</a>, Salah Rifai, Yann Dauphin, Pascal Vincent, Yoshua Bengio and Xavier Muller, in: NIPS&#8217;2011.</li>
+<li>&#8220;<a href="http://books.nips.cc/papers/files/nips25/NIPS2012_1484.pdf">Discriminative Learning of Sum-Product Networks.</a>&#8220;, Gens, Robert, and Pedro Domingos, NIPS 2012 Best Student Paper.</li>
+<li>Goodfellow, I., Warde-Farley, D., Mirza, M., Courville, A., and Bengio, Y. (2013). <a href="http://arxiv.org/pdf/1302.4389">Maxout networks</a>. Technical Report, Universite de Montreal.</li>
+<li>
+<div id="gs_cit0" tabindex="0">Hinton, Geoffrey E., et al. &#8220;<a href="http://arxiv.org/pdf/1207.0580">Improving neural networks by preventing co-adaptation of feature detectors</a>.&#8221; <i>arXiv preprint arXiv:1207.0580</i> (2012).</div>
+</li>
+<li>
+<div id="gs_cit2" tabindex="0">Wang, Sida, and Christopher Manning. &#8220;Fast dropout training.&#8221; In <i>Proceedings of the 30th International Conference on Machine Learning (ICML-13)</i>, pp. 118-126. 2013.</div>
+</li>
+<li>
+<div id="gs_cit2" tabindex="0">Glorot, Xavier, Antoine Bordes, and Yoshua Bengio. &#8220;<a href="http://eprints.pascal-network.org/archive/00008596/01/glorot11a.pdf">Deep sparse rectifier networks</a>.&#8221; In <i>Proceedings of the 14th International Conference on Artificial Intelligence and Statistics. JMLR W&amp;CP Volume</i>, vol. 15, pp. 315-323. 2011.</div>
+</li>
+<li><a href="http://books.nips.cc/papers/files/nips25/NIPS2012_0534.pdf">ImageNet Classification with Deep Convolutional Neural Networks</a>, Alex Krizhevsky, Ilya Sutskever, Geoffrey E Hinton, NIPS 2012.</li>
+</ul>
+</li>
+<li>
+<h3>Large Scale Deep Learning</h3>
+<ul>
+<li><a href="http://research.google.com/archive/unsupervised_icml2012.pdf">Building High-level Features Using Large Scale Unsupervised Learning</a> Quoc V. Le, Marc’Aurelio Ranzato, Rajat Monga, Matthieu Devin, Kai Chen, Greg S. Corrado, Jeffrey Dean, and Andrew Y. Ng, ICML 2012.</li>
+<li>Bengio, Yoshua, et al. &#8220;<a href="http://www.ai.mit.edu/projects/jmlr/papers/volume3/tmp/bengio03a.pdf" target="_blank">Neural probabilistic language models.</a>&#8221; <em>Innovations in Machine Learning</em> (2006): 137-186. Specifically Section 3 of this paper discusses the asynchronous SGD.</li>
+<li>
+<div id="gs_cit0" tabindex="0">Dean, Jeffrey, et al. <a href="http://papers.nips.cc/paper/4687-large-scale-distributed-deep-networks">&#8220;Large scale distributed deep networks.&#8221;</a> <i>Advances in Neural Information Processing Systems</i>. 2012.</div>
+</li>
+</ul>
+</li>
+<li>
+<h3>Recurrent Networks</h3>
+<ul>
+<li><a href="http://www.cs.utoronto.ca/~ilya/pubs/ilya_sutskever_phd_thesis.pdf">Training Recurrent Neural Networks</a>, Ilya Sutskever, PhD Thesis, 2012.</li>
+<li>Bengio, Yoshua, Patrice Simard, and Paolo Frasconi. <a href="http://www-dsi.ing.unifi.it/~paolo/ps/tnn-94-gradient.pdf" target="_blank">&#8220;Learning long-term dependencies with gradient descent is difficult.&#8221;</a> <em>Neural Networks, IEEE Transactions on</em> 5.2 (1994): 157-166.</li>
+<li>Mikolov Tomáš: <a href="http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf">Statistical Language Models based on Neural Networks</a>. PhD thesis, Brno University of Technology, 2012.</li>
+<li>
+<div id="gs_cit0" tabindex="0">Hochreiter, Sepp, and Jürgen Schmidhuber.<a href="http://web.eecs.utk.edu/~itamar/courses/ECE-692/Bobby_paper1.pdf"> &#8220;Long short-term memory.&#8221;</a> <i>Neural computation</i> 9.8 (1997): 1735-1780.</div>
+</li>
+<li>Hochreiter, S., Bengio, Y., Frasconi, P., &amp; Schmidhuber, J. (2001). <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.24.7321&amp;rep=rep1&amp;type=pdf">Gradient flow in recurrent nets: the difficulty of learning long-term dependencies.</a></li>
+<li>Schmidhuber, J. (1992). <a href="ftp://ftp.idsia.ch/pub/juergen/chunker.pdf">Learning complex, extended sequences using the principle of history compression. </a><i>Neural Computation</i>, <i>4</i>(2), 234-242.</li>
+<li>Graves, A., Fernández, S., Gomez, F., &amp; Schmidhuber, J. (2006, June). <a href="http://machinelearning.wustl.edu/mlpapers/paper_files/icml2006_GravesFGS06.pdf">Connectionist temporal classification: labelling unsegmented sequence data with recurrent neural networks</a>. In <i>Proceedings of the 23rd international conference on Machine learning</i> (pp. 369-376). ACM.</li>
+</ul>
+</li>
+<li>
+<h3>Hyper Parameters</h3>
+<ul>
+<li><a href="http://books.nips.cc/papers/files/nips25/NIPS2012_1338.pdf">&#8220;Practical Bayesian Optimization of Machine Learning Algorithms&#8221;</a>, Jasper Snoek, Hugo Larochelle, Ryan Adams, NIPS 2012.</li>
+<li><a href="http://www.jmlr.org/papers/volume13/bergstra12a/bergstra12a.pdf">Random Search for Hyper-Parameter Optimization</a>, James Bergstra and Yoshua Bengio (2012), in: Journal of Machine Learning Research, 13(281&#8211;305).</li>
+<li><a href="http://books.nips.cc/papers/files/nips24/NIPS2011_1385.pdf">Algorithms for Hyper-Parameter Optimization</a>, James Bergstra, Rémy Bardenet, Yoshua Bengio and Balázs Kégl, in: NIPS&#8217;2011, 2011.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<h3>Optimization</h3>
+<ul>
+<li><a href="http://www.cs.utoronto.ca/~ilya/pubs/2012/HF_for_dnns_and_rnns.pdf">Training Deep and Recurrent Neural Networks with Hessian-Free Optimization</a>, James Martens and Ilya Sutskever, Neural Networks: Tricks of the Trade, 2012.</li>
+<li>Schaul, Tom, Sixin Zhang, and Yann LeCun. <a href="http://arxiv.org/pdf/1206.1106" target="_blank">&#8220;No More Pesky Learning Rates.&#8221; </a><em>arXiv preprint arXiv:1206.1106</em> (2012).</li>
+<li>Le Roux, Nicolas, Pierre-Antoine Manzagol, and Yoshua Bengio. &#8220;<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.188.692&amp;rep=rep1&amp;type=pdf" target="_blank">Topmoumoute online natural gradient algorithm</a>.&#8221; <em>Neural Information Processing Systems (NIPS)</em>. 2007.</li>
+<li>Bordes, Antoine, Léon Bottou, and Patrick Gallinari. &#8220;<a href="http://eprints.pascal-network.org/archive/00006505/01/bordes09a.pdf" target="_blank">SGD-QN: Careful quasi-Newton stochastic gradient descen</a>t.&#8221; <em>The Journal of Machine Learning Research</em> 10 (2009): 1737-1754.</li>
+<li>Glorot, Xavier, and Yoshua Bengio. <a href="http://jmlr.csail.mit.edu/proceedings/papers/v9/glorot10a/glorot10a.pdf" target="_blank">&#8220;Understanding the difficulty of training deep feedforward neural networks.&#8221;</a> <em>Proceedings of the International Conference on Artificial Intelligence and Statistics (AISTATS’10). Society for Artificial Intelligence and Statistics</em>. 2010.</li>
+<li>Glorot, Xavier, Antoine Bordes, and Yoshua Bengio. &#8220;<a href="http://eprints.pascal-network.org/archive/00008596/01/glorot11a.pdf" target="_blank">Deep Sparse Rectifier Networks.</a>&#8221; <em>Proceedings of the 14th International Conference on Artificial Intelligence and Statistics. JMLR W&amp;CP Volume</em>. Vol. 15. 2011.</li>
+<li>
+<div id="gs_cit0"><a href="http://icml2010.haifa.il.ibm.com/papers/458.pdf">&#8220;Deep learning via Hessian-free optimization.&#8221; </a><em>Martens, James. Proceedings of the 27th International Conference on Machine Learning (ICML)</em>. Vol. 951. 2010.</div>
+</li>
+<li>Hochreiter, Sepp, and Jürgen Schmidhuber. <a href="http://www.bioinf.jku.at/publications/older/3304.pdf">&#8220;Flat minima.&#8221;</a> <i>Neural Computation, </i>9.1 (1997): 1-42.</li>
+<li>
+<div id="gs_cit2" tabindex="0">Pascanu, Razvan, and Yoshua Bengio. &#8220;<a href="http://arxiv.org/pdf/1301.3584">Revisiting natural gradient for deep networks</a>.&#8221; <i>arXiv preprint arXiv:1301.3584</i> (2013).</div>
+</li>
+<li><span style="color: #222222;">Dauphin, Yann N., Razvan Pascanu, Caglar Gulcehre, Kyunghyun Cho, Surya Ganguli, and Yoshua Bengio. &#8220;<a href="http://arxiv.org/pdf/1406.2572.pdf">Identifying and attacking the saddle point problem in high-dimensional non-convex optimization.</a>&#8221; In </span><i style="color: #222222;">Advances in Neural Information Processing Systems</i><span style="color: #222222;">, pp. 2933-2941. 2014.</span></li>
+</ul>
+</li>
+<li>
+<h3>Unsupervised Feature Learning</h3>
+<ul>
+<li>Salakhutdinov, Ruslan, and Geoffrey E. Hinton. <a href="http://www.cs.utoronto.ca/~rsalakhu/papers/dbm.pdf">&#8220;Deep boltzmann machines.&#8221;</a> Proceedings of the international conference on artificial intelligence and statistics. Vol. 5. No. 2. Cambridge, MA: MIT Press, 2009.</li>
+<li><a href="http://www.scholarpedia.org/article/Deep_belief_networks">Scholarpedia page</a> on Deep Belief Networks.</li>
+<li>
+<h4><strong>Deep Boltzmann Machines</strong></h4>
+<ul>
+<li><a href="http://www.utstat.toronto.edu/~rsalakhu/papers/neco_DBM.pdf" target="_blank">An Efficient Learning Procedure for Deep Boltzmann Machines</a>, Ruslan Salakhutdinov and Geoffrey Hinton, Neural Computation August 2012, Vol. 24, No. 8: 1967 &#8212; 2006.</li>
+<li>Montavon, Grégoire, and Klaus-Robert Müller. &#8220;<a href="http://gregoire.montavon.name/publications/montavon-lncs12.pdf" target="_blank">Deep Boltzmann Machines and the Centering Trick.</a>&#8221; <em>Neural Networks: Tricks of the Trade</em> (2012): 621-637.</li>
+<li>Salakhutdinov, Ruslan, and Hugo Larochelle. &#8220;<a href="http://www.mit.edu/~rsalakhu/papers/dbmrec.pdf" target="_blank">Efficient learning of deep boltzmann machines.</a>&#8221; <em>International Conference on Artificial Intelligence and Statistics</em>. 2010.</li>
+<li>Salakhutdinov, Ruslan. <em><a href="http://cubs.buffalo.edu/govind/CSE705-SeminarPapers/9.pdf" target="_blank">Learning deep generative models</a></em>. Diss. University of Toronto, 2009.</li>
+<li>
+<div id="gs_cit0" tabindex="0">Goodfellow, Ian, et al. &#8220;<a href="http://papers.nips.cc/paper/5024-multi-prediction-deep-boltzmann-machines">Multi-prediction deep Boltzmann machines</a>.&#8221; <i>Advances in Neural Information Processing Systems</i>. 2013.</div>
+</li>
+</ul>
+</li>
+<li>
+<h4>RBMs</h4>
+<ul>
+<li><a href="http://www.iro.umontreal.ca/~lisa/pointeurs/ICML2011_SSRBM.pdf">Unsupervised Models of Images by Spike-and-Slab RBMs</a>, Aaron Courville, James Bergstra and Yoshua Bengio, in: ICML&#8217;2011</li>
+<li>Hinton, Geoffrey. <a href="https://www.cs.toronto.edu/~hinton/absps/guideTR.pdf">&#8220;A practical guide to training restricted Boltzmann machines.</a>&#8221; <i>Momentum</i> 9.1 (2010): 926.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<h4>Autoencoders</h4>
+<ul>
+<li><a href="http://arxiv.org/abs/1211.4246">Regularized Auto-Encoders Estimate Local Statistics</a>, Guillaume Alain, Yoshua Bengio and Salah Rifai, Université de Montréal, arXiv report 1211.4246, 2012</li>
+<li><a href="http://icml.cc/2012/papers/910.pdf">A Generative Process for Sampling Contractive Auto-Encoders</a>, Salah Rifai, Yoshua Bengio, Yann Dauphin and Pascal Vincent, in: ICML&#8217;2012, Edinburgh, Scotland, U.K., 2012</li>
+<li><a href="http://www.iro.umontreal.ca/~lisa/pointeurs/ICML2011_explicit_invariance.pdf">Contracting Auto-Encoders: Explicit invariance during feature extraction</a>, Salah Rifai, Pascal Vincent, Xavier Muller, Xavier Glorot and Yoshua Bengio, in: ICML&#8217;2011</li>
+<li><a href="http://www-etud.iro.umontreal.ca/~rifaisal/material/rifai_eccv_2012.pdf">Disentangling factors of variation for facial expression recognition</a>, Salah Rifai, Yoshua Bengio, Aaron Courville, Pascal Vincent and Mehdi Mirza, in: ECCV&#8217;2012.</li>
+<li>Vincent, Pascal, et al. &#8220;<a href="http://jmlr.csail.mit.edu/papers/volume11/vincent10a/vincent10a.pdf" target="_blank">Stacked denoising autoencoders: Learning useful representations in a deep network with a local denoising criterion.</a>&#8221; <em>The Journal of Machine Learning Research</em> 11 (2010): 3371-3408.</li>
+<li>Vincent, Pascal. &#8220;<a href="http://www.iro.umontreal.ca/~vincentp/Publications/smdae_techreport.pdf" target="_blank">A connection between score matching and denoising autoencoders</a>.&#8221; <em>Neural computation</em> 23.7 (2011): 1661-1674.</li>
+<li>Chen, Minmin, et al. &#8220;<a href="http://arxiv.org/pdf/1206.4683" target="_blank">Marginalized denoising autoencoders for domain adaptation.</a>&#8221; <em>arXiv preprint arXiv:1206.4683</em> (2012).</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<h3>Miscellaneous</h3>
+<ul>
+<li>The ICML 2009 Workshop on Learning Feature Hierarchies <a href="http://www.cs.toronto.edu/%7Ersalakhu/deeplearning/index.html">webpage</a> has a <a href="http://www.cs.toronto.edu/%7Ersalakhu/deeplearning/references.html">reading list</a>.</li>
+<li>Stanford&#8217;s <a href="http://ufldl.stanford.edu/wiki/index.php/UFLDL_Recommended_Readings">UFLDL Recommended Readings</a>.</li>
+<li>The <a href="http://www.iro.umontreal.ca/~lisa">LISA</a><a href="http://www.iro.umontreal.ca/~lisa/twiki/bin/view.cgi/Public/WebHome">public wiki</a> has a <a href="http://www.iro.umontreal.ca/~lisa/twiki/bin/view.cgi/Public/ReadingOnDeepNetworks">reading list</a> and a <a href="http://www.iro.umontreal.ca/~lisa/twiki/bin/view.cgi/Public/DeepNetworksBibliography">bibliography</a>.</li>
+<li><a href="http://www.cs.toronto.edu/~hinton">Geoff Hinton</a> has <a href="http://www.cs.toronto.edu/%7Ehinton/deeprefs.html">readings</a> <a href="http://videolectures.net/jul09_hinton_deeplearn/">NIPS 2007 tutorial</a>.</li>
+<li>The LISA publications database contains a <a href="http://www.iro.umontreal.ca/~lisa/publications2/index.php/topics/single/27">deep architectures</a> category.</li>
+<li>A very brief introduction to <a href="http://www.iro.umontreal.ca/~pift6266/H10/notes/mlintro.html">AI, Machine Learning</a>, and <a href="http://www.iro.umontreal.ca/~pift6266/H10/notes/deepintro.html">Deep Learning</a> in <a href="http://www.iro.umontreal.ca/~bengioy">Yoshua Bengio</a>&#8216;s <a href="http://www.iro.umontreal.ca/~pift6266">IFT6266 graduate class</a></li>
+<li>Memkite&#8217;s deep learning reading list, http://memkite.com/deep-learning-bibliography/.</li>
+<li>Deep learning resources page, <a href="http://www.jeremydjacksonphd.com/?cat=7">http://www.jeremydjacksonphd.com/?cat=7</a></li>
+</ul>
+</li>
+</ul>
+</div>						<div class="post-footer"> Last modified on February 12, 2016, at 12:12 pm by Caglar Gulcehre</div>		</div><!-- / Post -->	
+						
+	
+					
+    
+
+</td>
+<!-- / Main Column -->
+
+<!-- Right Inner Sidebar -->
+
+<!-- Right Sidebar -->
+<td id="right">
+
+			<div id="recent-posts-4" class="widget widget_recent_entries">		<div class="widget-title"><h3>Recent Posts</h3></div>		<ul>
+					<li>
+				<a href="http://deeplearning.net/2016/07/14/4153924/">MILA is Hiring Two Software Engineers</a>
+						</li>
+					<li>
+				<a href="http://deeplearning.net/2015/12/20/openai-a-new-non-profit-ai-company/">OpenAI: A new non-profit AI company</a>
+						</li>
+					<li>
+				<a href="http://deeplearning.net/2015/12/01/conference-on-the-economics-of-machine-intelligence-dec-15/">Conference on the Economics of Machine Intelligence-Dec 15</a>
+						</li>
+					<li>
+				<a href="http://deeplearning.net/2015/11/26/open-discussions-for-iclr-2016-is-now-open/">Open Discussion of ICLR 2016 Papers is Now Open</a>
+						</li>
+					<li>
+				<a href="http://deeplearning.net/2015/10/16/software-developer-position-at-mila/">Software Developer Position at MILA</a>
+						</li>
+				</ul>
+		</div>		<div id="linkcat-5" class="widget widget_links"><div class="widget-title"><h3>Links</h3></div>
+	<ul class='xoxo blogroll'>
+<li><a href="https://blocks.readthedocs.org/en/latest/" title="A Theano based deep learning framework." target="_top">Blocks</a></li>
+<li><a href="http://www.computervisiontalks.com/tag/deep-learning/" title="Deep Learning related Computer Vision Talks" target="_blank">Deep Learning Computer Vision Talks</a></li>
+<li><a href="https://plus.google.com/communities/112866381580457264725" rel="me" title="Google Plus Deep Learning Community" target="_blank">Google Plus Deep Learning Community</a></li>
+<li><a href="http://metaoptimize.com/qa/" target="_blank">Metaoptimize QA/Forum</a></li>
+<li><a href="http://deeplearning.net/software/pylearn2/" target="_blank">Pylearn2</a></li>
+<li><a href="http://www.reddit.com/r/MachineLearning">Reddit Machine Learning</a></li>
+<li><a href="http://news.startup.ml/" target="_blank">Social News for Deep Learning</a></li>
+<li><a href="http://deeplearning.net/software/theano" title="CPU/GPU symbolic expression compiler in python (from LISA lab at University of Montreal)  ">Theano</a></li>
+
+	</ul>
+</div>
+
+</td>
+<!-- / Right Sidebar -->
+
+</tr>
+<!-- / Main Body -->
+
+
+</table><!-- / layout -->
+</div><!-- / container -->
+</div><!-- / wrapper -->
+
+</body>
+</html>

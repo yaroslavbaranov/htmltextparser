@@ -1,0 +1,932 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Coding Style Guidelines &mdash; Pylearn 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Pylearn 0.1 documentation" href="../index.html" />
+ 
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-168290-9']);
+  _gaq.push(['_trackPageview']);
+</script>
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pylearn 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo_pylearn_200x57.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Coding Style Guidelines</a><ul>
+<li><a class="reference internal" href="#main-goals">Main Goals</a></li>
+<li><a class="reference internal" href="#python-coding-guidelines">Python Coding Guidelines</a><ul>
+<li><a class="reference internal" href="#official-guidelines">Official Guidelines</a><ul>
+<li><a class="reference internal" href="#source-material">Source Material</a></li>
+<li><a class="reference internal" href="#excerpts">Excerpts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#additional-recommendations">Additional Recommendations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-logging-module-vs-the-warning-module">The <code class="docutils literal"><span class="pre">logging</span></code> Module vs. the <code class="docutils literal"><span class="pre">warning</span></code> Module</a><ul>
+<li><a class="reference internal" href="#the-logging-module">The <code class="docutils literal"><span class="pre">logging</span></code> Module</a></li>
+<li><a class="reference internal" href="#the-warning-module">The <code class="docutils literal"><span class="pre">warning</span></code> Module</a></li>
+<li><a class="reference internal" href="#which-when">Which? When?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code-sample">Code Sample</a></li>
+<li><a class="reference internal" href="#automatic-code-verification">Automatic Code Verification</a></li>
+<li><a class="reference internal" href="#commit-message">Commit message</a></li>
+<li><a class="reference internal" href="#theano">Theano</a></li>
+<li><a class="reference internal" href="#utf-8">UTF-8</a></li>
+<li><a class="reference internal" href="#todo">TODO</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/v2_planning/API_coding_style.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="coding-style-guidelines">
+<h1>Coding Style Guidelines<a class="headerlink" href="#coding-style-guidelines" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="main-goals">
+<h2>Main Goals<a class="headerlink" href="#main-goals" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Code should be compatible with Python 2.4 and above (using 2to3 for
+conversion to Python 3.x). This may not be possible in the short term
+for Theano-dependent code.</li>
+<li>Code should be easy to read, understand and update by developers and
+users.</li>
+<li>Code should be well-documented and well-tested.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="python-coding-guidelines">
+<h2>Python Coding Guidelines<a class="headerlink" href="#python-coding-guidelines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="official-guidelines">
+<h3>Official Guidelines<a class="headerlink" href="#official-guidelines" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="source-material">
+<h4>Source Material<a class="headerlink" href="#source-material" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>The four main documents describing our Python coding guidelines are:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://www.python.org/dev/peps/pep-0008">PEP 8 &#8211; Style Guide for Python Code</a></li>
+<li><a class="reference external" href="http://google-styleguide.googlecode.com/svn/trunk/pyguide.html">Google Python Style Guide</a></li>
+<li><a class="reference external" href="http://www.python.org/dev/peps/pep-0257">PEP 257 &#8211; Docstring Conventions</a></li>
+<li><a class="reference external" href="https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt">Numpy Docstring Standard</a></li>
+</ul>
+</dd>
+</dl>
+<p>However, there are a few points mentioned in those documents that we decided
+to do differently:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Use only one space (not two) after a sentence-ending period in comments.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="c1"># This is the first sentence. It is followed by a single blank space.</span>
+<span class="c1"># Bad.</span>
+<span class="c1"># This is the first sentence.  It is followed by two blank spaces.</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">You do not need to add an extra blank line before the closing quotes of
+a multi-line docstring. Also, we ask that the first line of a multi-line
+docstring should contain only the opening quotes.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This is a multi-line docstring.</span>
+
+<span class="sd">Which means it has more than one line.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Bad.</span>
+<span class="sd">&quot;&quot;&quot;This is a multi-line docstring.</span>
+
+<span class="sd">Which means it has more than one line.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Standard library imports can (and should) be on the same line, to avoid
+wasting space on straighforward imports:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">time</span>
+<span class="c1"># Good when it does not fit on a single line.</span>
+<span class="kn">import</span> <span class="nn">std_lib_module_1</span><span class="o">,</span> <span class="nn">std_lib_module_2</span><span class="o">,</span> <span class="nn">std_lib_module_3</span>
+<span class="kn">import</span> <span class="nn">std_lib_module_4</span><span class="o">,</span> <span class="nn">std_lib_module_5</span><span class="o">,</span> <span class="nn">std_lib_module_6</span>
+<span class="c1"># Bad.</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Importing class / functions from a module is allowed when these are
+used multiple times, and no ambiguity is possible.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good when Bar and Blah are used many times.</span>
+<span class="kn">from</span> <span class="nn">foo</span> <span class="kn">import</span> <span class="n">Bar</span><span class="p">,</span> <span class="n">Blah</span>
+<span class="n">do_something_with</span><span class="p">(</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">Blah</span><span class="p">(),</span> <span class="n">Bar</span><span class="p">(),</span> <span class="n">Blah</span><span class="p">(),</span> <span class="n">Bar</span><span class="p">(),</span> <span class="n">Blah</span><span class="p">())</span>
+<span class="c1"># Good in most situations.</span>
+<span class="kn">import</span> <span class="nn">foo</span>
+<span class="n">do_something_with</span><span class="p">(</span><span class="n">foo</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">foo</span><span class="o">.</span><span class="n">Blah</span><span class="p">())</span>
+<span class="c1"># Bad.</span>
+<span class="kn">from</span> <span class="nn">foo</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="nb">any</span>   <span class="c1"># Potential ambiguity with __builtin__.any</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="excerpts">
+<h4>Excerpts<a class="headerlink" href="#excerpts" title="Permalink to this headline">¶</a></h4>
+<p>We emphasize here a few important topics that are found in the official
+guidelines:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Only use ASCII characters in code files.</p>
+</li>
+<li><p class="first">Code indent must be done with four blank characters (no tabs).</p>
+</li>
+<li><p class="first">Limit lines to 79 characters.</p>
+</li>
+<li><p class="first">No trailing spaces.</p>
+</li>
+<li><p class="first">Naming conventions: <code class="docutils literal"><span class="pre">ClassName</span></code>, <code class="docutils literal"><span class="pre">TOP_LEVEL_CONSTANT</span></code>,
+<code class="docutils literal"><span class="pre">everything_else</span></code>.</p>
+</li>
+<li><p class="first">Comments should start with a capital letter (unless the first word is a
+code identifier) and end with a period (short inline comments may skip
+the period at the end).</p>
+</li>
+<li><p class="first">Imports should be listed in alphabetical order. It makes it easier to
+verify that something is imported, and avoids duplicated imports.</p>
+</li>
+<li><p class="first">Use absolute imports only. This is compatible across a wider range of
+Python versions, and avoids confusion about what is being
+imported.</p>
+</li>
+<li><p class="first">Avoid renaming imported modules. This makes code more difficult to
+re-use, and is not grep-friendly.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="kn">from</span> <span class="nn">theano</span> <span class="kn">import</span> <span class="n">tensor</span>
+<span class="c1"># Bad.</span>
+<span class="kn">from</span> <span class="nn">theano</span> <span class="kn">import</span> <span class="n">tensor</span> <span class="k">as</span> <span class="n">T</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Avoid using lists if all you care about is iterating on something. Using
+lists:</p>
+<blockquote>
+<div><ul class="simple">
+<li>uses more memory (and possibly more CPU if the code may break out of
+the iteration),</li>
+<li>can lead to ugly code when converted to Python 3 with 2to3,</li>
+<li>can have a different behavior if evaluating elements in the list has
+side effects (if you want these side effects, make it explicit by
+assigning the list to some variable before iterating on it).</li>
+</ul>
+</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Iterative version</th>
+<th class="head">List version</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="n">my_dict</span><span class="o">.</span><span class="n">iterkeys</span>
+<span class="n">my_dict</span><span class="o">.</span><span class="n">itervalues</span>
+<span class="n">my_dict</span><span class="o">.</span><span class="n">iteritems</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="n">my_dict</span><span class="o">.</span><span class="n">keys</span>
+<span class="n">my_dict</span><span class="o">.</span><span class="n">values</span>
+<span class="n">my_dict</span><span class="o">.</span><span class="n">items</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="n">itertools</span><span class="o">.</span><span class="n">ifilter</span>
+<span class="n">itertools</span><span class="o">.</span><span class="n">imap</span>
+<span class="n">itertools</span><span class="o">.</span><span class="n">izip</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="nb">filter</span>
+<span class="nb">map</span>
+<span class="nb">zip</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="nb">xrange</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="nb">range</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Code example with <code class="docutils literal"><span class="pre">map</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="k">for</span> <span class="n">f_x</span> <span class="ow">in</span> <span class="n">imap</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="o">...</span>
+<span class="n">all_f_x</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>   <span class="c1"># f has some side effect.</span>
+<span class="c1"># Bad.</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="o">...</span>
+<span class="n">imap</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Generally prefer list comprehensions to <code class="docutils literal"><span class="pre">map</span></code> / <code class="docutils literal"><span class="pre">filter</span></code>, as the former are
+easier to read.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="n">non_comments</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">my_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+                             <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)]</span>
+<span class="c1"># Bad.</span>
+<span class="n">non_comments</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">,</span>
+                   <span class="n">ifilter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">),</span>
+                           <span class="n">my_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Use <code class="docutils literal"><span class="pre">in</span></code> on container objects instead of using class-specific methods:
+it is easier to read and may allow you to re-use your code with different
+container types.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="n">has_key</span> <span class="o">=</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">my_dict</span>
+<span class="n">has_substring</span> <span class="o">=</span> <span class="n">substring</span> <span class="ow">in</span> <span class="n">my_string</span>
+<span class="c1"># Bad.</span>
+<span class="n">has_key</span> <span class="o">=</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="n">has_substring</span> <span class="o">=</span> <span class="n">my_string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">substring</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Do not use mutable arguments as default values. Instead, use a helper
+function (conditional expressions are forbidden at this point, see
+below).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">pylearn</span><span class="o">.</span><span class="n">if_none</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="o">...</span>
+<span class="c1"># Bad.</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="p">[]):</span> <span class="c1"># Dangerous if `array` is modified down the road.</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">All top-level classes should inherit from <code class="docutils literal"><span class="pre">object</span></code>. It makes some
+&#8216;under-the-hood&#8217; differences that can be very useful for Python black
+magic adepts.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">pass</span>
+<span class="c1"># Bad.</span>
+<span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Always raise an exception with <code class="docutils literal"><span class="pre">raise</span> <span class="pre">MyException(args)</span></code> where <code class="docutils literal"><span class="pre">MyException</span></code>
+inherits from <code class="docutils literal"><span class="pre">Exception</span></code>. This is required for compatibility across
+all versions of Python.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;The Pylearn team is too lazy.&#39;</span><span class="p">)</span>
+<span class="c1"># Bad.</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">,</span> <span class="s1">&#39;The Pylearn team is too lazy.&#39;</span>
+<span class="k">raise</span> <span class="s1">&#39;The Pylearn team is too lazy to implement this.&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Use a leading underscore &#8216;_&#8217; in names of internal attributes / methods,
+but avoid the double underscore &#8216;__&#8217; unless you know what you are
+doing.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="additional-recommendations">
+<h3>Additional Recommendations<a class="headerlink" href="#additional-recommendations" title="Permalink to this headline">¶</a></h3>
+<p>Things you should do even if they are not listed in official guidelines:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">All Python code files should start like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Module docstring as the first line, as usual.&quot;&quot;&quot;</span>
+
+<span class="n">__authors__</span>   <span class="o">=</span> <span class="s2">&quot;Olivier Delalleau, Frederic Bastien, David Warde-Farley&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;(c) 2010, Universite de Montreal&quot;</span>
+<span class="n">__license__</span>   <span class="o">=</span> <span class="s2">&quot;3-clause BSD License&quot;</span>
+<span class="n">__contact__</span>   <span class="o">=</span> <span class="s2">&quot;Name Of Current Guardian of this file &lt;email@address&gt;&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Use <code class="docutils literal"><span class="pre">//</span></code> for integer division and <code class="docutils literal"><span class="pre">/</span> <span class="pre">float(...)</span></code> if you want the
+floating point operation (for readability and compatibility across all
+versions of Python).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="n">n_samples_per_split</span> <span class="o">=</span> <span class="n">n_samples</span> <span class="o">//</span> <span class="n">n_splits</span>
+<span class="n">mean_x</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="c1"># Bad.</span>
+<span class="n">n_samples_per_split</span> <span class="o">=</span> <span class="n">n_samples</span> <span class="o">/</span> <span class="n">n_splits</span>
+<span class="n">mean_x</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If you really have to catch all exceptions, in general you should use
+<code class="docutils literal"><span class="pre">except</span> <span class="pre">Exception:</span></code> rather than <code class="docutils literal"><span class="pre">except:</span></code>, as the latter also catches
+interrupts like when hitting Ctrl-C.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good (assuming you *must* be catching all exceptions).</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">someting_that_may_fail_in_unexpected_ways</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="n">do_something_if_it_failed</span><span class="p">()</span>
+<span class="c1"># Bad.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">someting_that_may_fail_in_unexpected_ways</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">do_something_if_it_failed</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Use either <code class="docutils literal"><span class="pre">try</span> <span class="pre">...</span> <span class="pre">except</span></code> or <code class="docutils literal"><span class="pre">try</span> <span class="pre">...</span> <span class="pre">finally</span></code>, but do not mix
+<code class="docutils literal"><span class="pre">except</span></code> with <code class="docutils literal"><span class="pre">finally</span></code> (which is not supported in Python 2.4).
+You can however embed one into the other to mimic the <code class="docutils literal"><span class="pre">try</span> <span class="pre">...</span> <span class="pre">except</span> <span class="pre">...</span>
+<span class="pre">finally</span></code> behavior.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">something_that_may_fail_with_some_known_error</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">SomeError</span><span class="p">:</span>
+        <span class="n">do_something_if_it_failed</span><span class="p">()</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">always_do_this_regardless_of_what_happened</span><span class="p">()</span>
+<span class="c1"># Bad.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">something_that_may_fail_with_some_known_error</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">SomeError</span><span class="p">:</span>
+    <span class="n">do_something_if_it_failed</span><span class="p">()</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">always_do_this_regardless_of_what_happened</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">No conditional expression (not supported in Python 2.4). These are
+expressions of the form <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span> <span class="pre">if</span> <span class="pre">condition</span> <span class="pre">else</span> <span class="pre">z</span></code>.</p>
+</li>
+<li><p class="first">Do not use the <code class="docutils literal"><span class="pre">all</span></code> and <code class="docutils literal"><span class="pre">any</span></code> builtin functions (they are not supported
+in Python 2.4). Instead, import them from <code class="docutils literal"><span class="pre">theano.gof.python25</span></code> (or
+use <code class="docutils literal"><span class="pre">numpy.all</span></code> / <code class="docutils literal"><span class="pre">numpy.any</span></code> for array data).</p>
+</li>
+<li><p class="first">Do not use the <code class="docutils literal"><span class="pre">hashlib</span></code> module (not supported in Python 2.4). We will
+probably provide a wrapper around it to be compatible with all Python
+versions.</p>
+</li>
+<li><p class="first">Use <code class="docutils literal"><span class="pre">numpy.inf</span></code> and <code class="docutils literal"><span class="pre">numpy.nan</span></code> rather than
+<code class="docutils literal"><span class="pre">float('inf')</span></code> / <code class="docutils literal"><span class="pre">float('nan')</span></code> (should be slightly more efficient even
+if efficiency is typically not an issue here, the main goal being code
+consistency). Also, always use <code class="docutils literal"><span class="pre">numpy.isinf</span></code> / <code class="docutils literal"><span class="pre">numpy.isnan</span></code> to
+test infinite / NaN values. This is important because <code class="docutils literal"><span class="pre">numpy.nan</span> <span class="pre">!=</span>
+<span class="pre">float('nan')</span></code>.</p>
+</li>
+<li><p class="first">Whenever possible, mimic the numpy / scipy interfaces when writing code
+similar to what can be found in these packages.</p>
+</li>
+<li><p class="first">Avoid backslashes whenever possible. They make it more
+difficult to edit code, and they are ugly (as well as potentially
+dangerous if there are trailing white spaces).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">cond_1</span> <span class="ow">and</span>
+    <span class="n">cond_2</span> <span class="ow">and</span>
+    <span class="n">cond_3</span><span class="p">):</span>
+
+    <span class="c1"># Note that we added a blank line above to avoid confusion between</span>
+    <span class="c1"># conditions and the rest of the code (this would not have been</span>
+    <span class="c1"># needed if they were at significantly different indentation levels).</span>
+    <span class="o">...</span>
+<span class="c1"># Bad.</span>
+<span class="k">if</span> <span class="n">cond_1</span> <span class="ow">and</span> \
+   <span class="n">cond_2</span> <span class="ow">and</span> \
+   <span class="n">cond_3</span><span class="p">:</span>
+
+    <span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">When indenting multi-line statements like lists or function arguments,
+keep elements of the same level aligned with each other.
+The position of the first
+element (on the same line or a new line) should be chosen depending on
+what is easiest to read (sometimes both can be ok).
+Other formattings may be ok depending on the specific situation, use
+common sense and pick whichever looks best.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="k">for</span> <span class="n">my_very_long_variable_name</span> <span class="ow">in</span> <span class="p">[</span><span class="n">my_foo</span><span class="p">,</span> <span class="n">my_bar</span><span class="p">,</span> <span class="n">my_love</span><span class="p">,</span>
+                                   <span class="n">my_everything</span><span class="p">]:</span>
+    <span class="o">...</span>
+<span class="k">for</span> <span class="n">my_very_long_variable_name</span> <span class="ow">in</span> <span class="p">[</span>
+        <span class="n">my_foo</span><span class="p">,</span> <span class="n">my_bar</span><span class="p">,</span> <span class="n">my_love</span><span class="p">,</span> <span class="n">my_everything</span><span class="p">]:</span>
+    <span class="o">...</span>
+<span class="c1"># Good iff the list needs to be frequently updated or is easier to</span>
+<span class="c1"># understand when each element is on its own line.</span>
+<span class="k">for</span> <span class="n">my_very_long_variable_name</span> <span class="ow">in</span> <span class="p">[</span>
+        <span class="n">my_foo</span><span class="p">,</span>
+        <span class="n">my_bar</span><span class="p">,</span>
+        <span class="n">my_love</span><span class="p">,</span>
+        <span class="n">my_everything</span><span class="p">,</span>
+        <span class="p">]:</span>
+    <span class="o">...</span>
+<span class="c1"># Good as long as it does not require more than two lines.</span>
+<span class="k">for</span> <span class="n">my_very_long_variable_name</span> <span class="ow">in</span> <span class="p">[</span><span class="n">my_foo</span><span class="p">,</span>
+                                   <span class="n">my_bar</span><span class="p">]:</span>
+    <span class="o">...</span>
+<span class="c1"># Bad.</span>
+<span class="k">for</span> <span class="n">my_very_long_variable_name</span> <span class="ow">in</span> <span class="p">[</span><span class="n">my_foo</span><span class="p">,</span> <span class="n">my_bar</span><span class="p">,</span> <span class="n">my_love</span><span class="p">,</span>
+        <span class="n">my_everything</span><span class="p">]:</span>
+    <span class="o">...</span>
+<span class="k">for</span> <span class="n">my_very_long_variable_name</span> <span class="ow">in</span> <span class="p">[</span><span class="n">my_foo</span><span class="p">,</span>
+                                   <span class="n">my_bar</span><span class="p">,</span>
+                                   <span class="n">my_love</span><span class="p">,</span>
+                                   <span class="n">my_everything</span><span class="p">]:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Use the <code class="docutils literal"><span class="pre">key</span></code> argument instead of <code class="docutils literal"><span class="pre">cmp</span></code> when sorting (for Python 3
+compatibility).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="nb">abs</span><span class="p">)</span>
+<span class="c1"># Bad.</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="nb">cmp</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">cmp</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Whenever you read / write binary files, specify it in the mode (&#8216;rb&#8217; for
+reading, &#8216;wb&#8217; for writing). This is important for cross-platform and
+Python 3 compatibility (e.g. when pickling / unpickling objects).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="n">cPickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;my_obj.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+<span class="c1"># Bad.</span>
+<span class="n">cPickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;my_obj.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Avoid tuple parameter unpacking as it can lead to very ugly code when
+converting to Python 3.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Good.</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_z</span><span class="p">):</span>
+    <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">y_z</span>
+    <span class="o">...</span>
+<span class="c1"># Bad.</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Only use <code class="docutils literal"><span class="pre">cPickle</span></code>, not <code class="docutils literal"><span class="pre">pickle</span></code> (except for debugging purpose since
+error messages from <code class="docutils literal"><span class="pre">pickle</span></code> are sometimes easier to understand).</p>
+</li>
+<li><p class="first">A script&#8217;s only top-level code should be something like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Avoid isinstance(x, str) as this don&#8217;t work with unicode string, use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="the-logging-module-vs-the-warning-module">
+<h2>The <code class="docutils literal"><span class="pre">logging</span></code> Module vs. the <code class="docutils literal"><span class="pre">warning</span></code> Module<a class="headerlink" href="#the-logging-module-vs-the-warning-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-logging-module">
+<h3>The <code class="docutils literal"><span class="pre">logging</span></code> Module<a class="headerlink" href="#the-logging-module" title="Permalink to this headline">¶</a></h3>
+<p>A central logging facility for Python capable of logging messages of various
+categories/urgency and choosing with some granularity which messages are
+displayed/suppressed, as well as where they are displayed or written. This
+includes an <code class="docutils literal"><span class="pre">INFO</span></code> level for innocuous status information, a <code class="docutils literal"><span class="pre">WARNING</span></code> level
+for unexpected state that is still recoverable, <code class="docutils literal"><span class="pre">DEBUG</span></code> for detailed
+information which is only really of interest when things are going wrong, etc.</p>
+<p>In addition to the <a class="reference external" href="http://docs.python.org/library/logging.html">library documentation</a>, see this helpful tutorial,
+<a class="reference external" href="http://plumberjack.blogspot.com/2009/09/python-logging-101.html">Python Logging 101</a>.</p>
+</div>
+<div class="section" id="the-warning-module">
+<h3>The <code class="docutils literal"><span class="pre">warning</span></code> Module<a class="headerlink" href="#the-warning-module" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal"><span class="pre">warning</span></code> module in the standard library and its main interface, the
+<code class="docutils literal"><span class="pre">warn()</span></code> function, allows the programmer to issue warnings in situations where
+they wish to alert the user to some condition, but the situation is not
+urgent enough to throw an exception. By default, a warning issued at a given
+line of the code will only be displayed the first time that line is executed.
+By default, warnings are written to <code class="docutils literal"><span class="pre">sys.stderr</span></code> but the <code class="docutils literal"><span class="pre">warning</span></code> module
+contains flexible facilities for altering the defaults, redirecting, etc.</p>
+</div>
+<div class="section" id="which-when">
+<h3>Which? When?<a class="headerlink" href="#which-when" title="Permalink to this headline">¶</a></h3>
+<p>It is our feeling that the <code class="docutils literal"><span class="pre">logging</span></code> module&#8217;s <code class="docutils literal"><span class="pre">WARNING</span></code> level be used to log
+warnings more meant for <em>internal</em>, <em>developer</em> consumption, to log situations
+where something unexpected happened that may be indicative of a problem but
+is several layers of abstraction below what a user of the library would
+care about.</p>
+<p>By contrast, the warning module should be used for warnings intended for user
+consumption, e.g. alerting them that their version of Pylearn is older than
+this plugin requires, so things may not work as expected, or that a given
+function/class/method is slated for deprecation in a coming release (early
+in the library&#8217;s lifetime, <code class="docutils literal"><span class="pre">DeprecationWarning</span></code> will likely be the most common
+case). The warning message issued through this facility should avoid
+referring to Pylearn internals.</p>
+</div>
+</div>
+<div class="section" id="code-sample">
+<h2>Code Sample<a class="headerlink" href="#code-sample" title="Permalink to this headline">¶</a></h2>
+<p>The following code sample illustrates some of the coding guidelines one should
+follow in Pylearn. This is still a work-in-progress. Feel free to improve it and
+add more!</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#! /usr/env/bin python</span>
+
+<span class="sd">&quot;&quot;&quot;Sample code. Edit it as you like!&quot;&quot;&quot;</span>
+
+<span class="n">__authors__</span>   <span class="o">=</span> <span class="s2">&quot;Olivier Delalleau&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;(c) 2010, Universite de Montreal&quot;</span>
+<span class="n">__license__</span>   <span class="o">=</span> <span class="s2">&quot;3-clause BSD License&quot;</span>
+<span class="n">__contact__</span>   <span class="o">=</span> <span class="s2">&quot;Olivier Delalleau &lt;delallea@iro&gt;&quot;</span>
+
+<span class="c1"># Standard library imports are on a single line.</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">time</span>
+
+<span class="c1"># Third-party imports come after standard library imports, and there is</span>
+<span class="c1"># only one import per line. Imports are sorted lexicographically.</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">theano</span>
+<span class="c1"># Individual &#39;from&#39; imports come after packages.</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">argmax</span>
+<span class="kn">from</span> <span class="nn">theano</span> <span class="kn">import</span> <span class="n">tensor</span>
+
+<span class="c1"># Application-specific imports come last.</span>
+<span class="c1"># The absolute path should always be used.</span>
+<span class="kn">from</span> <span class="nn">pylearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">learner</span>
+<span class="kn">from</span> <span class="nn">pylearn.formulas</span> <span class="kn">import</span> <span class="n">noise</span>
+
+
+<span class="c1"># All exceptions inherit from Exception.</span>
+<span class="k">class</span> <span class="nc">PylearnError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="c1"># TODO Write doc.</span>
+    <span class="k">pass</span>
+
+<span class="c1"># All top-level classes inherit from object.</span>
+<span class="k">class</span> <span class="nc">StorageExample</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># TODO Write doc.</span>
+    <span class="k">pass</span>
+
+
+<span class="c1"># Two blank lines between definitions of top-level classes and functions.</span>
+<span class="k">class</span> <span class="nc">AwesomeLearner</span><span class="p">(</span><span class="n">learner</span><span class="o">.</span><span class="n">Learner</span><span class="p">):</span>
+    <span class="c1"># TODO Write doc.</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">print_fields</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="c1"># TODO Write doc.</span>
+        <span class="c1"># print_fields is a list of strings whose counts found in the</span>
+        <span class="c1"># training set should be printed at the end of training. If None,</span>
+        <span class="c1"># then nothing is printed.</span>
+        <span class="c1"># Do not forget to call the parent class constructor.</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">AwesomeLearner</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="c1"># Use None instead of an empty list as default argument to</span>
+        <span class="c1"># print_fields to avoid issues with mutable default arguments.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_fields</span> <span class="o">=</span> <span class="n">if_none</span><span class="p">(</span><span class="n">print_fields</span><span class="p">,</span> <span class="p">[])</span>
+
+    <span class="c1"># One blank line between method definitions.</span>
+    <span class="k">def</span> <span class="nf">add_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+        <span class="c1"># TODO Write doc.</span>
+        <span class="c1"># Test if something belongs to a container with `in`, not</span>
+        <span class="c1"># container-specific methods like `index`.</span>
+        <span class="k">if</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_fields</span><span class="p">:</span>
+            <span class="c1"># TODO Print a warning and do nothing.</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># This is why using [] as default to print_fields in the</span>
+            <span class="c1"># constructor would have been a bad idea.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">print_fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">):</span>
+        <span class="c1"># TODO Write doc (store the mean of each field in the training</span>
+        <span class="c1"># set).</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mean_fields</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">sample_dict</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">:</span>
+            <span class="c1"># Whenever it is enough for what you need, use iterative</span>
+            <span class="c1"># instead of list versions of dictionary methods.</span>
+            <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+                <span class="c1"># Keep line length to max 80 characters, using parentheses</span>
+                <span class="c1"># instead of \ to continue long lines.</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mean_fields</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mean_fields</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span>
+                                           <span class="n">value</span><span class="p">)</span>
+                <span class="n">count</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean_fields</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mean_fields</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">/=</span> <span class="nb">float</span><span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="n">field</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_fields</span><span class="p">:</span>
+            <span class="c1"># Test is done with `in`, not `has_key`.</span>
+            <span class="k">if</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sum_fields</span><span class="p">:</span>
+                <span class="c1"># TODO Use log module instead.</span>
+                <span class="k">print</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sum_fields</span><span class="p">[</span><span class="n">field</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># TODO Print warning.</span>
+                <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">test_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">):</span>
+        <span class="c1"># TODO Write doc.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;sum_fields&#39;</span><span class="p">):</span>
+            <span class="c1"># Exceptions should be raised as follows (in particular, no</span>
+            <span class="c1"># string exceptions!).</span>
+            <span class="k">raise</span> <span class="n">PylearnError</span><span class="p">(</span><span class="s1">&#39;Cannot test a learner that was not &#39;</span>
+                               <span class="s1">&#39;trained.&#39;</span><span class="p">)</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">sample_dict</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># Minimize code into a try statement.</span>
+                    <span class="n">mean</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean_fields</span><span class="p">[</span><span class="n">field</span><span class="p">]</span>
+                <span class="c1"># Always specicy which kind of exception you are</span>
+                <span class="c1"># intercepting with except.</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">PylearnError</span><span class="p">(</span>
+                        <span class="s2">&quot;Found in a test sample a field (&#39;</span><span class="si">%s</span><span class="s2">&#39;) that had &quot;</span>
+                        <span class="s2">&quot;never been seen in the training set.&quot;</span> <span class="o">%</span> <span class="n">field</span><span class="p">)</span>
+                <span class="n">error</span> <span class="o">+=</span> <span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean_fields</span><span class="p">[</span><span class="n">field</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># Remember to divide by a floating point number unless you</span>
+        <span class="c1"># explicitly want an integer division (in which case you should</span>
+        <span class="c1"># use //).</span>
+        <span class="n">mse</span> <span class="o">=</span> <span class="n">error</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+        <span class="c1"># TODO Use log module instead.</span>
+        <span class="k">print</span> <span class="s1">&#39;MSE: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">mse</span>
+        <span class="k">return</span> <span class="n">mse</span>
+
+
+<span class="k">def</span> <span class="nf">if_none</span><span class="p">(</span><span class="n">val_if_not_none</span><span class="p">,</span> <span class="n">val_if_none</span><span class="p">):</span>
+    <span class="c1"># TODO Write doc.</span>
+    <span class="k">if</span> <span class="n">val_if_not_none</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">val_if_not_none</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">val_if_none</span>
+
+
+<span class="k">def</span> <span class="nf">print_subdirs_in</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+    <span class="c1"># TODO Write doc.</span>
+    <span class="c1"># Using list comprehension rather than filter.</span>
+    <span class="n">sub_dirs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+                         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">d</span><span class="p">))])</span>
+    <span class="k">print</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sub_dirs</span><span class="p">))</span>
+    <span class="c1"># A `for` loop is often easier to read than a call to `map`.</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">sub_dirs</span><span class="p">:</span>
+        <span class="n">print_subdirs_in</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="c1"># Note: conventions on how to display script documentation and</span>
+        <span class="c1"># parse arguments are still to-be-determined. This is just one</span>
+        <span class="c1"># way to do it.</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">Usage: </span><span class="si">%s</span><span class="s2"> &lt;directory&gt;</span>
+<span class="s2">For the given directory and all sub-directories found inside it, print</span>
+<span class="s2">the list of the directories they contain.&quot;&quot;&quot;</span>
+              <span class="o">%</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="n">print_subdirs_in</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="mi">0</span>
+
+
+<span class="c1"># Top-level executable code should be minimal.</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="automatic-code-verification">
+<h2>Automatic Code Verification<a class="headerlink" href="#automatic-code-verification" title="Permalink to this headline">¶</a></h2>
+<p>Tools will be available to make it easier to automatically ensure that code
+committed to Pylearn complies to above specifications. This work is not
+finalized yet, but David started a <a class="reference external" href="http://www.iro.umontreal.ca/~lisa/twiki/bin/view.cgi/Divers/VimPythonRecommendations">Wiki page</a> with helpful configuration
+tips for Vim.</p>
+</div>
+<div class="section" id="commit-message">
+<h2>Commit message<a class="headerlink" href="#commit-message" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><p class="first">A one line summary. Try to keep it short, and provide the information
+that seems most useful to other developers: in particular the goal of
+a change is more useful than its description (which is always
+available through the changeset patch log). E.g. say &#8220;Improved stability
+of cost computation&#8221; rather than &#8220;Replaced log(exp(a) + exp(b)) by
+a * log(1 + exp(b -a)) in cost computation&#8221;.</p>
+</li>
+<li><p class="first">If needed a blank line followed by a more detailed summary</p>
+</li>
+<li><dl class="first docutils">
+<dt>Make a commit for each logical modification</dt>
+<dd><ul class="first last simple">
+<li>This makes reviews easier to do</li>
+<li>This makes debugging easier as we can more easily pinpoint errors in
+commits with hg bisect</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">NEVER commit reformatting with functionality changes</p>
+</li>
+<li><dl class="first docutils">
+<dt>Review your change before commiting</dt>
+<dd><ul class="first last">
+<li><p class="first">&#8220;hg diff &lt;files&gt;...&#8221; to see the diff you have done</p>
+</li>
+<li><p class="first">&#8220;hg record&#8221; allows you to select which changes to a file should be
+committed. To enable it, put into the file ~/.hgrc:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>extensions<span class="o">]</span>
+hgext.record<span class="o">=</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">hg record / diff force you to review your code, never commit without
+running one of these two commands first</p>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Write detailed commit messages in the past tense, not present tense.</dt>
+<dd><ul class="first last simple">
+<li>Good: &#8220;Fixed Unicode bug in RSS API.&#8221;</li>
+<li>Bad: &#8220;Fixes Unicode bug in RSS API.&#8221;</li>
+<li>Bad: &#8220;Fixing Unicode bug in RSS API.&#8221;</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Separate bug fixes from feature changes.</p>
+</li>
+<li><dl class="first docutils">
+<dt>When fixing a ticket, start the message with &#8220;Fixed #abc&#8221;</dt>
+<dd><ul class="first last simple">
+<li>Can make a system to change the ticket?</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>When referencing a ticket, start the message with &#8220;Refs #abc&#8221;</dt>
+<dd><ul class="first last simple">
+<li>Can make a system to put a comment to the ticket?</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="theano">
+<h2>Theano<a class="headerlink" href="#theano" title="Permalink to this headline">¶</a></h2>
+<p>Theano used many standard for its docstring. I think we should consentrate on the more frequent: <a class="reference external" href="http://sphinx.pocoo.org/markup/desc.html#info-field-lists">http://sphinx.pocoo.org/markup/desc.html#info-field-lists</a>.</p>
+</div>
+<div class="section" id="utf-8">
+<h2>UTF-8<a class="headerlink" href="#utf-8" title="Permalink to this headline">¶</a></h2>
+<p>To make a file UTF-8 compatible, just add this line at the begining of the file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="todo">
+<h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Things still missing from this document, being discussed in coding_style.txt:</dt>
+<dd><ul class="first last simple">
+<li>Proper style for C code</li>
+<li>Enforcing 100% test coverage of the code base</li>
+<li>Providing ways to add type checking for function arguments</li>
+<li>Conventions for script usage documentation and argument parsing</li>
+<li>Conventions for class / method / function documentation</li>
+<li>Guidelines for serialization-friendly code (hint: nested and lambda
+functions, as well as instance methods, cannot be serialized, and
+apparently there are some issues with decorators &#8211; to be investigated).</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Pylearn 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2008--2009, LISA lab.
+      Last updated on Jul 14, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
+    </div>
+<script type="text/javascript">
+  (function() {
+    var ga = document.createElement('script');
+    ga.src = ('https:' == document.location.protocol ?
+              'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+  })();
+</script>
+
+  </body>
+</html>
